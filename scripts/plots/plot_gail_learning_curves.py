@@ -40,8 +40,8 @@ matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 
 RUNS = Path("/scratch/marzii/imitation_runs/gail/lunarlander")
-IDX = Path("/home/marzii/IRL3/experiments/GAIL")
-OUT_DEFAULT = Path("/home/marzii/IRL3/figures/gail_learning_curves_E4_C1_H6.png")
+IDX = Path("/home/marzii/learning-from-demonstrations/experiments/GAIL")
+OUT_DEFAULT = Path("/home/marzii/learning-from-demonstrations/figures/gail_learning_curves_E4_C1_H6.png")
 N_ENVS = 8
 
 

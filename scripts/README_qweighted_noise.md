@@ -62,14 +62,14 @@ intuition.
 ## What's already on disk
 
 There are 120 GAIL runs at `condition_id=noise_online_qweighted_pXX` in the
-index CSV (`/home/marzii/IRL3/experiments/gail_grid_2026-05-12.csv`). These
+index CSV (`/home/marzii/learning-from-demonstrations/experiments/gail_grid_2026-05-12.csv`). These
 were collected with τ=1 (softmax of trained logits, essentially argmax) — too
 concentrated to be meaningful "noise". They are still useful as a baseline
 "stochastic optimal teacher" data point, but they are **not** what we want for
 the Q-weighted noise experiment proper.
 
 The collector for those runs is at:
-`/home/marzii/IRL3/scripts/collect_fs_expert_perframe_demos_online_qweighted.py`
+`/home/marzii/learning-from-demonstrations/scripts/collect_fs_expert_perframe_demos_online_qweighted.py`
 
 ## Implementation steps (when ready to run)
 

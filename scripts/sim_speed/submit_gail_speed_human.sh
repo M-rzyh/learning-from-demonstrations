@@ -11,7 +11,7 @@
 #   speed baseline), so no new 20 fps play. 10 & 50 are their own collections:
 #     DIFFICULTY=none FPS={10,50} FLAG_TARGET=15 FEEDBACK=both \
 #     OUTPUT_DIR=$SCRATCH/imitation_runs/sim_speed/demos/human/speed_fps{10,50} \
-#     bash imitation/collect_human_demos_lunarlander.sh
+#     bash algorithms/imitation/collect_human_demos_lunarlander.sh
 set -euo pipefail
 
 FPS=${1:?usage: submit_gail_speed_human.sh <fps> <seed_lo> <seed_hi>}
@@ -62,11 +62,11 @@ fi
 echo "PRE-FLIGHT OK: $DEMO ($n_have episodes available, using $N_DEMOS)  [FPS=$FPS ARM=$ARM]"
 if [[ "$CHECK" == "1" ]]; then echo "CHECK=1 — nothing submitted."; exit 0; fi
 
-INDEX=/home/marzii/IRL3/experiments/GAIL/gail_lander_speed_human_$(date +%Y-%m-%d).csv
+INDEX=/home/marzii/learning-from-demonstrations/experiments/GAIL/gail_lander_speed_human_$(date +%Y-%m-%d).csv
 mkdir -p "$(dirname "$INDEX")"
 [[ -f "$INDEX" ]] || echo "condition_id,N,speed_fps,seed,slurm_job_id,demo_path,status,arm" > "$INDEX"
 
-cd /home/marzii/IRL3/imitation
+cd /home/marzii/learning-from-demonstrations/algorithms/imitation
 cond="speed_human_fps${FPS}_${ARM}"
 for seed in $(seq "$LO" "$HI"); do
   jobid=$(DEMO_PATH="$DEMO" N_DEMOS=$N_DEMOS DEMO_BATCH_SIZE=512 SHUFFLE=0 SEED="$seed" \

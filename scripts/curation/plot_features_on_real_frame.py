@@ -14,7 +14,7 @@ from matplotlib.patches import FancyArrowPatch, Arc
 
 FRAME = sys.argv[1] if len(sys.argv) > 1 else \
     "/tmp/claude-3151758/-home-marzii-PT-PreferenceTransformer/37bf69d7-eaa2-4358-82fe-d197cfb72920/scratchpad/frames/frame_0.35.png"
-OUT = "/home/marzii/IRL3/figures/features_on_real_frame.png"
+OUT = "/home/marzii/learning-from-demonstrations/figures/features_on_real_frame.png"
 W = "white"
 STROKE = [pe.withStroke(linewidth=3, foreground="black")]
 

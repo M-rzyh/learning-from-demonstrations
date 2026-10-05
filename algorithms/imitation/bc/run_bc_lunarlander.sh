@@ -28,8 +28,8 @@ hash -r
 source /scratch/marzii/miniforge3/etc/profile.d/conda.sh
 conda activate /scratch/marzii/envs/imitation-gail
 hash -r
-export PYTHONPATH="/home/marzii/IRL3/imitation/src:${PYTHONPATH:-}"
-cd /home/marzii/IRL3/imitation
+export PYTHONPATH="/home/marzii/learning-from-demonstrations/algorithms/imitation/src:${PYTHONPATH:-}"
+cd /home/marzii/learning-from-demonstrations/algorithms/imitation
 
 DEMO_SOURCE=${DEMO_SOURCE:-local}
 DEMO_PATH=${DEMO_PATH:-"/scratch/marzii/imitation_runs/expert/lunarlander/4615187/rollouts/final.npz"}

@@ -219,8 +219,8 @@ def main():
     ap.add_argument("--n_cells", type=int, default=600)
     ap.add_argument("--min_cell", type=int, default=50,
                     help="min transitions per cell in BOTH sets to count it")
-    ap.add_argument("--out_json", default="/home/marzii/IRL3/figures/ext700/multimodality_stats.json")
-    ap.add_argument("--npz", default="/home/marzii/IRL3/figures/ext700/multimodality_arrays.npz")
+    ap.add_argument("--out_json", default="/home/marzii/learning-from-demonstrations/figures/ext700/multimodality_stats.json")
+    ap.add_argument("--npz", default="/home/marzii/learning-from-demonstrations/figures/ext700/multimodality_arrays.npz")
     ap.add_argument("--quick", action="store_true")
     args = ap.parse_args()
     if args.quick:

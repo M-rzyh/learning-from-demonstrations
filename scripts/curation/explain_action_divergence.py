@@ -94,7 +94,7 @@ def main():
         return
 
     if a.verify:
-        sys.path.insert(0, "/home/marzii/IRL3/scripts/curation")
+        sys.path.insert(0, "/home/marzii/learning-from-demonstrations/scripts/curation")
         from demo_features import add_action_divergence
         obs, act, ds, n = load(a.verify, a.demos)
         _, mine, _, _, _ = divergence(obs, act, k=15)

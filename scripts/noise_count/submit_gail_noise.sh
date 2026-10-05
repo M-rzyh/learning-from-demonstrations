@@ -54,7 +54,7 @@ NSEEDS=${NSEEDS:-30}
 BS=${BS:-}
 CHECK=${CHECK:-0}
 DATE=$(date +%Y-%m-%d)
-INDEX=${INDEX:-/home/marzii/IRL3/experiments/GAIL/gail_grid_noise_N${N}_${DATE}.csv}
+INDEX=${INDEX:-/home/marzii/learning-from-demonstrations/experiments/GAIL/gail_grid_noise_N${N}_${DATE}.csv}
 
 RUNROOT=/scratch/marzii/imitation_runs
 
@@ -141,7 +141,7 @@ fi
 # ---- submit (index appends; header only if new) ----
 mkdir -p "$(dirname "$INDEX")"
 [ -s "$INDEX" ] || echo "condition_id,N,noise_pct,seed,slurm_job_id,demo_path,status" > "$INDEX"
-cd /home/marzii/IRL3/imitation
+cd /home/marzii/learning-from-demonstrations/algorithms/imitation
 
 submitted=0
 for level in $LEVELS; do

@@ -25,7 +25,7 @@ hash -r
 # Ensure we use the local repo (with lunar_lander config) instead of the installed package.
 # MUST come before the `import imitation` check below: under `set -e` the check aborts the job
 # in ~1s otherwise. Same fix as run_gail_lunarlander.sh (WORKLOG 2026-06-30).
-export PYTHONPATH="/home/marzii/IRL3/imitation/src:${PYTHONPATH:-}"
+export PYTHONPATH="/home/marzii/learning-from-demonstrations/algorithms/imitation/src:${PYTHONPATH:-}"
 
 which python
 python -c "import sys; print(sys.executable)"

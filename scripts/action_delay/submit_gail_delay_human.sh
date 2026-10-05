@@ -54,11 +54,11 @@ fi
 echo "PRE-FLIGHT OK: $DEMO ($n_have episodes available, using $N_DEMOS)  [K=$K ARM=$ARM]"
 if [[ "$CHECK" == "1" ]]; then echo "CHECK=1 — nothing submitted."; exit 0; fi
 
-INDEX=/home/marzii/IRL3/experiments/GAIL/gail_lander_delay_human_$(date +%Y-%m-%d).csv
+INDEX=/home/marzii/learning-from-demonstrations/experiments/GAIL/gail_lander_delay_human_$(date +%Y-%m-%d).csv
 mkdir -p "$(dirname "$INDEX")"
 [[ -f "$INDEX" ]] || echo "condition_id,N,delay_k,seed,slurm_job_id,demo_path,status,arm" > "$INDEX"
 
-cd /home/marzii/IRL3/imitation
+cd /home/marzii/learning-from-demonstrations/algorithms/imitation
 cond="delay_human_k${K}_${ARM}"
 for seed in $(seq "$LO" "$HI"); do
   jobid=$(DEMO_PATH="$DEMO" N_DEMOS=$N_DEMOS DEMO_BATCH_SIZE=512 SHUFFLE=0 SEED="$seed" \

@@ -72,7 +72,7 @@ def pt_series(cond_suffix, lbl_tree, Ns, pool_time):
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("--out", default="/home/marzii/IRL3/figures/ext700/human_time_gail_pt.png")
+    ap.add_argument("--out", default="/home/marzii/learning-from-demonstrations/figures/ext700/human_time_gail_pt.png")
     a = ap.parse_args()
 
     w = pickle.load(open(POOL, "rb"))

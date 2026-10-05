@@ -14,7 +14,7 @@
 set -euo pipefail
 
 PYTHON=/scratch/marzii/envs/imitation-gail/bin/python
-SCRIPT=/home/marzii/IRL3/scripts/collect_blind_expert_demos.py
+SCRIPT=/home/marzii/learning-from-demonstrations/scripts/collect_blind_expert_demos.py
 POLICY=/scratch/marzii/imitation_runs/expert/lunarlander/4615187/policies/final/model.zip
 # block b=10 demos live in a separate subdir; the earlier stochastic pools are left intact.
 OUTROOT=/scratch/marzii/imitation_runs/frame_blanking/demos/blind_expert/block

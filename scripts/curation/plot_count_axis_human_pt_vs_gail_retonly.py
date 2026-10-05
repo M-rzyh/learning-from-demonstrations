@@ -119,7 +119,7 @@ def main():
     ax.legend(loc="lower right", fontsize=10)
     ax.grid(True, alpha=0.3)
     fig.tight_layout()
-    out = "/home/marzii/IRL3/figures/count_axis_human_pt_vs_gail_retonly.png"
+    out = "/home/marzii/learning-from-demonstrations/figures/count_axis_human_pt_vs_gail_retonly.png"
     fig.savefig(out, dpi=150)
     print("\nSaved:", out)
 

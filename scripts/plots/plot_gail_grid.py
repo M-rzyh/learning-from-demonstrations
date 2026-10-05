@@ -157,7 +157,7 @@ def plot_noise_combined(grid, y_key, ylabel, out_path):
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("csv")
-    parser.add_argument("--out-prefix", default="/home/marzii/IRL3/figures/gail_grid")
+    parser.add_argument("--out-prefix", default="/home/marzii/learning-from-demonstrations/figures/gail_grid")
     args = parser.parse_args()
     grid = load_grid(args.csv)
 

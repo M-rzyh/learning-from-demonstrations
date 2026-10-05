@@ -34,7 +34,7 @@
 set -euo pipefail
 
 PYTHON=/scratch/marzii/envs/imitation-gail/bin/python
-COLLECT=/home/marzii/IRL3/scripts/collect_fs_expert_perframe_demos_online_noise.py
+COLLECT=/home/marzii/learning-from-demonstrations/scripts/collect_fs_expert_perframe_demos_online_noise.py
 
 FS=${FS:-0}
 NEPISODES=${NEPISODES:-150}

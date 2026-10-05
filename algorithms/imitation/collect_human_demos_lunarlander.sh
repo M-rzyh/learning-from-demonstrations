@@ -178,7 +178,7 @@ source /scratch/marzii/miniforge3/etc/profile.d/conda.sh
 conda activate /scratch/marzii/envs/imitation-gail
 hash -r
 
-export PYTHONPATH="/home/marzii/IRL3/imitation/src:${PYTHONPATH:-}"
+export PYTHONPATH="/home/marzii/learning-from-demonstrations/algorithms/imitation/src:${PYTHONPATH:-}"
 
 python -c "import gymnasium as gym; env = gym.make('LunarLander-v2'); print('LunarLander-v2: OK'); env.close()"
 
@@ -251,7 +251,7 @@ echo "Starting server in 5 seconds..."
 sleep 5
 
 # ---- Collect demos ----
-cd /home/marzii/IRL3/imitation || exit 1
+cd /home/marzii/learning-from-demonstrations/algorithms/imitation || exit 1
 
 python human_demo.py \
     --env LunarLander-v2 \

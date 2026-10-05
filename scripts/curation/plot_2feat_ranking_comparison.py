@@ -21,9 +21,9 @@ COLOR = {"ret_only": "#6e6e6e", "ret_sad": "#e6820e", "ret_sae": "#e6820e",
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("--index", default="/home/marzii/IRL3/experiments/GAIL/"
+    ap.add_argument("--index", default="/home/marzii/learning-from-demonstrations/experiments/GAIL/"
                                        "gail_2feat_rankings_top10_2026-08-28.csv")
-    ap.add_argument("--out", default="/home/marzii/IRL3/figures/ext700/gail_2feat_ranking_top10.png")
+    ap.add_argument("--out", default="/home/marzii/learning-from-demonstrations/figures/ext700/gail_2feat_ranking_top10.png")
     a = ap.parse_args()
 
     per = {}

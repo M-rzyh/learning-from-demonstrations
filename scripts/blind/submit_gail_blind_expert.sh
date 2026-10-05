@@ -10,14 +10,14 @@
 set -euo pipefail
 
 DATE=$(date +%Y-%m-%d)
-INDEX=/home/marzii/IRL3/experiments/GAIL/gail_blind_expert_block_${DATE}.csv
+INDEX=/home/marzii/learning-from-demonstrations/experiments/GAIL/gail_blind_expert_block_${DATE}.csv
 mkdir -p "$(dirname "$INDEX")"
 echo "condition_id,N,blank_pct,seed,slurm_job_id,demo_path,status" > "$INDEX"
 
 DEMO_ROOT=/scratch/marzii/imitation_runs/frame_blanking/demos/blind_expert/block
 NSEEDS=${1:-5}
 LAST=$((NSEEDS - 1))
-cd /home/marzii/IRL3/imitation
+cd /home/marzii/learning-from-demonstrations/algorithms/imitation
 
 for blank in 0 25 50 75; do
   cond="blind_expert_block_blank${blank}"

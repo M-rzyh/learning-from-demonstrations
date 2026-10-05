@@ -20,16 +20,16 @@
 # env seeded reset(seed=SEED*1000+ep), scored with the true environment reward.
 #
 # Usage:
-#   bash imitation/bc/submit_bc_e4_matched.sh                            # all 60
-#   BUDGETS="10" SEEDS="0" bash imitation/bc/submit_bc_e4_matched.sh     # smoke
+#   bash algorithms/imitation/bc/submit_bc_e4_matched.sh                            # all 60
+#   BUDGETS="10" SEEDS="0" bash algorithms/imitation/bc/submit_bc_e4_matched.sh     # smoke
 
 set -euo pipefail
-cd /home/marzii/IRL3
+cd /home/marzii/learning-from-demonstrations
 
 BUDGETS=${BUDGETS:-"1 10 50 100 250 400"}
 SEEDS=${SEEDS:-"0 1 2 3 4 5 6 7 8 9"}
 DEMO_PATH=${DEMO_PATH:-/scratch/marzii/imitation_runs/expert/lunarlander/4615187/rollouts/perframe_demos_500_holdK1}
-INDEX=${INDEX:-/home/marzii/IRL3/experiments/BC/bc_e4_matched_$(date +%Y-%m-%d).csv}
+INDEX=${INDEX:-/home/marzii/learning-from-demonstrations/experiments/BC/bc_e4_matched_$(date +%Y-%m-%d).csv}
 
 [[ -d "$DEMO_PATH" ]] || { echo "missing expert pool: $DEMO_PATH" 1>&2; exit 1; }
 
@@ -46,7 +46,7 @@ for N in $BUDGETS; do
     JOB=$(sbatch --parsable \
       --job-name="bc-e4-N${N}-s${SEED}" \
       --export=ALL,DEMO_PATH="$DEMO_PATH",N_DEMOS="$N",SEED="$SEED",SHUFFLE=0 \
-      imitation/bc/run_bc_lunarlander.sh)
+      algorithms/imitation/bc/run_bc_lunarlander.sh)
     echo "  submitted N=$N seed=$SEED job=$JOB"
     echo "e4_matched,$N,$SEED,$JOB,$DEMO_PATH,submitted" >> "$INDEX"
   done

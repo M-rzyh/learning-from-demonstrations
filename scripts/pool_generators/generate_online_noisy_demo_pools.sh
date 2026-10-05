@@ -40,8 +40,8 @@
 set -euo pipefail
 
 PYTHON=/scratch/marzii/envs/imitation-gail/bin/python
-ORIG=/home/marzii/IRL3/scripts/collect_fs_expert_perframe_demos_online_noise.py
-VARIANTS=/home/marzii/IRL3/scripts/collect_expert_perframe_demos_online_noise_variants.py
+ORIG=/home/marzii/learning-from-demonstrations/scripts/collect_fs_expert_perframe_demos_online_noise.py
+VARIANTS=/home/marzii/learning-from-demonstrations/scripts/collect_expert_perframe_demos_online_noise_variants.py
 
 FS=${FS:-0}
 MODE=${MODE:-coin_uniform}

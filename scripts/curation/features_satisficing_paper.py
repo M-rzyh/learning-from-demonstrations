@@ -190,11 +190,11 @@ def main():
     ap.add_argument("--horizon", type=int, default=HORIZON)
     ap.add_argument("--out_csv", default=os.path.join(os.path.dirname(POOL),
                     "session_3_ext700_features_satisficing.csv"))
-    ap.add_argument("--out_png", default="/home/marzii/IRL3/figures/ext700/"
+    ap.add_argument("--out_png", default="/home/marzii/learning-from-demonstrations/figures/ext700/"
                                          "satisficing_feature_hists.png")
     ap.add_argument("--out_csv_padded", default=os.path.join(os.path.dirname(POOL),
                     "session_3_ext700_features_satisficing_padded.csv"))
-    ap.add_argument("--out_png_padded", default="/home/marzii/IRL3/figures/ext700/"
+    ap.add_argument("--out_png_padded", default="/home/marzii/learning-from-demonstrations/figures/ext700/"
                                                 "satisficing_feature_hists_padded.png")
     a = ap.parse_args()
 

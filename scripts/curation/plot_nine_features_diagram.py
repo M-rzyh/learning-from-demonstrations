@@ -10,7 +10,7 @@ import matplotlib.pyplot as plt
 from matplotlib.patches import Polygon, FancyArrowPatch, Arc, RegularPolygon, FancyBboxPatch
 
 FLY_C, TD_C, GOOD_C, BAD_C = "#4fc3f7", "#ffd54f", "#69f0ae", "#ff6e6e"
-OUT = "/home/marzii/IRL3/figures/nine_features_lander_diagram.png"
+OUT = "/home/marzii/learning-from-demonstrations/figures/nine_features_lander_diagram.png"
 
 
 def lander(ax, x, y, s=0.42, color="#7c6cf0", alpha=1.0, tilt=0.0):

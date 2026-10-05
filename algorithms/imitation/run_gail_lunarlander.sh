@@ -23,7 +23,7 @@ conda activate /scratch/marzii/envs/imitation-gail
 hash -r
 
 # Use local IRL3 source
-export PYTHONPATH="/home/marzii/IRL3/imitation/src:${PYTHONPATH:-}"
+export PYTHONPATH="/home/marzii/learning-from-demonstrations/algorithms/imitation/src:${PYTHONPATH:-}"
 
 which python
 python -c "import sys; print(sys.executable)"

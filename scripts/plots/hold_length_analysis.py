@@ -90,7 +90,7 @@ def main():
     ax.legend()
     ax.grid(True, alpha=0.3)
     fig.tight_layout()
-    out = "/home/marzii/IRL3/figures/hold_length_distribution.png"
+    out = "/home/marzii/learning-from-demonstrations/figures/hold_length_distribution.png"
     fig.savefig(out, dpi=150)
     print(f"Saved: {out}")
 

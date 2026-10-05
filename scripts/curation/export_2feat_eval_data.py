@@ -35,7 +35,7 @@ def episodes(job):
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("--out", default="/home/marzii/IRL3/experiments/GAIL/gail_2feat_eval")
+    ap.add_argument("--out", default="/home/marzii/learning-from-demonstrations/experiments/GAIL/gail_2feat_eval")
     ap.add_argument("--tags", default="", help="comma list; default = all found")
     ap.add_argument("--topk", type=int, default=0,
                     help="demo count to export; 0 = every K found")

@@ -20,7 +20,7 @@
 #   unusable. Collect the clean baseline with:
 #     DIFFICULTY=none FPS=20 FLAG_TARGET=15 \
 #     OUTPUT_DIR=$SCRATCH/imitation_runs/lander_vanish/demos/human/vanish_p0 \
-#     bash imitation/collect_human_demos_lunarlander.sh
+#     bash algorithms/imitation/collect_human_demos_lunarlander.sh
 #
 # SHUFFLE=0: all 10 seeds train on the SAME 15 demos, so the band measures training variance
 # only. With 15 demos a per-seed subsample would instead measure which demos got picked.
@@ -90,11 +90,11 @@ fi
 echo "PRE-FLIGHT OK: $DEMO ($n_have episodes available, using $N_DEMOS)  [ARM=$ARM]"
 if [[ "$CHECK" == "1" ]]; then echo "CHECK=1 — nothing submitted."; exit 0; fi
 
-INDEX=/home/marzii/IRL3/experiments/GAIL/gail_lander_vanish_human_$(date +%Y-%m-%d).csv
+INDEX=/home/marzii/learning-from-demonstrations/experiments/GAIL/gail_lander_vanish_human_$(date +%Y-%m-%d).csv
 mkdir -p "$(dirname "$INDEX")"
 [[ -f "$INDEX" ]] || echo "condition_id,N,vanish_pct,seed,slurm_job_id,demo_path,status,arm" > "$INDEX"
 
-cd /home/marzii/IRL3/imitation
+cd /home/marzii/learning-from-demonstrations/algorithms/imitation
 cond="vanish_human_b5_p${PCT}_${ARM}"
 for seed in $(seq "$LO" "$HI"); do
   # --time overrides run_gail_lunarlander.sh's 00:30:00 directive rather than editing that

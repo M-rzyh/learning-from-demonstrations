@@ -13,13 +13,13 @@
 
 set -euo pipefail
 
-RUN_LIST=/home/marzii/IRL3/experiments/eval_run_list.txt
+RUN_LIST=/home/marzii/learning-from-demonstrations/experiments/eval_run_list.txt
 N_EPS=${N_EPS:-100}
 N_TASKS=${N_TASKS:-10}
 
 source /scratch/marzii/miniforge3/etc/profile.d/conda.sh
 conda activate /scratch/marzii/envs/imitation-gail
-export PYTHONPATH="/home/marzii/IRL3/imitation/src:${PYTHONPATH:-}"
+export PYTHONPATH="/home/marzii/learning-from-demonstrations/algorithms/imitation/src:${PYTHONPATH:-}"
 
 TASK_ID=${SLURM_ARRAY_TASK_ID:-0}
 TOTAL=$(wc -l < "$RUN_LIST")
@@ -32,5 +32,5 @@ echo "Task $TASK_ID: processing lines $START..$END of $TOTAL ($N_EPS eps each)"
 
 while IFS= read -r RUN_DIR; do
   [ -z "$RUN_DIR" ] && continue
-  python /home/marzii/IRL3/scripts/utils/re_eval_run.py "$RUN_DIR" --n-eps $N_EPS
+  python /home/marzii/learning-from-demonstrations/scripts/utils/re_eval_run.py "$RUN_DIR" --n-eps $N_EPS
 done < <(sed -n "${START},${END}p" "$RUN_LIST")

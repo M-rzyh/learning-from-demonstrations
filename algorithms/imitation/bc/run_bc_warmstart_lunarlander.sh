@@ -24,7 +24,7 @@ hash -r
 source /scratch/marzii/miniforge3/etc/profile.d/conda.sh
 conda activate /scratch/marzii/envs/imitation-gail
 hash -r
-export PYTHONPATH="/home/marzii/IRL3/imitation/src:${PYTHONPATH:-}"
+export PYTHONPATH="/home/marzii/learning-from-demonstrations/algorithms/imitation/src:${PYTHONPATH:-}"
 
 DEMO_PATH=${DEMO_PATH:?must set DEMO_PATH}
 SEED=${SEED:-0}

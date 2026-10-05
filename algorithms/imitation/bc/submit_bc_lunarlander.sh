@@ -43,11 +43,11 @@ PY
 echo "PRE-FLIGHT OK: $COND -> $DEMO ($n_have available, using $N_DEMOS)"
 [[ "$CHECK" == "1" ]] && { echo "CHECK=1 - nothing submitted."; exit 0; }
 
-INDEX=/home/marzii/IRL3/experiments/BC/bc_lunarlander_$(date +%Y-%m-%d).csv
+INDEX=/home/marzii/learning-from-demonstrations/experiments/BC/bc_lunarlander_$(date +%Y-%m-%d).csv
 mkdir -p "$(dirname "$INDEX")"
 [[ -f "$INDEX" ]] || echo "condition,N,seed,slurm_job_id,demo_path,status" > "$INDEX"
 
-cd /home/marzii/IRL3/imitation
+cd /home/marzii/learning-from-demonstrations/algorithms/imitation
 for seed in $(seq "$LO" "$HI"); do
   jobid=$(DEMO_PATH="$DEMO" N_DEMOS=$N_DEMOS SEED="$seed" ENV_MAX_EP_STEPS=1000 N_EVAL_EPISODES=50 \
           sbatch --parsable bc/run_bc_lunarlander.sh)

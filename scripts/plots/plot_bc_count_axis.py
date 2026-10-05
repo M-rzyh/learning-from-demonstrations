@@ -32,8 +32,8 @@ import matplotlib.pyplot as plt
 import matplotlib.transforms
 
 RUNS = Path("/scratch/marzii/imitation_runs/bc/lunarlander")
-IDX = Path("/home/marzii/IRL3/experiments/BC")
-OUT_DEFAULT = Path("/home/marzii/IRL3/figures/bc_count_axis_expert_vs_human.png")
+IDX = Path("/home/marzii/learning-from-demonstrations/experiments/BC")
+OUT_DEFAULT = Path("/home/marzii/learning-from-demonstrations/figures/bc_count_axis_expert_vs_human.png")
 
 # two-sided t_{0.975} by degrees of freedom, for 95% CIs from few seeds
 T95 = {1: 12.706, 2: 4.303, 3: 3.182, 4: 2.776, 5: 2.571, 6: 2.447, 7: 2.365,

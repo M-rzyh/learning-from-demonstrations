@@ -13,9 +13,9 @@ import matplotlib; matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 
 GA = "/scratch/marzii/imitation_runs/gail/lunarlander"
-EXP = "/home/marzii/IRL3/experiments"
-JS = "/home/marzii/IRL3/figures/ext700/curation_bc_ceiling.json"
-OUT = "/home/marzii/IRL3/figures/ext700/curation_realizability_ceiling.png"
+EXP = "/home/marzii/learning-from-demonstrations/experiments"
+JS = "/home/marzii/learning-from-demonstrations/figures/ext700/curation_bc_ceiling.json"
+OUT = "/home/marzii/learning-from-demonstrations/figures/ext700/curation_realizability_ceiling.png"
 CH, CE, CG = "#c2410c", "#1d4ed8", "#2ca02c"
 
 

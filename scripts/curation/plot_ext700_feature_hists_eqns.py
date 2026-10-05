@@ -11,7 +11,7 @@ import matplotlib.pyplot as plt
 from matplotlib.ticker import MaxNLocator
 
 CSV = "/scratch/marzii/imitation_runs/demos/human_baseline/record_human_demos/lunarlander/session_3_ext700_features.csv"
-OUT = "/home/marzii/IRL3/figures/ext700/ext700_9feature_hists_eqns.png"
+OUT = "/home/marzii/learning-from-demonstrations/figures/ext700/ext700_9feature_hists_eqns.png"
 
 # (feature, "higher"/"lower" better, equation as mathtext)  — obs = [x, y, v_x, v_y, θ, ω, leg_L, leg_R]
 FEATS = [

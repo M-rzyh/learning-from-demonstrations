@@ -96,7 +96,7 @@ def smooth(y, w):
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("--out", default="/home/marzii/IRL3/figures/ext700/gail_2feat_ranking_curves.png")
+    ap.add_argument("--out", default="/home/marzii/learning-from-demonstrations/figures/ext700/gail_2feat_ranking_curves.png")
     ap.add_argument("--window", type=int, default=15, help="rolling-mean window in rounds")
     ap.add_argument("--min_rounds", type=int, default=20, help="skip seeds shorter than this")
     ap.add_argument("--tags", default="", help="comma list; default = all found")

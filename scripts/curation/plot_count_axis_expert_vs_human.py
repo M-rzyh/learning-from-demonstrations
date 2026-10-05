@@ -23,7 +23,7 @@ import matplotlib.pyplot as plt
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import plot_count_axis_human_pt_vs_gail_retonly as H
 
-GAIL_CSV = "/home/marzii/IRL3/experiments/GAIL/gail_grid_count_2026-06-18.csv"
+GAIL_CSV = "/home/marzii/learning-from-demonstrations/experiments/GAIL/gail_grid_count_2026-06-18.csv"
 MS = "/scratch/marzii/PT/lunarlander/grid_mixture_ms"
 PAIR_SEC = 9.074
 SEC_PER_STEP = 0.05008          # 133.2 min of human play / 159,546 env steps (20 steps/s)
@@ -108,7 +108,7 @@ def main():
     ax.set_title("Count axis, one currency -- expert/oracle (dashed) vs human (solid) supervision",
                  fontsize=12)
     fig.tight_layout()
-    out = "/home/marzii/IRL3/figures/count_axis_expert_vs_human.png"
+    out = "/home/marzii/learning-from-demonstrations/figures/count_axis_expert_vs_human.png"
     fig.savefig(out, dpi=150); print("saved", out)
 
 

@@ -195,8 +195,8 @@ def fig_satisficing(z, res, out):
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("--json", default="/home/marzii/IRL3/figures/ext700/multimodality_stats.json")
-    ap.add_argument("--npz", default="/home/marzii/IRL3/figures/ext700/multimodality_arrays.npz")
+    ap.add_argument("--json", default="/home/marzii/learning-from-demonstrations/figures/ext700/multimodality_stats.json")
+    ap.add_argument("--npz", default="/home/marzii/learning-from-demonstrations/figures/ext700/multimodality_arrays.npz")
     ap.add_argument("--subdir", default="ext700")
     a = ap.parse_args()
     res = json.load(open(a.json)); z = np.load(a.npz)

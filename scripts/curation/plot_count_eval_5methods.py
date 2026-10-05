@@ -25,7 +25,7 @@ from plot_2feat_learning_curves import discover, GA
 
 BW = "/scratch/marzii/imitation_runs/bc_warmstart/lunarlander"
 PT = "/scratch/marzii/PT/lunarlander/grid_mixture_ms"
-EXP = "/home/marzii/IRL3/experiments"
+EXP = "/home/marzii/learning-from-demonstrations/experiments"
 # MEASURED human time (validated 2026-09-04 with a live 10-demo session: 19.97 steps/s):
 #   demos : per-episode duration_sec from the 3 sessions' timing.csv, summed over the EXACT
 #           demos each ranking selects (demo_id-aligned; session_3 + session_4 + batch5)
@@ -165,7 +165,7 @@ def main():
     ax.set_title("Human supervision on LunarLander -- eval reward vs true recorded human time",
                  fontsize=12)
     fig.tight_layout()
-    out = "/home/marzii/IRL3/figures/ext700/count_eval_5methods.png"
+    out = "/home/marzii/learning-from-demonstrations/figures/ext700/count_eval_5methods.png"
     fig.savefig(out, dpi=150); print("saved", out)
 
 

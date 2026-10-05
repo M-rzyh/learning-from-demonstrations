@@ -32,7 +32,7 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--csv", required=True)
     ap.add_argument("--expert_csv", default="")
-    ap.add_argument("--out", default="/home/marzii/IRL3/figures/ext700/consistency_metric_hists.png")
+    ap.add_argument("--out", default="/home/marzii/learning-from-demonstrations/figures/ext700/consistency_metric_hists.png")
     a = ap.parse_args()
 
     rows = load(a.csv)

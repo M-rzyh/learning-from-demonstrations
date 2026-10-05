@@ -20,16 +20,16 @@
 # so these runs stay comparable with the existing BC arms.
 #
 # Usage:
-#   bash imitation/bc/submit_bc_h6_matched.sh                          # all 25
-#   BUDGETS="5" SEEDS="0" bash imitation/bc/submit_bc_h6_matched.sh    # one smoke run
+#   bash algorithms/imitation/bc/submit_bc_h6_matched.sh                          # all 25
+#   BUDGETS="5" SEEDS="0" bash algorithms/imitation/bc/submit_bc_h6_matched.sh    # one smoke run
 
 set -euo pipefail
-cd /home/marzii/IRL3
+cd /home/marzii/learning-from-demonstrations
 
 BUDGETS=${BUDGETS:-"5 10 50 100 200"}
 SEEDS=${SEEDS:-"0 1 2 3 4"}
 DEMO_PATH=${DEMO_PATH:-/scratch/marzii/imitation_runs/demos/human_baseline/record_human_demos/lunarlander/session_3}
-INDEX=${INDEX:-/home/marzii/IRL3/experiments/BC/bc_h6_matched_$(date +%Y-%m-%d).csv}
+INDEX=${INDEX:-/home/marzii/learning-from-demonstrations/experiments/BC/bc_h6_matched_$(date +%Y-%m-%d).csv}
 
 [[ -d "$DEMO_PATH" ]] || { echo "missing demo set: $DEMO_PATH" 1>&2; exit 1; }
 
@@ -46,7 +46,7 @@ for N in $BUDGETS; do
     JOB=$(sbatch --parsable \
       --job-name="bc-h6-N${N}-s${SEED}" \
       --export=ALL,DEMO_PATH="$DEMO_PATH",N_DEMOS="$N",SEED="$SEED",SHUFFLE=1,SHUFFLE_SEED="$SEED" \
-      imitation/bc/run_bc_lunarlander.sh)
+      algorithms/imitation/bc/run_bc_lunarlander.sh)
     echo "  submitted N=$N seed=$SEED job=$JOB"
     echo "h6_matched,$N,$SEED,$SEED,$JOB,$DEMO_PATH,submitted" >> "$INDEX"
   done

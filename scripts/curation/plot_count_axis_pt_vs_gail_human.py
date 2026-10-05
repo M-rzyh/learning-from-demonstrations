@@ -74,7 +74,7 @@ def gail_eval(jobs):
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("--out", default="/home/marzii/IRL3/figures/count_axis_pt_vs_gail_human.png")
+    ap.add_argument("--out", default="/home/marzii/learning-from-demonstrations/figures/count_axis_pt_vs_gail_human.png")
     ap.add_argument("--pt_cond", default="lunarlander-human-count-v2-N{N}")
     a = ap.parse_args()
 

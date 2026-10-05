@@ -38,7 +38,7 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--job-ids", required=True,
                         help="Comma-separated expert slurm job IDs")
-    parser.add_argument("--output", default="/home/marzii/IRL3/figures/expert_curves.png")
+    parser.add_argument("--output", default="/home/marzii/learning-from-demonstrations/figures/expert_curves.png")
     parser.add_argument("--title", default="Expert PPO learning curves — LunarLander")
     args = parser.parse_args()
 

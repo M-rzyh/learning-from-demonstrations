@@ -4,9 +4,9 @@
 # and seeds, so BC and GAIL train on identical demonstrations at every (N, seed).
 # The fixed-synthetic BC runs (SHUFFLE=0, bc_e4_matched_*) are untouched.
 set -euo pipefail
-cd /home/marzii/IRL3
+cd /home/marzii/learning-from-demonstrations
 DEMO=${DEMO:-/scratch/marzii/imitation_runs/expert/lunarlander/4615187/rollouts/perframe_demos_500_holdK1}
-INDEX=${INDEX:-/home/marzii/IRL3/experiments/BC/bc_rand_expert_$(date +%Y-%m-%d).csv}
+INDEX=${INDEX:-/home/marzii/learning-from-demonstrations/experiments/BC/bc_rand_expert_$(date +%Y-%m-%d).csv}
 BUDGETS=${BUDGETS:-"1 5 10 50 100 250 400"}
 SEEDS=${SEEDS:-"0 1 2 3 4 5 6 7 8 9"}
 
@@ -18,7 +18,7 @@ for N in $BUDGETS; do
     JOB=$(sbatch --parsable \
       --job-name="bc-rexp-N${N}-s${SEED}" \
       --export=ALL,DEMO_PATH="$DEMO",N_DEMOS="$N",SEED="$SEED",SHUFFLE=1,SHUFFLE_SEED="$SEED" \
-      imitation/bc/run_bc_lunarlander.sh)
+      algorithms/imitation/bc/run_bc_lunarlander.sh)
     echo "rand_expert,$N,$SEED,$JOB,$DEMO,submitted" >> "$INDEX"
     echo "  BC N=$N seed=$SEED -> $JOB"
   done

@@ -19,9 +19,9 @@ env/
 .DS_Store
 
 # ---- Run outputs and logs (live on $SCRATCH, never in git) ----
-logs/
-output/
-outputs/
+logs
+output
+outputs
 exp/
 runs/
 wandb/
@@ -49,11 +49,14 @@ tensorboard/
 *.bak2
 
 # ---- Datasets and human-subject data (keep out of GitHub) ----
-human_label/
+human_label
 preference_data/
 human_queries/
-reward_model/
+reward_model
 
 # ---- Demonstrations (collected/rolled-out demo pools) ----
 demos/
 **/collecting_demo/
+
+# ---- Generated figures (local; PT expects a figures -> $SCRATCH symlink) ----
+figures

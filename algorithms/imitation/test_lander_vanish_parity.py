@@ -25,7 +25,7 @@ import numpy as np
 import imageio_ffmpeg
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-sys.path.insert(0, "/home/marzii/PT/PreferenceTransformer/scripts/preference")
+sys.path.insert(0, "/home/marzii/learning-from-preferences/algorithms/preference_transformer/scripts/preference")
 
 import lander_vanish as live                                    # noqa: E402  (IRL3, live)
 import blank_lander_videos as ref                               # noqa: E402  (PT, reference)

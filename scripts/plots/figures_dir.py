@@ -1,6 +1,6 @@
 """Canonical output location for IRL3 plots.
 
-All PNGs live in /home/marzii/IRL3/figures (NOT alongside the plotting code in
+All PNGs live in /home/marzii/learning-from-demonstrations/figures (NOT alongside the plotting code in
 scripts/). Plot scripts should route their output through `fig_path()`:
 
     from figures_dir import fig_path
@@ -12,7 +12,7 @@ a full path keep working exactly as before.
 """
 from pathlib import Path
 
-FIGURES = Path("/home/marzii/IRL3/figures")
+FIGURES = Path("/home/marzii/learning-from-demonstrations/figures")
 
 
 def fig_path(name) -> Path:

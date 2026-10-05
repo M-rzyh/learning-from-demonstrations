@@ -50,6 +50,20 @@ Nothing generated is tracked here. Demonstration pools, trained policies, Sacred
 figures live on cluster storage, and `.gitignore` keeps them out of the repository.
 **Human demonstration recordings are human-subject data and must never be committed.**
 
+### Local data links
+
+Two gitignored symlinks point at `$SCRATCH`, and each fresh clone has to recreate them:
+
+```bash
+mkdir -p /scratch/$USER/learning-from-demonstrations/{figures,output}
+ln -s /scratch/$USER/learning-from-demonstrations/figures figures
+ln -s /scratch/$USER/learning-from-demonstrations/output  algorithms/imitation/output
+```
+
+Some curation scripts read `figures/ext700/multimodality_arrays.npz` and
+`figures/ext700/curation_bc_ceiling.json` back as inputs. Demonstration pools and expert policies are
+read from `/scratch/$USER/imitation_runs/`.
+
 ## Provenance
 
 The repository was created on 2026-10-05 by copying the tracked files of `M-rzyh/IRL3` at commit

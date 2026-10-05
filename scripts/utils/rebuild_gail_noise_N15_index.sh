@@ -14,7 +14,7 @@
 set -euo pipefail
 
 DATE=$(date +%Y-%m-%d)
-OUT=/home/marzii/IRL3/experiments/GAIL/gail_grid_noise_N15_${DATE}.csv
+OUT=/home/marzii/learning-from-demonstrations/experiments/GAIL/gail_grid_noise_N15_${DATE}.csv
 LOGDIR=/scratch/marzii/imitation_runs/_slurm_logs/gail/lunarlander
 GAIL=/scratch/marzii/imitation_runs/gail/lunarlander
 NONFS=/scratch/marzii/imitation_runs/demos/noisy_demos_online_nonFS/lunarlander/expert_4615187

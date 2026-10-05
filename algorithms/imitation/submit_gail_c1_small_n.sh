@@ -15,7 +15,7 @@
 set -euo pipefail
 D=/scratch/marzii/imitation_runs/demos/human_baseline/record_human_demos/lunarlander
 DEMO="$D/session_3_ext700_ret_only_top10"
-INDEX=/home/marzii/IRL3/experiments/GAIL/gail_countaxis_kappa1000_2026-09-07.csv
+INDEX=/home/marzii/learning-from-demonstrations/experiments/GAIL/gail_countaxis_kappa1000_2026-09-07.csv
 BUDGETS=${BUDGETS:-"1 5"}
 SEEDS=${SEEDS:-"0 1 2 3 4 5 6 7 8 9"}
 
@@ -24,7 +24,7 @@ SEEDS=${SEEDS:-"0 1 2 3 4 5 6 7 8 9"}
 
 batch_for () { [[ "$1" -eq 1 ]] && echo 128 || echo 256; }
 
-cd /home/marzii/IRL3/imitation
+cd /home/marzii/learning-from-demonstrations/algorithms/imitation
 for N in $BUDGETS; do
   B=$(batch_for "$N")
   for seed in $SEEDS; do

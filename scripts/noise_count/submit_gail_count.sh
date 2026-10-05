@@ -40,7 +40,7 @@ RUNROOT=/scratch/marzii/imitation_runs
 case "$FS" in 0|1) ;; *) echo "ERROR: FS must be 0|1" 1>&2; exit 1;; esac
 EXPERT=$([[ "$FS" == "1" ]] && echo 4720242 || echo 4615187)
 FSTAG=$([[ "$FS" == "1" ]] && echo "_FS" || echo "")
-INDEX=${INDEX:-/home/marzii/IRL3/experiments/GAIL/gail_grid_count${FSTAG}_${DATE}.csv}
+INDEX=${INDEX:-/home/marzii/learning-from-demonstrations/experiments/GAIL/gail_grid_count${FSTAG}_${DATE}.csv}
 
 CLEAN_POOL="$RUNROOT/demos/noisy_demos/lunarlander/expert_${EXPERT}/n100_p0_clean"
 
@@ -75,7 +75,7 @@ fi
 # ---- submit (index appends; header only if new) ----
 mkdir -p "$(dirname "$INDEX")"
 [ -s "$INDEX" ] || echo "condition_id,N,noise_pct,seed,slurm_job_id,demo_path,status" > "$INDEX"
-cd /home/marzii/IRL3/imitation
+cd /home/marzii/learning-from-demonstrations/algorithms/imitation
 
 submitted=0
 for N in $N_LIST; do

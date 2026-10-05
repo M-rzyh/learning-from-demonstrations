@@ -28,7 +28,7 @@ def eval_stats(jobs):
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("--out", default="/home/marzii/IRL3/figures/ext700/human_time_gail_rankings.png")
+    ap.add_argument("--out", default="/home/marzii/learning-from-demonstrations/figures/ext700/human_time_gail_rankings.png")
     a = ap.parse_args()
 
     runs = discover()

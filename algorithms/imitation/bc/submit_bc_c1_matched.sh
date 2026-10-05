@@ -22,17 +22,17 @@
 # Kept separate from the H6-matched BC runs (own index file).
 #
 # Usage:
-#   bash imitation/bc/submit_bc_c1_matched.sh                          # all 55
-#   BUDGETS="10" SEEDS="0" bash imitation/bc/submit_bc_c1_matched.sh   # smoke
+#   bash algorithms/imitation/bc/submit_bc_c1_matched.sh                          # all 55
+#   BUDGETS="10" SEEDS="0" bash algorithms/imitation/bc/submit_bc_c1_matched.sh   # smoke
 
 set -euo pipefail
-cd /home/marzii/IRL3
+cd /home/marzii/learning-from-demonstrations
 
 BUDGETS=${BUDGETS:-"10 50 100 250 699"}
 SEEDS=${SEEDS:-"0 1 2 3 4 5 6 7 8 9"}
 SEEDS_699=${SEEDS_699:-"0 1 2 3 4"}     # C1 only ran 5 seeds at the full pool
 DEMO_ROOT=${DEMO_ROOT:-/scratch/marzii/imitation_runs/demos/human_baseline/record_human_demos/lunarlander}
-INDEX=${INDEX:-/home/marzii/IRL3/experiments/BC/bc_c1_matched_$(date +%Y-%m-%d).csv}
+INDEX=${INDEX:-/home/marzii/learning-from-demonstrations/experiments/BC/bc_c1_matched_$(date +%Y-%m-%d).csv}
 
 if [[ ! -f "$INDEX" ]]; then
   echo "arm,N,seed,slurm_job_id,demo_path,status" > "$INDEX"
@@ -63,7 +63,7 @@ for N in $BUDGETS; do
     JOB=$(sbatch --parsable \
       --job-name="bc-c1-N${N}-s${SEED}" \
       --export=ALL,DEMO_PATH="$DEMO_PATH",N_DEMOS="$N",SEED="$SEED",SHUFFLE=0 \
-      imitation/bc/run_bc_lunarlander.sh)
+      algorithms/imitation/bc/run_bc_lunarlander.sh)
     echo "  submitted N=$N seed=$SEED job=$JOB"
     echo "c1_matched,$N,$SEED,$JOB,$DEMO_PATH,submitted" >> "$INDEX"
   done

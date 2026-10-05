@@ -26,7 +26,7 @@ def main():
     ap.add_argument("--n_take", type=int, default=30, help="demos sampled from every subset")
     ap.add_argument("--seeds", type=int, default=8)
     ap.add_argument("--k", type=int, default=15)
-    ap.add_argument("--out_json", default="/home/marzii/IRL3/figures/ext700/curation_bc_ceiling.json")
+    ap.add_argument("--out_json", default="/home/marzii/learning-from-demonstrations/figures/ext700/curation_bc_ceiling.json")
     a = ap.parse_args()
 
     # pooled scaler over the FULL human pool + expert, so every K uses one shared metric

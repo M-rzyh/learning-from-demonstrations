@@ -38,7 +38,7 @@ def load_rates(path, n_demos=None):
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--output", default="/home/marzii/IRL3/figures/action_change_rate.png")
+    parser.add_argument("--output", default="/home/marzii/learning-from-demonstrations/figures/action_change_rate.png")
     args = parser.parse_args()
 
     data = {}

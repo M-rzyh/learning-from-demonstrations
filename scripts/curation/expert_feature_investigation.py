@@ -5,7 +5,7 @@ Reuses the SAME extractors as demo_features.py (so thresholds mean the same thin
 human demos), computes every feature, marks the MEAN (not median) on each histogram, and prints
 a mean table to use as thresholds.
 
-    export PYTHONPATH=/home/marzii/IRL3/imitation/src
+    export PYTHONPATH=/home/marzii/learning-from-demonstrations/algorithms/imitation/src
     /scratch/marzii/envs/imitation-gail/bin/python scripts/curation/expert_feature_investigation.py
 """
 import os, sys
@@ -20,7 +20,7 @@ import datasets; datasets.disable_progress_bar()
 from demo_features import traj_features, add_action_divergence, add_ranking, GOOD_DIR, FEATURES
 
 DP = "/scratch/marzii/imitation_runs/demos/noisy_demos/lunarlander/expert_4615187/n100_p0_clean"
-OUT_DIR = "/home/marzii/IRL3/figures"
+OUT_DIR = "/home/marzii/learning-from-demonstrations/figures"
 os.makedirs(OUT_DIR, exist_ok=True)
 
 

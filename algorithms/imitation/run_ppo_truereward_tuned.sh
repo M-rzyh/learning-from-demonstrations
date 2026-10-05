@@ -33,7 +33,7 @@
 #       eval_data/                 50-episode deterministic eval, GAIL protocol
 #       monitor/, log/, rollouts/
 #
-# Submit one seed:  sbatch --export=ALL,SEED=0 imitation/run_ppo_truereward_tuned.sh
+# Submit one seed:  sbatch --export=ALL,SEED=0 algorithms/imitation/run_ppo_truereward_tuned.sh
 
 set -euo pipefail
 
@@ -50,12 +50,12 @@ conda activate /scratch/marzii/envs/imitation-gail
 hash -r
 
 # Use the local repo, not the installed package. MUST precede the import check.
-export PYTHONPATH="/home/marzii/IRL3/imitation/src:${PYTHONPATH:-}"
+export PYTHONPATH="/home/marzii/learning-from-demonstrations/algorithms/imitation/src:${PYTHONPATH:-}"
 
 which python
 python -c "import imitation; print('imitation', imitation.__version__)"
 
-cd /home/marzii/IRL3/imitation
+cd /home/marzii/learning-from-demonstrations/algorithms/imitation
 
 # ---- tuned settings (version 2) ----
 # Same env, cap and env-step budget as the matched baseline, but WITH the

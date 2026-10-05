@@ -43,7 +43,7 @@ def main():
     ks = [int(x) for x in a.ks.split(",")]
     Ks = [int(x) for x in a.Ks.split(",")]
     runs = discover()
-    out = a.out or f"/home/marzii/IRL3/figures/ext700/gail_kgrid_{a.stem}.png"
+    out = a.out or f"/home/marzii/learning-from-demonstrations/figures/ext700/gail_kgrid_{a.stem}.png"
 
     fig, axes = plt.subplots(1, len(Ks), figsize=(5.0 * len(Ks), 5.2), sharey=True)
     axes = np.atleast_1d(axes)

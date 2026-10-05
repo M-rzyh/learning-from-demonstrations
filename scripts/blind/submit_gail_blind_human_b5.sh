@@ -31,11 +31,11 @@ else
 fi
 [[ -d "$DEMO" ]] || { echo "MISSING demo dir: $DEMO" 1>&2; exit 1; }
 
-INDEX=/home/marzii/IRL3/experiments/GAIL/gail_blind_human_b5_$(date +%Y-%m-%d).csv
+INDEX=/home/marzii/learning-from-demonstrations/experiments/GAIL/gail_blind_human_b5_$(date +%Y-%m-%d).csv
 mkdir -p "$(dirname "$INDEX")"
 [[ -f "$INDEX" ]] || echo "condition_id,N,blank_pct,seed,slurm_job_id,demo_path,status" > "$INDEX"
 
-cd /home/marzii/IRL3/imitation
+cd /home/marzii/learning-from-demonstrations/algorithms/imitation
 cond="blind_human_b5_blank${BLANK}"
 for seed in $(seq "$LO" "$HI"); do
   jobid=$(DEMO_PATH="$DEMO" N_DEMOS=50 DEMO_BATCH_SIZE=512 SHUFFLE=1 SEED="$seed" \
