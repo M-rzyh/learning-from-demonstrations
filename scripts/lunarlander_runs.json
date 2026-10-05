@@ -1,0 +1,58 @@
+{
+  "output_prefix": "lunarlander_comparison",
+  "runs": [
+    {
+      "label": "PEBBLE 4629164",
+      "type": "pebble",
+      "slurm_job_id": "4629164",
+      "train_csv": "/scratch/marzii/compare_runs/pebble/lunarlander_human/4629164/pebble/train.csv",
+      "human_labels_csv": "/scratch/marzii/compare_runs/pebble/lunarlander/4624956/human_labels.csv",
+      "color": "blue",
+      "marker": "o"
+    },
+    {
+      "label": "GAIL sess1 (50 demos)",
+      "type": "gail",
+      "slurm_job_id": "4624110",
+      "tb_dir": "/scratch/marzii/imitation_runs/gail/lunarlander/4624110/log/raw/gen",
+      "run_json": "/home/marzii/IRL3/imitation/output/sacred/train_adversarial/22/run.json",
+      "demo_log_csv": "/scratch/marzii/imitation_runs/human_demos/lunarlander/session_1/all_episodes_log.csv",
+      "n_demos": 50,
+      "color": "red",
+      "marker": "s"
+    },
+    {
+      "label": "GAIL sess2 (50 demos)",
+      "type": "gail",
+      "slurm_job_id": "4624865",
+      "tb_dir": "/scratch/marzii/imitation_runs/gail/lunarlander/4624865/log/raw/gen",
+      "run_json": "/home/marzii/IRL3/imitation/output/sacred/train_adversarial/24/run.json",
+      "demo_log_csv": "/scratch/marzii/imitation_runs/human_demos/lunarlander/session_2/all_episodes_log.csv",
+      "n_demos": 50,
+      "color": "red",
+      "marker": "s"
+    },
+    {
+      "label": "GAIL sess2 (25 demos)",
+      "type": "gail",
+      "slurm_job_id": "4627503",
+      "tb_dir": "/scratch/marzii/imitation_runs/gail/lunarlander/4627503/log/raw/gen",
+      "run_json": "/home/marzii/IRL3/imitation/output/sacred/train_adversarial/25/run.json",
+      "demo_log_csv": "/scratch/marzii/imitation_runs/human_demos/lunarlander/session_2/all_episodes_log.csv",
+      "n_demos": 25,
+      "color": "orange",
+      "marker": "s"
+    },
+    {
+      "label": "GAIL sess2 (10 demos)",
+      "type": "gail",
+      "slurm_job_id": "4627506",
+      "tb_dir": "/scratch/marzii/imitation_runs/gail/lunarlander/4627506/log/raw/gen",
+      "run_json": "/home/marzii/IRL3/imitation/output/sacred/train_adversarial/26/run.json",
+      "demo_log_csv": "/scratch/marzii/imitation_runs/human_demos/lunarlander/session_2/all_episodes_log.csv",
+      "n_demos": 10,
+      "color": "darkred",
+      "marker": "s"
+    }
+  ]
+}

@@ -1,0 +1,59 @@
+# ---- Python / tooling ----
+__pycache__/
+*.py[cod]
+*.egg-info/
+.eggs/
+build/
+dist/
+.pytest_cache/
+.mypy_cache/
+.ipynb_checkpoints/
+.venv/
+venv/
+env/
+
+# ---- Editor / OS / agent state ----
+.vscode/
+.idea/
+.claude/
+.DS_Store
+
+# ---- Run outputs and logs (live on $SCRATCH, never in git) ----
+logs/
+output/
+outputs/
+exp/
+runs/
+wandb/
+**/sacred/
+**/slurm_logs/
+tensorboard/
+*.out
+*.err
+*.log
+
+# ---- Checkpoints, models, large binaries ----
+*.ckpt
+*.pth
+*.pt
+*.pkl
+*.h5
+*.hdf5
+*.mp4
+*.gif
+*.tar
+*.tar.gz
+*.tgz
+*.zip
+*.bak
+*.bak2
+
+# ---- Datasets and human-subject data (keep out of GitHub) ----
+human_label/
+preference_data/
+human_queries/
+reward_model/
+
+# ---- Demonstrations (collected/rolled-out demo pools) ----
+demos/
+**/collecting_demo/

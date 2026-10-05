@@ -1,0 +1,11 @@
+condition,seed,slurm_job_id,max_ep_steps,total_timesteps,log_root,status
+ppo_baseline,0,766855,1000,1000000,/scratch/marzii/imitation_runs/ppo_baseline,submitted
+ppo_baseline,1,766856,1000,1000000,/scratch/marzii/imitation_runs/ppo_baseline,submitted
+ppo_baseline,2,766857,1000,1000000,/scratch/marzii/imitation_runs/ppo_baseline,submitted
+ppo_baseline,3,766858,1000,1000000,/scratch/marzii/imitation_runs/ppo_baseline,submitted
+ppo_baseline,4,766859,1000,1000000,/scratch/marzii/imitation_runs/ppo_baseline,submitted
+ppo_baseline,5,766860,1000,1000000,/scratch/marzii/imitation_runs/ppo_baseline,submitted
+ppo_baseline,6,766861,1000,1000000,/scratch/marzii/imitation_runs/ppo_baseline,submitted
+ppo_baseline,7,766862,1000,1000000,/scratch/marzii/imitation_runs/ppo_baseline,submitted
+ppo_baseline,8,766863,1000,1000000,/scratch/marzii/imitation_runs/ppo_baseline,submitted
+ppo_baseline,9,766864,1000,1000000,/scratch/marzii/imitation_runs/ppo_baseline,submitted

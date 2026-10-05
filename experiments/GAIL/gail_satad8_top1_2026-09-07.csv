@@ -1,0 +1,11 @@
+condition,K,seed,kappa,batch,slurm_job_id,demo_path,status
+satad8,1,0,1000,128,837195,/scratch/marzii/imitation_runs/demos/human_baseline/record_human_demos/lunarlander/session_3_ext700_satad8_top1,submitted
+satad8,1,1,1000,128,837196,/scratch/marzii/imitation_runs/demos/human_baseline/record_human_demos/lunarlander/session_3_ext700_satad8_top1,submitted
+satad8,1,2,1000,128,837197,/scratch/marzii/imitation_runs/demos/human_baseline/record_human_demos/lunarlander/session_3_ext700_satad8_top1,submitted
+satad8,1,3,1000,128,837198,/scratch/marzii/imitation_runs/demos/human_baseline/record_human_demos/lunarlander/session_3_ext700_satad8_top1,submitted
+satad8,1,4,1000,128,837199,/scratch/marzii/imitation_runs/demos/human_baseline/record_human_demos/lunarlander/session_3_ext700_satad8_top1,submitted
+satad8,1,5,1000,128,837200,/scratch/marzii/imitation_runs/demos/human_baseline/record_human_demos/lunarlander/session_3_ext700_satad8_top1,submitted
+satad8,1,6,1000,128,837201,/scratch/marzii/imitation_runs/demos/human_baseline/record_human_demos/lunarlander/session_3_ext700_satad8_top1,submitted
+satad8,1,7,1000,128,837202,/scratch/marzii/imitation_runs/demos/human_baseline/record_human_demos/lunarlander/session_3_ext700_satad8_top1,submitted
+satad8,1,8,1000,128,837203,/scratch/marzii/imitation_runs/demos/human_baseline/record_human_demos/lunarlander/session_3_ext700_satad8_top1,submitted
+satad8,1,9,1000,128,837204,/scratch/marzii/imitation_runs/demos/human_baseline/record_human_demos/lunarlander/session_3_ext700_satad8_top1,submitted

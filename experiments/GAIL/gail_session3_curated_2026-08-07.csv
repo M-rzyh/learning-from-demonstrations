@@ -1,0 +1,6 @@
+condition,N,seed,slurm_job_id,demo_path,status
+curated12_and14,12,0,410596,/scratch/marzii/imitation_runs/demos/human_baseline/record_human_demos/lunarlander/session_3_curated12,submitted
+curated12_and14,12,1,410597,/scratch/marzii/imitation_runs/demos/human_baseline/record_human_demos/lunarlander/session_3_curated12,submitted
+curated12_and14,12,2,410598,/scratch/marzii/imitation_runs/demos/human_baseline/record_human_demos/lunarlander/session_3_curated12,submitted
+curated12_and14,12,3,410599,/scratch/marzii/imitation_runs/demos/human_baseline/record_human_demos/lunarlander/session_3_curated12,submitted
+curated12_and14,12,4,410600,/scratch/marzii/imitation_runs/demos/human_baseline/record_human_demos/lunarlander/session_3_curated12,submitted

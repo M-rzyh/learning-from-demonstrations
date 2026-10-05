@@ -1,0 +1,6 @@
+condition_id,N,blank_pct,seed,slurm_job_id,demo_path,status
+blind_human_b5_blank0,50,0,5,5775102,/scratch/marzii/imitation_runs/human_demos/lunarlander/session_2,submitted
+blind_human_b5_blank0,50,0,6,5775103,/scratch/marzii/imitation_runs/human_demos/lunarlander/session_2,submitted
+blind_human_b5_blank0,50,0,7,5775104,/scratch/marzii/imitation_runs/human_demos/lunarlander/session_2,submitted
+blind_human_b5_blank0,50,0,8,5775105,/scratch/marzii/imitation_runs/human_demos/lunarlander/session_2,submitted
+blind_human_b5_blank0,50,0,9,5775106,/scratch/marzii/imitation_runs/human_demos/lunarlander/session_2,submitted

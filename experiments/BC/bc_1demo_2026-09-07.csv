@@ -1,0 +1,11 @@
+arm,N,seed,kappa,slurm_job_id,demo_path,status
+expert,1,0,1000,836189,/scratch/marzii/imitation_runs/one_demo_expert_vs_human/demos/expert_nonFS_demo147,submitted
+expert,1,1,1000,836190,/scratch/marzii/imitation_runs/one_demo_expert_vs_human/demos/expert_nonFS_demo147,submitted
+expert,1,2,1000,836191,/scratch/marzii/imitation_runs/one_demo_expert_vs_human/demos/expert_nonFS_demo147,submitted
+expert,1,3,1000,836192,/scratch/marzii/imitation_runs/one_demo_expert_vs_human/demos/expert_nonFS_demo147,submitted
+expert,1,4,1000,836193,/scratch/marzii/imitation_runs/one_demo_expert_vs_human/demos/expert_nonFS_demo147,submitted
+human,1,0,1000,836194,/scratch/marzii/imitation_runs/one_demo_expert_vs_human/demos/human_session3_demo131,submitted
+human,1,1,1000,836195,/scratch/marzii/imitation_runs/one_demo_expert_vs_human/demos/human_session3_demo131,submitted
+human,1,2,1000,836196,/scratch/marzii/imitation_runs/one_demo_expert_vs_human/demos/human_session3_demo131,submitted
+human,1,3,1000,836197,/scratch/marzii/imitation_runs/one_demo_expert_vs_human/demos/human_session3_demo131,submitted
+human,1,4,1000,836198,/scratch/marzii/imitation_runs/one_demo_expert_vs_human/demos/human_session3_demo131,submitted

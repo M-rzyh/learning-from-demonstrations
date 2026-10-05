@@ -1,0 +1,11 @@
+variant,seed,jobid,demo_path,outcome
+A,0,474873,/scratch/marzii/imitation_runs/demos/human_baseline/record_human_demos/lunarlander/session_3_ext300,
+A,1,480428,/scratch/marzii/imitation_runs/demos/human_baseline/record_human_demos/lunarlander/session_3_ext300,
+A,2,480429,/scratch/marzii/imitation_runs/demos/human_baseline/record_human_demos/lunarlander/session_3_ext300,
+A,3,480430,/scratch/marzii/imitation_runs/demos/human_baseline/record_human_demos/lunarlander/session_3_ext300,
+A,4,480431,/scratch/marzii/imitation_runs/demos/human_baseline/record_human_demos/lunarlander/session_3_ext300,
+B,0,480432,/scratch/marzii/imitation_runs/demos/human_baseline/record_human_demos/lunarlander/session_3_ext300,landed
+B,1,480433,/scratch/marzii/imitation_runs/demos/human_baseline/record_human_demos/lunarlander/session_3_ext300,landed
+B,2,480434,/scratch/marzii/imitation_runs/demos/human_baseline/record_human_demos/lunarlander/session_3_ext300,landed
+B,3,480435,/scratch/marzii/imitation_runs/demos/human_baseline/record_human_demos/lunarlander/session_3_ext300,landed
+B,4,480436,/scratch/marzii/imitation_runs/demos/human_baseline/record_human_demos/lunarlander/session_3_ext300,landed

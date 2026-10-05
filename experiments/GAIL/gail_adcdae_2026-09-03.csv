@@ -1,0 +1,11 @@
+condition,K,seed,slurm_job_id,demo_path
+adcdae,10,0,783838,/scratch/marzii/imitation_runs/demos/human_baseline/record_human_demos/lunarlander/session_3_ext700_ret_adcdae_top10
+adcdae,10,1,783839,/scratch/marzii/imitation_runs/demos/human_baseline/record_human_demos/lunarlander/session_3_ext700_ret_adcdae_top10
+adcdae,10,2,783840,/scratch/marzii/imitation_runs/demos/human_baseline/record_human_demos/lunarlander/session_3_ext700_ret_adcdae_top10
+adcdae,10,3,783841,/scratch/marzii/imitation_runs/demos/human_baseline/record_human_demos/lunarlander/session_3_ext700_ret_adcdae_top10
+adcdae,10,4,783842,/scratch/marzii/imitation_runs/demos/human_baseline/record_human_demos/lunarlander/session_3_ext700_ret_adcdae_top10
+adcdae,10,5,783843,/scratch/marzii/imitation_runs/demos/human_baseline/record_human_demos/lunarlander/session_3_ext700_ret_adcdae_top10
+adcdae,10,6,783844,/scratch/marzii/imitation_runs/demos/human_baseline/record_human_demos/lunarlander/session_3_ext700_ret_adcdae_top10
+adcdae,10,7,783845,/scratch/marzii/imitation_runs/demos/human_baseline/record_human_demos/lunarlander/session_3_ext700_ret_adcdae_top10
+adcdae,10,8,783846,/scratch/marzii/imitation_runs/demos/human_baseline/record_human_demos/lunarlander/session_3_ext700_ret_adcdae_top10
+adcdae,10,9,783847,/scratch/marzii/imitation_runs/demos/human_baseline/record_human_demos/lunarlander/session_3_ext700_ret_adcdae_top10

@@ -1,0 +1,11 @@
+condition_id,blank_pct,seed,slurm_job_id,demo_path,status
+blind_human_blank0,0,0,5648696,/scratch/marzii/imitation_runs/human_demos/lunarlander/session_2,submitted
+blind_human_blank0,0,1,5648697,/scratch/marzii/imitation_runs/human_demos/lunarlander/session_2,submitted
+blind_human_blank0,0,2,5648698,/scratch/marzii/imitation_runs/human_demos/lunarlander/session_2,submitted
+blind_human_blank0,0,3,5648699,/scratch/marzii/imitation_runs/human_demos/lunarlander/session_2,submitted
+blind_human_blank0,0,4,5648700,/scratch/marzii/imitation_runs/human_demos/lunarlander/session_2,submitted
+blind_human_blank50,50,0,5648701,/scratch/marzii/imitation_runs/demos/harder_vs_easier/record_frame_blanking/demos/human/blank50/session_1_flagged,submitted
+blind_human_blank50,50,1,5648702,/scratch/marzii/imitation_runs/demos/harder_vs_easier/record_frame_blanking/demos/human/blank50/session_1_flagged,submitted
+blind_human_blank50,50,2,5648703,/scratch/marzii/imitation_runs/demos/harder_vs_easier/record_frame_blanking/demos/human/blank50/session_1_flagged,submitted
+blind_human_blank50,50,3,5648704,/scratch/marzii/imitation_runs/demos/harder_vs_easier/record_frame_blanking/demos/human/blank50/session_1_flagged,submitted
+blind_human_blank50,50,4,5648705,/scratch/marzii/imitation_runs/demos/harder_vs_easier/record_frame_blanking/demos/human/blank50/session_1_flagged,submitted

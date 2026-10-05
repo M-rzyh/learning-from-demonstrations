@@ -1,0 +1,15 @@
+condition_id,N,noise_pct,seed,slurm_job_id,demo_path,status
+noise_N15_p10,15,10,0,5939105,/scratch/marzii/imitation_runs/demos/noisy_demos_online_nonFS/lunarlander/expert_4615187/n100_p10_s0,submitted
+noise_N15_p10,15,10,1,5939106,/scratch/marzii/imitation_runs/demos/noisy_demos_online_nonFS/lunarlander/expert_4615187/n100_p10_s1,submitted
+noise_N15_p10,15,10,2,5939107,/scratch/marzii/imitation_runs/demos/noisy_demos_online_nonFS/lunarlander/expert_4615187/n100_p10_s2,submitted
+noise_N15_p10,15,10,3,5939108,/scratch/marzii/imitation_runs/demos/noisy_demos_online_nonFS/lunarlander/expert_4615187/n100_p10_s3,submitted
+noise_N15_p10,15,10,4,5939109,/scratch/marzii/imitation_runs/demos/noisy_demos_online_nonFS/lunarlander/expert_4615187/n100_p10_s4,submitted
+noise_N15_p10,15,10,5,5939110,/scratch/marzii/imitation_runs/demos/noisy_demos_online_nonFS/lunarlander/expert_4615187/n100_p10_s5,submitted
+noise_N15_p10,15,10,6,5939111,/scratch/marzii/imitation_runs/demos/noisy_demos_online_nonFS/lunarlander/expert_4615187/n100_p10_s6,submitted
+noise_N15_p10,15,10,7,5939112,/scratch/marzii/imitation_runs/demos/noisy_demos_online_nonFS/lunarlander/expert_4615187/n100_p10_s7,submitted
+noise_N15_p10,15,10,8,5939113,/scratch/marzii/imitation_runs/demos/noisy_demos_online_nonFS/lunarlander/expert_4615187/n100_p10_s8,submitted
+noise_N15_p10,15,10,9,5939114,/scratch/marzii/imitation_runs/demos/noisy_demos_online_nonFS/lunarlander/expert_4615187/n100_p10_s9,submitted
+noise_N15_p10,15,10,10,5939115,/scratch/marzii/imitation_runs/demos/noisy_demos_online_nonFS/lunarlander/expert_4615187/n100_p10_s10,submitted
+noise_N15_p10,15,10,11,5939116,/scratch/marzii/imitation_runs/demos/noisy_demos_online_nonFS/lunarlander/expert_4615187/n100_p10_s11,submitted
+noise_N15_p10,15,10,12,5939117,/scratch/marzii/imitation_runs/demos/noisy_demos_online_nonFS/lunarlander/expert_4615187/n100_p10_s12,submitted
+noise_N15_p10,15,10,13,5939118,/scratch/marzii/imitation_runs/demos/noisy_demos_online_nonFS/lunarlander/expert_4615187/n100_p10_s13,submitted
