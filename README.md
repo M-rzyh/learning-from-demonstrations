@@ -60,6 +60,10 @@ ln -s /scratch/$USER/learning-from-demonstrations/figures figures
 ln -s /scratch/$USER/learning-from-demonstrations/output  algorithms/imitation/output
 ```
 
+`output/` is the `imitation` library's default output folder. The library writes `cwd/output/...`, and the
+launchers `cd` into `algorithms/imitation`, so Sacred runs, `train_rl` and logs land there. It also holds the
+earlier IRL3 runs, copied from `~/IRL3/imitation/output`.
+
 Some curation scripts read `figures/ext700/multimodality_arrays.npz` and
 `figures/ext700/curation_bc_ceiling.json` back as inputs.
 
