@@ -15,7 +15,7 @@ import numpy as np
 from tensorboard.backend.event_processing.event_accumulator import EventAccumulator
 
 
-EXPERT_ROOT = "/scratch/marzii/imitation_runs/expert/lunarlander"
+EXPERT_ROOT = "/scratch/marzii/learning-from-demonstrations/imitation_runs/expert/lunarlander"
 
 # Notes to annotate on specific jobs
 JOB_NOTES = {

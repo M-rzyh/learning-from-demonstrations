@@ -19,7 +19,7 @@ import imageio.v2 as imageio
 from datasets import load_from_disk
 import datasets; datasets.disable_progress_bar()
 
-DEMOS = Path("/scratch/marzii/imitation_runs/demos/human_baseline/record_human_demos/lunarlander")
+DEMOS = Path("/scratch/marzii/learning-from-demonstrations/imitation_runs/demos/human_baseline/record_human_demos/lunarlander")
 
 
 def parse_args():

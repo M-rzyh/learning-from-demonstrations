@@ -39,7 +39,7 @@ import matplotlib
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 
-RUNS = Path("/scratch/marzii/imitation_runs/gail/lunarlander")
+RUNS = Path("/scratch/marzii/learning-from-demonstrations/imitation_runs/gail/lunarlander")
 IDX = Path("/home/marzii/learning-from-demonstrations/experiments/GAIL")
 OUT_DEFAULT = Path("/home/marzii/learning-from-demonstrations/figures/gail_learning_curves_E4_C1_H6.png")
 N_ENVS = 8
@@ -55,7 +55,7 @@ def parse_args():
     p.add_argument("--max_steps", type=int, default=1000000)
     p.add_argument("--err", choices=["se", "sd"], default="se")
     p.add_argument("--ppo_baseline_root", type=Path,
-                   default=Path("/scratch/marzii/imitation_runs/ppo_truereward_matched/lunarlander"),
+                   default=Path("/scratch/marzii/learning-from-demonstrations/imitation_runs/ppo_truereward_matched/lunarlander"),
                    help="matched true-reward PPO runs; drawn as a reference in every panel")
     p.add_argument("--no_baseline", action="store_true")
     p.add_argument("--arms", nargs="+", default=["E4", "C1"], choices=["E4", "C1", "H6"],

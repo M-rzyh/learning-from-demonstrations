@@ -1,8 +1,8 @@
 #!/bin/bash
 #SBATCH --job-name=bc-warmstart
 #SBATCH --account=aip-mtaylor3
-#SBATCH --output=/scratch/marzii/imitation_runs/_slurm_logs/bc_warmstart/lunarlander/%x_%j.out
-#SBATCH --error=/scratch/marzii/imitation_runs/_slurm_logs/bc_warmstart/lunarlander/%x_%j.err
+#SBATCH --output=/scratch/marzii/learning-from-demonstrations/imitation_runs/_slurm_logs/bc_warmstart/lunarlander/%x_%j.out
+#SBATCH --error=/scratch/marzii/learning-from-demonstrations/imitation_runs/_slurm_logs/bc_warmstart/lunarlander/%x_%j.err
 #SBATCH --time=01:00:00
 #SBATCH --gres=gpu:l40s:1
 #SBATCH --cpus-per-task=8
@@ -15,7 +15,7 @@
 #   DEMO_PATH=... SEED=$s [OUTCOME=landed FEATURES_CSV=...] sbatch run_bc_warmstart_lunarlander.sh
 
 set -euo pipefail
-mkdir -p /scratch/marzii/imitation_runs/_slurm_logs/bc_warmstart/lunarlander
+mkdir -p /scratch/marzii/learning-from-demonstrations/imitation_runs/_slurm_logs/bc_warmstart/lunarlander
 
 module --force purge
 export PYTHONNOUSERSITE=1
@@ -36,7 +36,7 @@ N_EVAL_EPISODES=${N_EVAL_EPISODES:-50}
 OUTCOME=${OUTCOME:-}                  # e.g. "landed" for variant B
 FEATURES_CSV=${FEATURES_CSV:-}
 
-RUN_DIR="/scratch/marzii/imitation_runs/bc_warmstart/lunarlander/${SLURM_JOB_ID:-local}"
+RUN_DIR="/scratch/marzii/learning-from-demonstrations/imitation_runs/bc_warmstart/lunarlander/${SLURM_JOB_ID:-local}"
 mkdir -p "$RUN_DIR"
 
 echo "Demo path:   $DEMO_PATH"

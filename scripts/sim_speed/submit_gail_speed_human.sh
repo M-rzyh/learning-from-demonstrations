@@ -10,7 +10,7 @@
 #   20 fps REUSES the existing vanish_p0 clean fps-20 session (DIFFICULTY=none, fps 20 ⇒ the
 #   speed baseline), so no new 20 fps play. 10 & 50 are their own collections:
 #     DIFFICULTY=none FPS={10,50} FLAG_TARGET=15 FEEDBACK=both \
-#     OUTPUT_DIR=$SCRATCH/imitation_runs/sim_speed/demos/human/speed_fps{10,50} \
+#     OUTPUT_DIR=$SCRATCH/learning-from-demonstrations/imitation_runs/sim_speed/demos/human/speed_fps{10,50} \
 #     bash algorithms/imitation/collect_human_demos_lunarlander.sh
 set -euo pipefail
 
@@ -25,9 +25,9 @@ case "$ARM" in flagged|first15|all) ;; *) echo "ERROR: ARM must be flagged|first
 
 # 20 fps baseline reuses the vanish clean session; 10/50 have their own sim_speed dirs.
 if [[ "$FPS" == "20" ]]; then
-  ROOT=/scratch/marzii/imitation_runs/lander_vanish/demos/human/vanish_p0
+  ROOT=/scratch/marzii/learning-from-demonstrations/imitation_runs/lander_vanish/demos/human/vanish_p0
 else
-  ROOT=/scratch/marzii/imitation_runs/sim_speed/demos/human/speed_fps${FPS}
+  ROOT=/scratch/marzii/learning-from-demonstrations/imitation_runs/sim_speed/demos/human/speed_fps${FPS}
 fi
 case "$ARM" in
   flagged) SUB=session_1_flagged ;;

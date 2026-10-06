@@ -16,7 +16,7 @@ import numpy as np
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from multimodality_analysis import load_flat, knn_action_stats, n_demos, EXPERT  # noqa: E402
 
-ROOT = "/scratch/marzii/imitation_runs/demos/human_baseline/record_human_demos/lunarlander"
+ROOT = "/scratch/marzii/learning-from-demonstrations/imitation_runs/demos/human_baseline/record_human_demos/lunarlander"
 BASE = "session_3_ext700"
 
 

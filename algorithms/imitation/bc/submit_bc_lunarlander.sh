@@ -19,8 +19,8 @@ LO=${2:?missing seed_lo}
 HI=${3:?missing seed_hi}
 CHECK=${CHECK:-0}
 
-EXP=/scratch/marzii/imitation_runs/expert/lunarlander/4615187/rollouts/final.npz
-VP0=/scratch/marzii/imitation_runs/lander_vanish/demos/human/vanish_p0
+EXP=/scratch/marzii/learning-from-demonstrations/imitation_runs/expert/lunarlander/4615187/rollouts/final.npz
+VP0=/scratch/marzii/learning-from-demonstrations/imitation_runs/lander_vanish/demos/human/vanish_p0
 case "$COND" in
   expert15)        DEMO="$EXP" ;;
   human_flagged15) DEMO="$VP0/session_1_flagged" ;;

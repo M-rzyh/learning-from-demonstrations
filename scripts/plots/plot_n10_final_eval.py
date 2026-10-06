@@ -21,8 +21,8 @@ import matplotlib.pyplot as plt
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from figures_dir import fig_path
 
-GA   = "/scratch/marzii/imitation_runs/gail/lunarlander"
-BCWS = "/scratch/marzii/imitation_runs/bc_warmstart/lunarlander"
+GA   = "/scratch/marzii/learning-from-demonstrations/imitation_runs/gail/lunarlander"
+BCWS = "/scratch/marzii/learning-from-demonstrations/imitation_runs/bc_warmstart/lunarlander"
 PPO_EVAL = "/home/marzii/learning-from-demonstrations/experiments/ppo_baseline_eval_2026-09-02.json"
 
 def gail(j):     # eval_data/agent_alignment.json carries the 50 episode returns

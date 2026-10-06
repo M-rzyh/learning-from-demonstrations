@@ -31,7 +31,7 @@ matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 import matplotlib.transforms
 
-RUNS = Path("/scratch/marzii/imitation_runs/bc/lunarlander")
+RUNS = Path("/scratch/marzii/learning-from-demonstrations/imitation_runs/bc/lunarlander")
 IDX = Path("/home/marzii/learning-from-demonstrations/experiments/BC")
 OUT_DEFAULT = Path("/home/marzii/learning-from-demonstrations/figures/bc_count_axis_expert_vs_human.png")
 

@@ -22,7 +22,7 @@ import numpy as np
 from tensorboard.backend.event_processing.event_accumulator import EventAccumulator
 
 
-GAIL_ROOT = "/scratch/marzii/imitation_runs/gail/lunarlander"
+GAIL_ROOT = "/scratch/marzii/learning-from-demonstrations/imitation_runs/gail/lunarlander"
 
 
 def load_curve(job_id):

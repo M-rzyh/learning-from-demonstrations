@@ -28,7 +28,7 @@ cd /home/marzii/learning-from-demonstrations
 
 BUDGETS=${BUDGETS:-"5 10 50 100 200"}
 SEEDS=${SEEDS:-"0 1 2 3 4"}
-DEMO_PATH=${DEMO_PATH:-/scratch/marzii/imitation_runs/demos/human_baseline/record_human_demos/lunarlander/session_3}
+DEMO_PATH=${DEMO_PATH:-/scratch/marzii/learning-from-demonstrations/imitation_runs/demos/human_baseline/record_human_demos/lunarlander/session_3}
 INDEX=${INDEX:-/home/marzii/learning-from-demonstrations/experiments/BC/bc_h6_matched_$(date +%Y-%m-%d).csv}
 
 [[ -d "$DEMO_PATH" ]] || { echo "missing demo set: $DEMO_PATH" 1>&2; exit 1; }

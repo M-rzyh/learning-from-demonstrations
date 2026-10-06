@@ -3,7 +3,7 @@ from stable_baselines3 import PPO
 import gymnasium as gym
 import numpy as np
 
-model_path = "/scratch/marzii/imitation_runs/expert_ppo_walker_3000000/4258333/ppo_walker.zip"
+model_path = "/scratch/marzii/learning-from-demonstrations/imitation_runs/expert_ppo_walker_3000000/4258333/ppo_walker.zip"
 env = gym.make("Walker2d-v4")
 model = PPO.load(model_path, device="cuda")
 

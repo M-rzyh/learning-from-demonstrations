@@ -68,7 +68,7 @@ def parse_args():
     p.add_argument("--runs_root", type=Path, default=RUNS)
     p.add_argument("--index_dir", type=Path, default=IDX)
     p.add_argument("--ppo_baseline_root", type=Path,
-                   default=Path("/scratch/marzii/imitation_runs/ppo_truereward_matched/lunarlander"))
+                   default=Path("/scratch/marzii/learning-from-demonstrations/imitation_runs/ppo_truereward_matched/lunarlander"))
     p.add_argument("--no_baseline", action="store_true")
     p.add_argument("--smooth", type=int, default=5,
                    help="centred rolling mean over this many points, per seed "

@@ -20,10 +20,10 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from plot_2feat_learning_curves import discover, curve, smooth, GA, TOTAL_TIMESTEPS, ROUNDS_FULL
 
 BC_IDX = "/home/marzii/learning-from-demonstrations/experiments/GAIL/../BC/bc_warmstart_ext700_2026-08-13.csv"
-BC_LOGS = "/scratch/marzii/imitation_runs/_slurm_logs/bc_warmstart/lunarlander"
-BW = "/scratch/marzii/imitation_runs/bc_warmstart/lunarlander"
+BC_LOGS = "/scratch/marzii/learning-from-demonstrations/imitation_runs/_slurm_logs/bc_warmstart/lunarlander"
+BW = "/scratch/marzii/learning-from-demonstrations/imitation_runs/bc_warmstart/lunarlander"
 EXP15_IDX = "/home/marzii/learning-from-demonstrations/experiments/GAIL/gail_expert15_cap1000_2026-08-03.csv"
-PPO_DIR = "/scratch/marzii/imitation_runs/ppo_baseline/lunarlander"   # 10-seed PPO-from-scratch batch (2026-09-02)
+PPO_DIR = "/scratch/marzii/learning-from-demonstrations/imitation_runs/ppo_baseline/lunarlander"   # 10-seed PPO-from-scratch batch (2026-09-02)
 
 
 def bc_curve(job):

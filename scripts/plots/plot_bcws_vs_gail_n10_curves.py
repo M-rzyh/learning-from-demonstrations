@@ -39,9 +39,9 @@ from tensorboard.backend.event_processing.event_accumulator import EventAccumula
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from figures_dir import fig_path
 
-GA       = "/scratch/marzii/imitation_runs/gail/lunarlander"
-PPO_ROOT = "/scratch/marzii/imitation_runs/ppo_baseline/lunarlander"
-BCWS_LOG = "/scratch/marzii/imitation_runs/_slurm_logs/bc_warmstart/lunarlander"
+GA       = "/scratch/marzii/learning-from-demonstrations/imitation_runs/gail/lunarlander"
+PPO_ROOT = "/scratch/marzii/learning-from-demonstrations/imitation_runs/ppo_baseline/lunarlander"
+BCWS_LOG = "/scratch/marzii/learning-from-demonstrations/imitation_runs/_slurm_logs/bc_warmstart/lunarlander"
 TAG      = "mean/gen/rollout/ep_rew_mean"      # true env return, NOT ep_rew_wrapped_mean
 PPO_TAG  = "rollout/ep_rew_mean"               # SB3's own tag in the train_rl runs
 TOTAL_TIMESTEPS = 1_000_000

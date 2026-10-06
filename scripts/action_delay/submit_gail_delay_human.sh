@@ -20,9 +20,9 @@ case "$K" in 0|5|10) ;; *) echo "ERROR: k must be 0, 5 or 10 for GAIL (got '$K';
 case "$ARM" in flagged|first15|all) ;; *) echo "ERROR: ARM must be flagged|first15|all" 1>&2; exit 1 ;; esac
 
 if [[ "$K" == "0" ]]; then
-  ROOT=/scratch/marzii/imitation_runs/lander_vanish/demos/human/vanish_p0
+  ROOT=/scratch/marzii/learning-from-demonstrations/imitation_runs/lander_vanish/demos/human/vanish_p0
 else
-  ROOT=/scratch/marzii/imitation_runs/action_delay/demos/human/delay_k${K}
+  ROOT=/scratch/marzii/learning-from-demonstrations/imitation_runs/action_delay/demos/human/delay_k${K}
 fi
 case "$ARM" in
   flagged) SUB=session_1_flagged ;;

@@ -19,12 +19,12 @@ import numpy as np
 import matplotlib; matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 
-DR = "/scratch/marzii/imitation_runs/demos/human_baseline/record_human_demos"
-GA = "/scratch/marzii/imitation_runs/gail/lunarlander"
-LOGS = "/scratch/marzii/imitation_runs/_slurm_logs/gail/lunarlander"
-PT_RUNS = "/scratch/marzii/PT/lunarlander/grid_mixture_ms"
-POOL = "/scratch/marzii/PT/lunarlander/human_pref_clean/labels_n1000_clean.pkl"
-LBL = "/scratch/marzii/PT/human_label/human"
+DR = "/scratch/marzii/learning-from-demonstrations/imitation_runs/demos/human_baseline/record_human_demos"
+GA = "/scratch/marzii/learning-from-demonstrations/imitation_runs/gail/lunarlander"
+LOGS = "/scratch/marzii/learning-from-demonstrations/imitation_runs/_slurm_logs/gail/lunarlander"
+PT_RUNS = "/scratch/marzii/learning-from-preferences/pt/lunarlander/grid_mixture_ms"
+POOL = "/scratch/marzii/learning-from-preferences/pt/lunarlander/human_pref_clean/labels_n1000_clean.pkl"
+LBL = "/scratch/marzii/learning-from-preferences/pt/human_label/human"
 FEAT = f"{DR}/lunarlander/session_3_ext700_features.csv"
 SESSIONS = [("lunarlander/session_3", 200), ("lunarlander/session_4", 100),
             ("lunarlander_batch5/session_1", 399)]

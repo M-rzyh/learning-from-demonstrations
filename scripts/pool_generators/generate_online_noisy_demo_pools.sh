@@ -4,7 +4,7 @@
 #SBATCH --cpus-per-task=4
 #SBATCH --mem=12G
 #SBATCH --time=05:00:00
-#SBATCH --output=/scratch/marzii/imitation_runs/gen_online_noise_%j.log
+#SBATCH --output=/scratch/marzii/learning-from-demonstrations/imitation_runs/gen_online_noise_%j.log
 #
 # Unified ONLINE action-noise demo-pool generator.
 #
@@ -58,17 +58,17 @@ esac
 # --- expert + collector + output root, per (FS, MODE) ---
 if [[ "$FS" == "1" ]]; then
   [[ "$MODE" == "coin_uniform" ]] || { echo "ERROR: FS=1 supports only MODE=coin_uniform (variants are nonFS-only)." 1>&2; exit 1; }
-  POLICY=/scratch/marzii/imitation_runs/expert/lunarlander/4720242/policies/final/model.zip
-  OUTROOT=/scratch/marzii/imitation_runs/demos/noisy_demos_online_FS/lunarlander/expert_4720242
+  POLICY=/scratch/marzii/learning-from-demonstrations/imitation_runs/expert/lunarlander/4720242/policies/final/model.zip
+  OUTROOT=/scratch/marzii/learning-from-demonstrations/imitation_runs/demos/noisy_demos_online_FS/lunarlander/expert_4720242
   SCRIPT=$ORIG; MODEARG=()
 else
-  POLICY=/scratch/marzii/imitation_runs/expert/lunarlander/4615187/policies/final/model.zip
+  POLICY=/scratch/marzii/learning-from-demonstrations/imitation_runs/expert/lunarlander/4615187/policies/final/model.zip
   if [[ "$MODE" == "coin_uniform" ]]; then
     # original collector reproduces the EXACT existing nonFS pools (byte-identical default)
-    OUTROOT=/scratch/marzii/imitation_runs/demos/noisy_demos_online_nonFS/lunarlander/expert_4615187
+    OUTROOT=/scratch/marzii/learning-from-demonstrations/imitation_runs/demos/noisy_demos_online_nonFS/lunarlander/expert_4615187
     SCRIPT=$ORIG; MODEARG=()
   else
-    OUTROOT=/scratch/marzii/imitation_runs/demos/noise_variants/demos/${MODE}
+    OUTROOT=/scratch/marzii/learning-from-demonstrations/imitation_runs/demos/noise_variants/demos/${MODE}
     SCRIPT=$VARIANTS; MODEARG=(--noise-mode "$MODE")
   fi
 fi

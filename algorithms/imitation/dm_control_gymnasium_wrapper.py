@@ -4,7 +4,7 @@ This module patches dm_control's mjbindings size table to ignore fields that
 are not present in the installed MuJoCo build. This avoids crashes such as:
 AttributeError: 'MjModel' object has no attribute 'B_colind'.
 
-It then loads the original wrapper from /scratch/marzii/imitation_runs and
+It then loads the original wrapper from /scratch/marzii/learning-from-demonstrations/imitation_runs and
 re-exports its public symbols.
 """
 from __future__ import annotations
@@ -27,7 +27,7 @@ def _patch_sizes() -> None:
 
 
 def _load_original() -> ModuleType:
-    path = "/scratch/marzii/imitation_runs/dm_control_gymnasium_wrapper.py"
+    path = "/scratch/marzii/learning-from-demonstrations/imitation_runs/dm_control_gymnasium_wrapper.py"
     spec = importlib.util.spec_from_file_location("_dm_control_gymnasium_wrapper_orig", path)
     if spec is None or spec.loader is None:
         raise ImportError(f"Unable to load original wrapper at {path}")

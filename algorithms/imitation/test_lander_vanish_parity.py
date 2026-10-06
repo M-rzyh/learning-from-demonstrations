@@ -30,7 +30,7 @@ sys.path.insert(0, "/home/marzii/learning-from-preferences/algorithms/preference
 import lander_vanish as live                                    # noqa: E402  (IRL3, live)
 import blank_lander_videos as ref                               # noqa: E402  (PT, reference)
 
-CLIP = ("/scratch/marzii/PT/lunarlander/frame_blanking/pt_human/videos_human_n350_clean"
+CLIP = ("/scratch/marzii/learning-from-preferences/pt/lunarlander/frame_blanking/pt_human/videos_human_n350_clean"
         "/batch_000/pair_000/seg_A.mp4")
 
 

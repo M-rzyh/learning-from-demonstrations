@@ -121,7 +121,7 @@ def main():
     p.add_argument("run_dir")
     p.add_argument("--n-eps", type=int, default=100)
     p.add_argument("--optimal-ref",
-                   default="/scratch/marzii/imitation_runs/expert/lunarlander/4720242/policies/final/model.zip")
+                   default="/scratch/marzii/learning-from-demonstrations/imitation_runs/expert/lunarlander/4720242/policies/final/model.zip")
     args = p.parse_args()
     run_eval(args.run_dir, args.n_eps, args.optimal_ref)
 

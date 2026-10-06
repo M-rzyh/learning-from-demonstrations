@@ -77,7 +77,7 @@ from matplotlib.ticker import MaxNLocator
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from demo_features import traj_features                      # read-only reuse of the outcome verdict
 
-POOL = ("/scratch/marzii/imitation_runs/demos/human_baseline/record_human_demos/"
+POOL = ("/scratch/marzii/learning-from-demonstrations/imitation_runs/demos/human_baseline/record_human_demos/"
         "lunarlander/session_3_ext700")
 HORIZON = 1000            # env step cap; padding target h
 

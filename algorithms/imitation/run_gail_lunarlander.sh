@@ -1,8 +1,8 @@
 #!/bin/bash
 #SBATCH --job-name=gail-lunarlander
 #SBATCH --account=aip-mtaylor3
-#SBATCH --output=/scratch/marzii/imitation_runs/_slurm_logs/gail/lunarlander/%x_%j.out
-#SBATCH --error=/scratch/marzii/imitation_runs/_slurm_logs/gail/lunarlander/%x_%j.err
+#SBATCH --output=/scratch/marzii/learning-from-demonstrations/imitation_runs/_slurm_logs/gail/lunarlander/%x_%j.out
+#SBATCH --error=/scratch/marzii/learning-from-demonstrations/imitation_runs/_slurm_logs/gail/lunarlander/%x_%j.err
 #SBATCH --time=00:30:00
 #SBATCH --gres=gpu:l40s:1
 #SBATCH --cpus-per-task=8
@@ -10,7 +10,7 @@
 
 set -euo pipefail
 
-mkdir -p /scratch/marzii/imitation_runs/_slurm_logs/gail/lunarlander
+mkdir -p /scratch/marzii/learning-from-demonstrations/imitation_runs/_slurm_logs/gail/lunarlander
 
 # ---- required env setup ----
 module --force purge
@@ -49,7 +49,7 @@ PY
 #   bash collect_human_demos_lunarlander.sh
 
 DEMO_SOURCE=${DEMO_SOURCE:-local}
-DEMO_PATH=${DEMO_PATH:-"/scratch/marzii/imitation_runs/expert/lunarlander/4615187/rollouts/final.npz"}
+DEMO_PATH=${DEMO_PATH:-"/scratch/marzii/learning-from-demonstrations/imitation_runs/expert/lunarlander/4615187/rollouts/final.npz"}
 N_DEMOS=${N_DEMOS:-50} # default: 50
 DEMO_BATCH_SIZE=${DEMO_BATCH_SIZE:-1024} # default: 1024
 SEED=${SEED:-1}
@@ -98,7 +98,7 @@ case "$ALGO" in
   airl) ALGO_DIR="AIRL" ;;
   *)    ALGO_DIR="$ALGO" ;;
 esac
-LOG_ROOT="/scratch/marzii/imitation_runs/$ALGO_DIR"
+LOG_ROOT="/scratch/marzii/learning-from-demonstrations/imitation_runs/$ALGO_DIR"
 RUN_DIR="$LOG_ROOT/$ENV_NAME/${SLURM_JOB_ID:-local}"
 mkdir -p "$RUN_DIR"
 echo "run dir:         $RUN_DIR"
@@ -158,8 +158,8 @@ python train_adversarial_launcher.py "$ALGO" \
 # ---- post-training evaluation: 50 rollouts + action alignment ----
 # Optional: skip with SKIP_EVAL=1.
 SKIP_EVAL=${SKIP_EVAL:-0}
-# OPTIMAL_REF=${OPTIMAL_REF:-"/scratch/marzii/imitation_runs/expert/lunarlander/4720242/policies/final/model.zip"}
-OPTIMAL_REF=${OPTIMAL_REF:-"/scratch/marzii/imitation_runs/expert/lunarlander/4615187/policies/final/model.zip"}
+# OPTIMAL_REF=${OPTIMAL_REF:-"/scratch/marzii/learning-from-demonstrations/imitation_runs/expert/lunarlander/4720242/policies/final/model.zip"}
+OPTIMAL_REF=${OPTIMAL_REF:-"/scratch/marzii/learning-from-demonstrations/imitation_runs/expert/lunarlander/4615187/policies/final/model.zip"}
 EVAL_DATA_DIR="$RUN_DIR/eval_data"
 N_EVAL_EPISODES=${N_EVAL_EPISODES:-50}
 

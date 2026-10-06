@@ -8,12 +8,12 @@ set -euo pipefail
 
 PYTHON=/scratch/marzii/envs/imitation-gail/bin/python
 SCRIPT=/home/marzii/learning-from-demonstrations/scripts/add_action_noise.py
-INPUT=/scratch/marzii/imitation_runs/expert/lunarlander/4615187/rollouts/perframe_demos_150_holdK1
-# INPUTFS=/scratch/marzii/imitation_runs/expert/lunarlander/4720242/rollouts/perframe_demos_150
-OPTIMAL=/scratch/marzii/imitation_runs/expert/lunarlander/4615187/policies/final/model.zip
-# OPTIMAL_FS=/scratch/marzii/imitation_runs/expert/lunarlander/4720242/policies/final/model.zip
-OUTROOT=/scratch/marzii/imitation_runs/demos/noisy_demos/lunarlander/expert_4615187
-# OUTROOT_FS=/scratch/marzii/imitation_runs/demos/noisy_demos/lunarlander/expert_4720242
+INPUT=/scratch/marzii/learning-from-demonstrations/imitation_runs/expert/lunarlander/4615187/rollouts/perframe_demos_150_holdK1
+# INPUTFS=/scratch/marzii/learning-from-demonstrations/imitation_runs/expert/lunarlander/4720242/rollouts/perframe_demos_150
+OPTIMAL=/scratch/marzii/learning-from-demonstrations/imitation_runs/expert/lunarlander/4615187/policies/final/model.zip
+# OPTIMAL_FS=/scratch/marzii/learning-from-demonstrations/imitation_runs/expert/lunarlander/4720242/policies/final/model.zip
+OUTROOT=/scratch/marzii/learning-from-demonstrations/imitation_runs/demos/noisy_demos/lunarlander/expert_4615187
+# OUTROOT_FS=/scratch/marzii/learning-from-demonstrations/imitation_runs/demos/noisy_demos/lunarlander/expert_4720242
 
 mkdir -p "$OUTROOT"
 

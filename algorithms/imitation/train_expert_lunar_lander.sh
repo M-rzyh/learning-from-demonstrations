@@ -5,12 +5,12 @@
 #SBATCH --cpus-per-task=8
 #SBATCH --mem=16G
 #SBATCH --time=01:30:00
-#SBATCH --output=/scratch/marzii/imitation_runs/_slurm_logs/expert/lunarlander/%x_%j.out
-#SBATCH --error=/scratch/marzii/imitation_runs/_slurm_logs/expert/lunarlander/%x_%j.err
+#SBATCH --output=/scratch/marzii/learning-from-demonstrations/imitation_runs/_slurm_logs/expert/lunarlander/%x_%j.out
+#SBATCH --error=/scratch/marzii/learning-from-demonstrations/imitation_runs/_slurm_logs/expert/lunarlander/%x_%j.err
 
 set -euo pipefail
 
-mkdir -p /scratch/marzii/imitation_runs/_slurm_logs/expert/lunarlander
+mkdir -p /scratch/marzii/learning-from-demonstrations/imitation_runs/_slurm_logs/expert/lunarlander
 
 # ---- required env setup ----
 module --force purge
@@ -88,7 +88,7 @@ export JOB_ID="${SLURM_JOB_ID}"
 # which is provenance for the demo pools (4615187 in particular is referenced by
 # explicit path from the demo collectors and from run_gail_lunarlander.sh OPTIMAL_REF).
 ENV_NAME="lunarlander"
-LOG_ROOT=${LOG_ROOT:-"/scratch/marzii/imitation_runs/expert"}
+LOG_ROOT=${LOG_ROOT:-"/scratch/marzii/learning-from-demonstrations/imitation_runs/expert"}
 RUN_DIR="$LOG_ROOT/$ENV_NAME/$JOB_ID"
 echo "Log root:   $LOG_ROOT"
 mkdir -p "$RUN_DIR"

@@ -25,10 +25,10 @@ from plot_2feat_learning_curves import discover, LABEL, GA
 
 DEMO_SEC = 54 * 60 / 300                      # 10.8 s per demo
 SERIES   = ["only", "ad", "adxy", "satpad", "satad", "satad8"]
-POOL     = "/scratch/marzii/PT/lunarlander/human_pref_clean/labels_n1000_clean.pkl"
-LBL_OLD  = "/scratch/marzii/PT/human_label/human"          # raw web codes (broken)
-LBL_NEW  = "/scratch/marzii/PT/human_label/human_fixed"    # translated (correct)
-PT_RUNS  = "/scratch/marzii/PT/lunarlander/grid_mixture_ms"
+POOL     = "/scratch/marzii/learning-from-preferences/pt/lunarlander/human_pref_clean/labels_n1000_clean.pkl"
+LBL_OLD  = "/scratch/marzii/learning-from-preferences/pt/human_label/human"          # raw web codes (broken)
+LBL_NEW  = "/scratch/marzii/learning-from-preferences/pt/human_label/human_fixed"    # translated (correct)
+PT_RUNS  = "/scratch/marzii/learning-from-preferences/pt/lunarlander/grid_mixture_ms"
 SEEDS    = range(10)
 
 

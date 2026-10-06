@@ -9,7 +9,7 @@ from collections import defaultdict
 import matplotlib; matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 
-GA = "/scratch/marzii/imitation_runs/gail/lunarlander"
+GA = "/scratch/marzii/learning-from-demonstrations/imitation_runs/gail/lunarlander"
 EXP = "/home/marzii/learning-from-demonstrations/experiments"
 OUT = "/home/marzii/learning-from-demonstrations/figures/gail_ext700_9feat_vs_2feat.png"
 C9, C2 = "#2ca02c", "#d62728"

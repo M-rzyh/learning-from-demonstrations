@@ -13,7 +13,7 @@ import csv
 import json
 from pathlib import Path
 
-GAIL_ROOT = Path("/scratch/marzii/imitation_runs/gail/lunarlander")
+GAIL_ROOT = Path("/scratch/marzii/learning-from-demonstrations/imitation_runs/gail/lunarlander")
 
 
 def load_json(p):

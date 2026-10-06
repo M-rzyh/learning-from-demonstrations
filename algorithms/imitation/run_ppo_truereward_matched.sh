@@ -5,8 +5,8 @@
 #SBATCH --cpus-per-task=8
 #SBATCH --mem=16G
 #SBATCH --time=01:30:00
-#SBATCH --output=/scratch/marzii/imitation_runs/_slurm_logs/ppo_truereward_matched/lunarlander/%x_%j.out
-#SBATCH --error=/scratch/marzii/imitation_runs/_slurm_logs/ppo_truereward_matched/lunarlander/%x_%j.err
+#SBATCH --output=/scratch/marzii/learning-from-demonstrations/imitation_runs/_slurm_logs/ppo_truereward_matched/lunarlander/%x_%j.out
+#SBATCH --error=/scratch/marzii/learning-from-demonstrations/imitation_runs/_slurm_logs/ppo_truereward_matched/lunarlander/%x_%j.err
 #
 # GROUND-TRUTH-REWARD PPO BASELINE, matched to the GAIL generator (E4, cap-1000
 # count axis). Same learner, same budget, same evaluation; the ONLY difference is
@@ -28,7 +28,7 @@
 # no VecNormalize anywhere).
 #
 # Outputs (never touches expert/ or ppo_baseline/):
-#   /scratch/marzii/imitation_runs/ppo_truereward_matched/lunarlander/<jobid>/
+#   /scratch/marzii/learning-from-demonstrations/imitation_runs/ppo_truereward_matched/lunarlander/<jobid>/
 #       policies/final/model.zip   final policy
 #       eval_data/                 50-episode deterministic eval, GAIL protocol
 #       monitor/, log/, rollouts/
@@ -37,7 +37,7 @@
 
 set -euo pipefail
 
-mkdir -p /scratch/marzii/imitation_runs/_slurm_logs/ppo_truereward_matched/lunarlander
+mkdir -p /scratch/marzii/learning-from-demonstrations/imitation_runs/_slurm_logs/ppo_truereward_matched/lunarlander
 
 # ---- required env setup (identical to train_expert_lunar_lander.sh) ----
 module --force purge
@@ -68,7 +68,7 @@ ENV_MAX_EP_STEPS=${ENV_MAX_EP_STEPS:-1000}
 TOTAL_STEPS=${TOTAL_STEPS:-999424}
 N_EVAL_EPISODES=${N_EVAL_EPISODES:-50}
 
-LOG_ROOT=${LOG_ROOT:-/scratch/marzii/imitation_runs/ppo_truereward_matched}
+LOG_ROOT=${LOG_ROOT:-/scratch/marzii/learning-from-demonstrations/imitation_runs/ppo_truereward_matched}
 JOB_ID="${SLURM_JOB_ID:-manual}"
 RUN_DIR="$LOG_ROOT/lunarlander/$JOB_ID"
 mkdir -p "$RUN_DIR"

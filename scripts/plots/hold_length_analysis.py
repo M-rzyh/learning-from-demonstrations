@@ -21,9 +21,9 @@ ACTION_NAMES = {0: "noop", 1: "left", 2: "main", 3: "right"}
 FPS = 30
 
 GROUPS = {
-    "Human session 1": ("/scratch/marzii/imitation_runs/human_demos/lunarlander/session_1", None),
-    "Human session 2": ("/scratch/marzii/imitation_runs/human_demos/lunarlander/session_2", None),
-    "Expert 4615187 (first 50)": ("/scratch/marzii/imitation_runs/expert/lunarlander/4615187/rollouts/final.npz", 50),
+    "Human session 1": ("/scratch/marzii/learning-from-demonstrations/imitation_runs/human_demos/lunarlander/session_1", None),
+    "Human session 2": ("/scratch/marzii/learning-from-demonstrations/imitation_runs/human_demos/lunarlander/session_2", None),
+    "Expert 4615187 (first 50)": ("/scratch/marzii/learning-from-demonstrations/imitation_runs/expert/lunarlander/4615187/rollouts/final.npz", 50),
 }
 
 

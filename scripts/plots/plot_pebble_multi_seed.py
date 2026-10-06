@@ -26,9 +26,9 @@ import numpy as np
 
 
 PEBBLE_ROOTS = [
-    "/scratch/marzii/compare_runs/pebble/lunarlander",
-    "/scratch/marzii/compare_runs/pebble/lunarlander_human",
-    "/scratch/marzii/compare_runs/pebble/lunarlander_web",
+    "/scratch/marzii/learning-from-preferences/pebble/lunarlander",
+    "/scratch/marzii/learning-from-preferences/pebble/lunarlander_human",
+    "/scratch/marzii/learning-from-preferences/pebble/lunarlander_web",
 ]
 
 

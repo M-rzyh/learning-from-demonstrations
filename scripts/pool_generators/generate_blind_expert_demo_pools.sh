@@ -4,7 +4,7 @@
 #SBATCH --cpus-per-task=4
 #SBATCH --mem=12G
 #SBATCH --time=03:00:00
-#SBATCH --output=/scratch/marzii/imitation_runs/frame_blanking/demos/blind_expert/generate_%j.log
+#SBATCH --output=/scratch/marzii/learning-from-demonstrations/imitation_runs/frame_blanking/demos/blind_expert/generate_%j.log
 #
 # Generate BLIND-EXPERT demos (frame-blanking difficulty, Exp 1) with the
 # non-frame-skip expert 4615187. On blanked frames the expert is fed a zeroed
@@ -15,9 +15,9 @@ set -euo pipefail
 
 PYTHON=/scratch/marzii/envs/imitation-gail/bin/python
 SCRIPT=/home/marzii/learning-from-demonstrations/scripts/collect_blind_expert_demos.py
-POLICY=/scratch/marzii/imitation_runs/expert/lunarlander/4615187/policies/final/model.zip
+POLICY=/scratch/marzii/learning-from-demonstrations/imitation_runs/expert/lunarlander/4615187/policies/final/model.zip
 # block b=10 demos live in a separate subdir; the earlier stochastic pools are left intact.
-OUTROOT=/scratch/marzii/imitation_runs/frame_blanking/demos/blind_expert/block
+OUTROOT=/scratch/marzii/learning-from-demonstrations/imitation_runs/frame_blanking/demos/blind_expert/block
 mkdir -p "$OUTROOT"
 
 declare -A PROB=( [0]=0.0 [25]=0.25 [50]=0.5 [75]=0.75 )

@@ -31,7 +31,7 @@ cd /home/marzii/learning-from-demonstrations
 BUDGETS=${BUDGETS:-"10 50 100 250 699"}
 SEEDS=${SEEDS:-"0 1 2 3 4 5 6 7 8 9"}
 SEEDS_699=${SEEDS_699:-"0 1 2 3 4"}     # C1 only ran 5 seeds at the full pool
-DEMO_ROOT=${DEMO_ROOT:-/scratch/marzii/imitation_runs/demos/human_baseline/record_human_demos/lunarlander}
+DEMO_ROOT=${DEMO_ROOT:-/scratch/marzii/learning-from-demonstrations/imitation_runs/demos/human_baseline/record_human_demos/lunarlander}
 INDEX=${INDEX:-/home/marzii/learning-from-demonstrations/experiments/BC/bc_c1_matched_$(date +%Y-%m-%d).csv}
 
 if [[ ! -f "$INDEX" ]]; then

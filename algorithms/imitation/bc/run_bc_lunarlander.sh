@@ -1,8 +1,8 @@
 #!/bin/bash
 #SBATCH --job-name=bc-lunarlander
 #SBATCH --account=aip-mtaylor3
-#SBATCH --output=/scratch/marzii/imitation_runs/_slurm_logs/bc/lunarlander/%x_%j.out
-#SBATCH --error=/scratch/marzii/imitation_runs/_slurm_logs/bc/lunarlander/%x_%j.err
+#SBATCH --output=/scratch/marzii/learning-from-demonstrations/imitation_runs/_slurm_logs/bc/lunarlander/%x_%j.out
+#SBATCH --error=/scratch/marzii/learning-from-demonstrations/imitation_runs/_slurm_logs/bc/lunarlander/%x_%j.err
 #SBATCH --time=00:30:00
 #SBATCH --gres=gpu:l40s:1
 #SBATCH --cpus-per-task=8
@@ -19,7 +19,7 @@
 #
 #   DEMO_PATH=<demo dir> N_DEMOS=15 SEED=0 sbatch run_bc_lunarlander.sh
 set -euo pipefail
-mkdir -p /scratch/marzii/imitation_runs/_slurm_logs/bc/lunarlander
+mkdir -p /scratch/marzii/learning-from-demonstrations/imitation_runs/_slurm_logs/bc/lunarlander
 
 module --force purge
 export PYTHONNOUSERSITE=1
@@ -32,7 +32,7 @@ export PYTHONPATH="/home/marzii/learning-from-demonstrations/algorithms/imitatio
 cd /home/marzii/learning-from-demonstrations/algorithms/imitation
 
 DEMO_SOURCE=${DEMO_SOURCE:-local}
-DEMO_PATH=${DEMO_PATH:-"/scratch/marzii/imitation_runs/expert/lunarlander/4615187/rollouts/final.npz"}
+DEMO_PATH=${DEMO_PATH:-"/scratch/marzii/learning-from-demonstrations/imitation_runs/expert/lunarlander/4615187/rollouts/final.npz"}
 N_DEMOS=${N_DEMOS:-15}
 SEED=${SEED:-0}
 ENV_GYM_ID=${ENV_GYM_ID:-"LunarLander-v2"}
@@ -46,7 +46,7 @@ N_EVAL_EPISODES=${N_EVAL_EPISODES:-50}
 SHUFFLE=${SHUFFLE:-0}
 SHUFFLE_SEED=${SHUFFLE_SEED:-$SEED}
 
-LOG_ROOT="/scratch/marzii/imitation_runs/bc"
+LOG_ROOT="/scratch/marzii/learning-from-demonstrations/imitation_runs/bc"
 RUN_DIR="$LOG_ROOT/lunarlander/${SLURM_JOB_ID:-local}"
 mkdir -p "$RUN_DIR"
 echo "DEMO_PATH=$DEMO_PATH  N_DEMOS=$N_DEMOS  SEED=$SEED  cap=$ENV_MAX_EP_STEPS  RUN_DIR=$RUN_DIR"

@@ -15,9 +15,9 @@ set -euo pipefail
 
 DATE=$(date +%Y-%m-%d)
 OUT=/home/marzii/learning-from-demonstrations/experiments/GAIL/gail_grid_noise_N15_${DATE}.csv
-LOGDIR=/scratch/marzii/imitation_runs/_slurm_logs/gail/lunarlander
-GAIL=/scratch/marzii/imitation_runs/gail/lunarlander
-NONFS=/scratch/marzii/imitation_runs/demos/noisy_demos_online_nonFS/lunarlander/expert_4615187
+LOGDIR=/scratch/marzii/learning-from-demonstrations/imitation_runs/_slurm_logs/gail/lunarlander
+GAIL=/scratch/marzii/learning-from-demonstrations/imitation_runs/gail/lunarlander
+NONFS=/scratch/marzii/learning-from-demonstrations/imitation_runs/demos/noisy_demos_online_nonFS/lunarlander/expert_4615187
 
 python3 - "$LOGDIR" "$GAIL" "$NONFS" "$OUT" <<'EOF'
 import glob, os, re, sys

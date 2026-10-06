@@ -1,8 +1,8 @@
 #!/bin/bash
 #SBATCH --job-name=re-eval-gail
 #SBATCH --account=aip-mtaylor3
-#SBATCH --output=/scratch/marzii/imitation_runs/_slurm_logs/re_eval_%A_%a.out
-#SBATCH --error=/scratch/marzii/imitation_runs/_slurm_logs/re_eval_%A_%a.err
+#SBATCH --output=/scratch/marzii/learning-from-demonstrations/imitation_runs/_slurm_logs/re_eval_%A_%a.out
+#SBATCH --error=/scratch/marzii/learning-from-demonstrations/imitation_runs/_slurm_logs/re_eval_%A_%a.err
 #SBATCH --time=02:00:00
 #SBATCH --cpus-per-task=2
 #SBATCH --mem=4G

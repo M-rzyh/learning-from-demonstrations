@@ -13,11 +13,11 @@ Also computes demo_alignment.json after collection.
 
 Usage:
     python collect_fs_expert_perframe_demos_online_noise.py \\
-        --policy /scratch/marzii/imitation_runs/expert/lunarlander/4720242/policies/final/model.zip \\
-        --output /scratch/marzii/imitation_runs/demos/noisy_demos_online/lunarlander/expert_4720242/n100_p25_s0 \\
+        --policy /scratch/marzii/learning-from-demonstrations/imitation_runs/expert/lunarlander/4720242/policies/final/model.zip \\
+        --output /scratch/marzii/learning-from-demonstrations/imitation_runs/demos/noisy_demos_online/lunarlander/expert_4720242/n100_p25_s0 \\
         --n-episodes 100 --hold-k 10 --max-frames 400 \\
         --noise-prob 0.25 --noise-seed 0 \\
-        --optimal-policy /scratch/marzii/imitation_runs/expert/lunarlander/4720242/policies/final/model.zip
+        --optimal-policy /scratch/marzii/learning-from-demonstrations/imitation_runs/expert/lunarlander/4720242/policies/final/model.zip
 """
 
 import argparse

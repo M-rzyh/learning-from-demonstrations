@@ -56,7 +56,7 @@ CHECK=${CHECK:-0}
 DATE=$(date +%Y-%m-%d)
 INDEX=${INDEX:-/home/marzii/learning-from-demonstrations/experiments/GAIL/gail_grid_noise_N${N}_${DATE}.csv}
 
-RUNROOT=/scratch/marzii/imitation_runs
+RUNROOT=/scratch/marzii/learning-from-demonstrations/imitation_runs
 
 # ---- validate the option combination ----
 case "$PIPELINE" in online|offline) ;; *) echo "ERROR: PIPELINE must be online|offline" 1>&2; exit 1;; esac

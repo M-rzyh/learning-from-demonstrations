@@ -28,7 +28,7 @@ cd /home/marzii/learning-from-demonstrations
 
 BUDGETS=${BUDGETS:-"1 10 50 100 250 400"}
 SEEDS=${SEEDS:-"0 1 2 3 4 5 6 7 8 9"}
-DEMO_PATH=${DEMO_PATH:-/scratch/marzii/imitation_runs/expert/lunarlander/4615187/rollouts/perframe_demos_500_holdK1}
+DEMO_PATH=${DEMO_PATH:-/scratch/marzii/learning-from-demonstrations/imitation_runs/expert/lunarlander/4615187/rollouts/perframe_demos_500_holdK1}
 INDEX=${INDEX:-/home/marzii/learning-from-demonstrations/experiments/BC/bc_e4_matched_$(date +%Y-%m-%d).csv}
 
 [[ -d "$DEMO_PATH" ]] || { echo "missing expert pool: $DEMO_PATH" 1>&2; exit 1; }

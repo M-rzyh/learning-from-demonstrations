@@ -24,10 +24,10 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import plot_count_axis_human_pt_vs_gail_retonly as H
 
 GAIL_CSV = "/home/marzii/learning-from-demonstrations/experiments/GAIL/gail_grid_count_2026-06-18.csv"
-MS = "/scratch/marzii/PT/lunarlander/grid_mixture_ms"
+MS = "/scratch/marzii/learning-from-preferences/pt/lunarlander/grid_mixture_ms"
 PAIR_SEC = 9.074
 SEC_PER_STEP = 0.05008          # 133.2 min of human play / 159,546 env steps (20 steps/s)
-EXPERT_POOL = "/scratch/marzii/imitation_runs/demos/noisy_demos/lunarlander/expert_4615187/n100_p0_clean"
+EXPERT_POOL = "/scratch/marzii/learning-from-demonstrations/imitation_runs/demos/noisy_demos/lunarlander/expert_4615187/n100_p0_clean"
 GAIL_C, PT_C = "#2ca02c", "#1f77b4"
 
 

@@ -1,7 +1,7 @@
 #!/bin/bash
 #SBATCH --array=1-10
 # Avoid cluttering the root directory with log files:
-#SBATCH --output=/scratch/marzii/imitation_runs/_slurm_logs/benchmark/%A_%a.out
+#SBATCH --output=/scratch/marzii/learning-from-demonstrations/imitation_runs/_slurm_logs/benchmark/%A_%a.out
 #SBATCH --cpus-per-task=8
 #SBATCH --gpus=0
 #SBATCH --mem=8gb

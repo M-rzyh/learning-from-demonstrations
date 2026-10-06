@@ -5,12 +5,12 @@
 #SBATCH --cpus-per-task=8
 #SBATCH --mem=16G
 #SBATCH --time=01:00:00
-#SBATCH --output=/scratch/marzii/imitation_runs/_slurm_logs/demos/mujoco/%x_%j.out
-#SBATCH --error=/scratch/marzii/imitation_runs/_slurm_logs/demos/mujoco/%x_%j.err
+#SBATCH --output=/scratch/marzii/learning-from-demonstrations/imitation_runs/_slurm_logs/demos/mujoco/%x_%j.out
+#SBATCH --error=/scratch/marzii/learning-from-demonstrations/imitation_runs/_slurm_logs/demos/mujoco/%x_%j.err
 
 set -euo pipefail
 
-mkdir -p /scratch/marzii/imitation_runs/_slurm_logs/demos/mujoco
+mkdir -p /scratch/marzii/learning-from-demonstrations/imitation_runs/_slurm_logs/demos/mujoco
 
 # ---- required env setup ----
 module --force purge
@@ -30,7 +30,7 @@ python -c "import imitation; print('imitation', imitation.__version__)"
 export MUJOCO_GL=osmesa
 unset DISPLAY
 
-export PYTHONPATH="/scratch/marzii/imitation_runs:${PYTHONPATH:-}"
+export PYTHONPATH="/scratch/marzii/learning-from-demonstrations/imitation_runs:${PYTHONPATH:-}"
 
 # ---- collect expert demonstrations ----
 export TOTAL_STEPS=6000000
@@ -42,4 +42,4 @@ export N_DEMOS=100
 export JOB_ID="${SLURM_JOB_ID}"
 
 # [LABEL: COLLECT_DEMOS_MUJOCO] Collect demonstrations from MuJoCo expert
-python /scratch/marzii/imitation_runs/make_demos_walker_mujoco.py
+python /scratch/marzii/learning-from-demonstrations/imitation_runs/make_demos_walker_mujoco.py

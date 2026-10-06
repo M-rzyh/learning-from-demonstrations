@@ -7,8 +7,8 @@ be fed into GAIL with FRAME_SKIP=0 without a granularity mismatch.
 
 Usage:
     python collect_fs_expert_perframe_demos.py \\
-        --policy /scratch/marzii/imitation_runs/expert/lunarlander/<JOBID>/policies/final/model.zip \\
-        --output /scratch/marzii/imitation_runs/expert/lunarlander/<JOBID>/rollouts/perframe_demos \\
+        --policy /scratch/marzii/learning-from-demonstrations/imitation_runs/expert/lunarlander/<JOBID>/policies/final/model.zip \\
+        --output /scratch/marzii/learning-from-demonstrations/imitation_runs/expert/lunarlander/<JOBID>/rollouts/perframe_demos \\
         --n-episodes 50 --hold-k 10 --max-frames 400 --seed 0
 """
 

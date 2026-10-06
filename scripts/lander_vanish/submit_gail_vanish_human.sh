@@ -19,7 +19,7 @@
 #   point and confound it with the axis — the same mistake that made the b=10 blanking result
 #   unusable. Collect the clean baseline with:
 #     DIFFICULTY=none FPS=20 FLAG_TARGET=15 \
-#     OUTPUT_DIR=$SCRATCH/imitation_runs/lander_vanish/demos/human/vanish_p0 \
+#     OUTPUT_DIR=$SCRATCH/learning-from-demonstrations/imitation_runs/lander_vanish/demos/human/vanish_p0 \
 #     bash algorithms/imitation/collect_human_demos_lunarlander.sh
 #
 # SHUFFLE=0: all 10 seeds train on the SAME 15 demos, so the band measures training variance
@@ -36,7 +36,7 @@ CHECK=${CHECK:-0}
 
 case "$PCT" in 0|25|50|75) ;; *) echo "ERROR: pct must be 0, 25, 50 or 75 (got '$PCT')" 1>&2; exit 1 ;; esac
 
-ROOT=/scratch/marzii/imitation_runs/lander_vanish/demos/human
+ROOT=/scratch/marzii/learning-from-demonstrations/imitation_runs/lander_vanish/demos/human
 
 # ARM=flagged (default) — the 15 demos the human JUDGED GOOD. Held constant across levels, so
 #     the comparison is "same budget, same quality bar, more of the lander hidden".

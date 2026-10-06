@@ -23,17 +23,17 @@ import matplotlib.pyplot as plt
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from plot_2feat_learning_curves import discover, GA
 
-BW = "/scratch/marzii/imitation_runs/bc_warmstart/lunarlander"
-PT = "/scratch/marzii/PT/lunarlander/grid_mixture_ms"
+BW = "/scratch/marzii/learning-from-demonstrations/imitation_runs/bc_warmstart/lunarlander"
+PT = "/scratch/marzii/learning-from-preferences/pt/lunarlander/grid_mixture_ms"
 EXP = "/home/marzii/learning-from-demonstrations/experiments"
 # MEASURED human time (validated 2026-09-04 with a live 10-demo session: 19.97 steps/s):
 #   demos : per-episode duration_sec from the 3 sessions' timing.csv, summed over the EXACT
 #           demos each ranking selects (demo_id-aligned; session_3 + session_4 + batch5)
 #   PT    : per-pair time_sec from labels_n1000_clean.pkl, summed over the pairs each seed saw
-DR = "/scratch/marzii/imitation_runs/demos/human_baseline/record_human_demos"
+DR = "/scratch/marzii/learning-from-demonstrations/imitation_runs/demos/human_baseline/record_human_demos"
 RANKDIR = f"{DR}/lunarlander/rankings_2feat"
-POOL_PKL = "/scratch/marzii/PT/lunarlander/human_pref_clean/labels_n1000_clean.pkl"
-LBL_FIXED = "/scratch/marzii/PT/human_label/human_fixed"
+POOL_PKL = "/scratch/marzii/learning-from-preferences/pt/lunarlander/human_pref_clean/labels_n1000_clean.pkl"
+LBL_FIXED = "/scratch/marzii/learning-from-preferences/pt/human_label/human_fixed"
 SESSIONS = [("lunarlander/session_3", 200), ("lunarlander/session_4", 100),
             ("lunarlander_batch5/session_1", 399)]
 

@@ -36,7 +36,7 @@ BS=${BS:-}
 CHECK=${CHECK:-0}
 DATE=$(date +%Y-%m-%d)
 
-RUNROOT=/scratch/marzii/imitation_runs
+RUNROOT=/scratch/marzii/learning-from-demonstrations/imitation_runs
 case "$FS" in 0|1) ;; *) echo "ERROR: FS must be 0|1" 1>&2; exit 1;; esac
 EXPERT=$([[ "$FS" == "1" ]] && echo 4720242 || echo 4615187)
 FSTAG=$([[ "$FS" == "1" ]] && echo "_FS" || echo "")

@@ -30,7 +30,7 @@ matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 import matplotlib.transforms
 
-RUNS = Path("/scratch/marzii/imitation_runs/gail/lunarlander")
+RUNS = Path("/scratch/marzii/learning-from-demonstrations/imitation_runs/gail/lunarlander")
 IDX = Path("/home/marzii/learning-from-demonstrations/experiments/GAIL")
 OUT_DEFAULT = Path("/home/marzii/learning-from-demonstrations/figures/gail_count_axis_E4_C1_H6.png")
 

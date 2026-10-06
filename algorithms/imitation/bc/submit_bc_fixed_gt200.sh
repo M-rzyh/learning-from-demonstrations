@@ -5,7 +5,7 @@
 # fixed/random synthetic runs are untouched.
 set -euo pipefail
 cd /home/marzii/learning-from-demonstrations
-D=/scratch/marzii/imitation_runs/demos/human_baseline/record_human_demos/lunarlander
+D=/scratch/marzii/learning-from-demonstrations/imitation_runs/demos/human_baseline/record_human_demos/lunarlander
 DEMO=${DEMO:-$D/session_3_ext700_ret_gt200}
 INDEX=${INDEX:-/home/marzii/learning-from-demonstrations/experiments/BC/bc_fixed_gt200_$(date +%Y-%m-%d).csv}
 BUDGETS=${BUDGETS:-"1 5 10 50 100 250 400"}

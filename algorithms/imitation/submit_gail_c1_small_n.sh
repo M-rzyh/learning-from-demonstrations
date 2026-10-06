@@ -13,7 +13,7 @@
 # 256 otherwise. Rows are APPENDED to the same count-axis index (arm=human), so
 # the existing plotting scripts pick them up as C1.
 set -euo pipefail
-D=/scratch/marzii/imitation_runs/demos/human_baseline/record_human_demos/lunarlander
+D=/scratch/marzii/learning-from-demonstrations/imitation_runs/demos/human_baseline/record_human_demos/lunarlander
 DEMO="$D/session_3_ext700_ret_only_top10"
 INDEX=/home/marzii/learning-from-demonstrations/experiments/GAIL/gail_countaxis_kappa1000_2026-09-07.csv
 BUDGETS=${BUDGETS:-"1 5"}

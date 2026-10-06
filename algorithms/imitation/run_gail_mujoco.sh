@@ -5,12 +5,12 @@
 #SBATCH --cpus-per-task=8
 #SBATCH --mem=16G
 #SBATCH --time=12:00:00
-#SBATCH --output=/scratch/marzii/imitation_runs/_slurm_logs/gail/mujoco/%x_%j.out
-#SBATCH --error=/scratch/marzii/imitation_runs/_slurm_logs/gail/mujoco/%x_%j.err
+#SBATCH --output=/scratch/marzii/learning-from-demonstrations/imitation_runs/_slurm_logs/gail/mujoco/%x_%j.out
+#SBATCH --error=/scratch/marzii/learning-from-demonstrations/imitation_runs/_slurm_logs/gail/mujoco/%x_%j.err
 
 set -euo pipefail
 
-mkdir -p /scratch/marzii/imitation_runs/_slurm_logs/gail/mujoco
+mkdir -p /scratch/marzii/learning-from-demonstrations/imitation_runs/_slurm_logs/gail/mujoco
 
 # ---- required env setup ----
 module --force purge
@@ -30,7 +30,7 @@ python -c "import imitation; print('imitation', imitation.__version__)"
 export MUJOCO_GL=osmesa
 unset DISPLAY
 
-export PYTHONPATH="/scratch/marzii/imitation_runs:${PYTHONPATH:-}"
+export PYTHONPATH="/scratch/marzii/learning-from-demonstrations/imitation_runs:${PYTHONPATH:-}"
 
 # ---- GAIL training ----
 python -m imitation.scripts.train_adversarial gail \
@@ -38,7 +38,7 @@ python -m imitation.scripts.train_adversarial gail \
            gym_id = "Walker2d-v4", \
        ) \
        demonstrations = dict( \
-           trajectory_path = "/scratch/marzii/imitation_runs/demos_walker_mujoco/steps_6000000", \
+           trajectory_path = "/scratch/marzii/learning-from-demonstrations/imitation_runs/demos_walker_mujoco/steps_6000000", \
        ) \
        sample_until = dict( \
            n_timesteps = None, \

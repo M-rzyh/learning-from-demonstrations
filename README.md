@@ -61,8 +61,11 @@ ln -s /scratch/$USER/learning-from-demonstrations/output  algorithms/imitation/o
 ```
 
 Some curation scripts read `figures/ext700/multimodality_arrays.npz` and
-`figures/ext700/curation_bc_ceiling.json` back as inputs. Demonstration pools and expert policies are
-read from `/scratch/$USER/imitation_runs/`.
+`figures/ext700/curation_bc_ceiling.json` back as inputs.
+
+Run data lives in `/scratch/$USER/learning-from-demonstrations/imitation_runs/`. That covers demonstration
+pools (`demos/`), expert policies (`expert/`), and per-algorithm runs (`gail/`, `bc/`, `bc_warmstart/`, `AIRL/`,
+`ppo_*`). Slurm logs go to its `_slurm_logs/`.
 
 ## Provenance
 

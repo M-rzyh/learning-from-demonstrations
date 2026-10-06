@@ -14,7 +14,7 @@ import argparse, csv, os
 import numpy as np
 from scipy.stats import rankdata
 
-L = "/scratch/marzii/imitation_runs/demos/human_baseline/record_human_demos/lunarlander"
+L = "/scratch/marzii/learning-from-demonstrations/imitation_runs/demos/human_baseline/record_human_demos/lunarlander"
 FEATS = ["sum_x2_padded", "sum_y2_padded", "sum_vx2_padded", "sum_vy2_padded",
          "sum_theta2_padded", "sum_omega2_padded", "control_cost_padded"]
 

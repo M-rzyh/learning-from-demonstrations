@@ -1,8 +1,8 @@
 #!/bin/bash
 #SBATCH --job-name=gail-walker2d
 #SBATCH --account=aip-mtaylor3
-#SBATCH --output=/scratch/marzii/imitation_runs/_slurm_logs/gail/walker_dmc/%j.out
-#SBATCH --error=/scratch/marzii/imitation_runs/_slurm_logs/gail/walker_dmc/%j.err
+#SBATCH --output=/scratch/marzii/learning-from-demonstrations/imitation_runs/_slurm_logs/gail/walker_dmc/%j.out
+#SBATCH --error=/scratch/marzii/learning-from-demonstrations/imitation_runs/_slurm_logs/gail/walker_dmc/%j.err
 #SBATCH --time=02:00:00
 #SBATCH --gres=gpu:l40s:1
 #SBATCH --cpus-per-task=8
@@ -34,7 +34,7 @@ python -c "import sys; print(sys.executable)"
 python -c "import imitation; print('imitation', imitation.__version__)"
 
 # Import DM Control gymnasium wrapper
-export PYTHONPATH="/home/marzii/IRL2/imitation:/scratch/marzii/imitation_runs:${PYTHONPATH:-}"
+export PYTHONPATH="/home/marzii/IRL2/imitation:/scratch/marzii/learning-from-demonstrations/imitation_runs:${PYTHONPATH:-}"
 
 python - <<'PY'
 import gymnasium as gym
@@ -45,12 +45,12 @@ env.close()
 PY
 
 # --- run GAIL ---
-export PYTHONPATH="/home/marzii/IRL2/imitation:/scratch/marzii/imitation_runs:${PYTHONPATH:-}"
+export PYTHONPATH="/home/marzii/IRL2/imitation:/scratch/marzii/learning-from-demonstrations/imitation_runs:${PYTHONPATH:-}"
 
-python /scratch/marzii/imitation_runs/run_gail_wrapper.py gail \
+python /scratch/marzii/learning-from-demonstrations/imitation_runs/run_gail_wrapper.py gail \
   with environment.gym_id=DMControl/Walker-walk-v0 \
        demonstrations.source=local \
-       demonstrations.path="/scratch/marzii/imitation_runs/demos/demos_walker_dmc/steps_12000000/expert_job_4310732/expert_trajs_100.npz" \
+       demonstrations.path="/scratch/marzii/learning-from-demonstrations/imitation_runs/demos/demos_walker_dmc/steps_12000000/expert_job_4310732/expert_trajs_100.npz" \
        demonstrations.n_expert_demos=5 \
        total_timesteps=5000000 \
        seed=0 \

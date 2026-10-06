@@ -16,9 +16,9 @@ from datasets import load_from_disk
 
 
 GROUPS = {
-    "Human session 1": ("/scratch/marzii/imitation_runs/human_demos/lunarlander/session_1", None),
-    "Human session 2": ("/scratch/marzii/imitation_runs/human_demos/lunarlander/session_2", None),
-    "Expert 4615187 (first 50)": ("/scratch/marzii/imitation_runs/expert/lunarlander/4615187/rollouts/final.npz", 50),
+    "Human session 1": ("/scratch/marzii/learning-from-demonstrations/imitation_runs/human_demos/lunarlander/session_1", None),
+    "Human session 2": ("/scratch/marzii/learning-from-demonstrations/imitation_runs/human_demos/lunarlander/session_2", None),
+    "Expert 4615187 (first 50)": ("/scratch/marzii/learning-from-demonstrations/imitation_runs/expert/lunarlander/4615187/rollouts/final.npz", 50),
 }
 
 

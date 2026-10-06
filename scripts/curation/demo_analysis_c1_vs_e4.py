@@ -45,11 +45,11 @@ import datasets
 
 datasets.disable_progress_bar()
 
-DEMOS = Path("/scratch/marzii/imitation_runs/demos/human_baseline/"
+DEMOS = Path("/scratch/marzii/learning-from-demonstrations/imitation_runs/demos/human_baseline/"
              "record_human_demos/lunarlander")
-EXPERT = Path("/scratch/marzii/imitation_runs/expert/lunarlander/4615187/"
+EXPERT = Path("/scratch/marzii/learning-from-demonstrations/imitation_runs/expert/lunarlander/4615187/"
               "rollouts/perframe_demos_500_holdK1")
-OUT_DIR = Path("/scratch/marzii/imitation_runs/_analysis")
+OUT_DIR = Path("/scratch/marzii/learning-from-demonstrations/imitation_runs/_analysis")
 
 LOW = np.array([-1.5, -1.5, -5.0, -5.0, -math.pi, -5.0], dtype=np.float64)
 HIGH = np.array([1.5, 1.5, 5.0, 5.0, math.pi, 5.0], dtype=np.float64)

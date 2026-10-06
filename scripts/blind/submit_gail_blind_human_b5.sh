@@ -21,8 +21,8 @@ BLANK=${1:?usage: submit_gail_blind_human_b5.sh <blank_pct> <seed_lo> <seed_hi>}
 LO=${2:?missing seed_lo}
 HI=${3:?missing seed_hi}
 
-CLEAN_DEMOS=/scratch/marzii/imitation_runs/human_demos/lunarlander/session_2
-BLANK_ROOT=/scratch/marzii/imitation_runs/frame_blanking/demos/human
+CLEAN_DEMOS=/scratch/marzii/learning-from-demonstrations/imitation_runs/human_demos/lunarlander/session_2
+BLANK_ROOT=/scratch/marzii/learning-from-demonstrations/imitation_runs/frame_blanking/demos/human
 
 if [[ "$BLANK" == "0" ]]; then
   DEMO="$CLEAN_DEMOS"

@@ -37,11 +37,11 @@ import datasets
 
 datasets.disable_progress_bar()
 
-SESSION3 = Path("/scratch/marzii/imitation_runs/demos/human_baseline/"
+SESSION3 = Path("/scratch/marzii/learning-from-demonstrations/imitation_runs/demos/human_baseline/"
                 "record_human_demos/lunarlander/session_3")
-GAIL_RUNS = Path("/scratch/marzii/imitation_runs/gail/lunarlander")
+GAIL_RUNS = Path("/scratch/marzii/learning-from-demonstrations/imitation_runs/gail/lunarlander")
 INDEX = Path("/home/marzii/learning-from-demonstrations/experiments/GAIL/gail_session3_curation_2026-08-05.csv")
-OUT_ROOT = Path("/scratch/marzii/imitation_runs/demos/bc_h6_matched")
+OUT_ROOT = Path("/scratch/marzii/learning-from-demonstrations/imitation_runs/demos/bc_h6_matched")
 MANIFEST = Path("/home/marzii/learning-from-demonstrations/experiments/BC/bc_h6_matched_subsets.csv")
 
 

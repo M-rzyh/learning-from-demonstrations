@@ -10,11 +10,11 @@ noisy dataset where a == optimal_policy.predict(s).
 
 Usage:
     python add_action_noise.py \\
-        --input  /scratch/marzii/imitation_runs/expert/lunarlander/4720242/rollouts/perframe_demos_150 \\
-        --output /scratch/marzii/imitation_runs/demos/noisy_demos/lunarlander/expert_4720242/n100_p25_s0 \\
+        --input  /scratch/marzii/learning-from-demonstrations/imitation_runs/expert/lunarlander/4720242/rollouts/perframe_demos_150 \\
+        --output /scratch/marzii/learning-from-demonstrations/imitation_runs/demos/noisy_demos/lunarlander/expert_4720242/n100_p25_s0 \\
         --noise-prob 0.25 \\
         --seed 0 \\
-        --optimal-policy /scratch/marzii/imitation_runs/expert/lunarlander/4720242/policies/final/model.zip \\
+        --optimal-policy /scratch/marzii/learning-from-demonstrations/imitation_runs/expert/lunarlander/4720242/policies/final/model.zip \\
         --n-actions 4
 """
 

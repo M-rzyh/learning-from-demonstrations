@@ -12,7 +12,7 @@ from collections import defaultdict
 import matplotlib; matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 
-GA = "/scratch/marzii/imitation_runs/gail/lunarlander"
+GA = "/scratch/marzii/learning-from-demonstrations/imitation_runs/gail/lunarlander"
 EXP = "/home/marzii/learning-from-demonstrations/experiments"
 JS = "/home/marzii/learning-from-demonstrations/figures/ext700/curation_bc_ceiling.json"
 OUT = "/home/marzii/learning-from-demonstrations/figures/ext700/curation_realizability_ceiling.png"

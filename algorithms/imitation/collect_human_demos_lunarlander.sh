@@ -128,12 +128,12 @@ fi
 # (PT/scripts/plots/plot_frame_blanking_human_b5.py reads blank${BLOCK_LEN}_p${PCT}/session_1_flagged)
 PCT_INT=$(printf '%.0f' "$PCT")
 case "$DIFFICULTY" in
-    none)   DEFAULT_OUT="$SCRATCH/imitation_runs/human_demos/lunarlander" ;;
-    blank)  DEFAULT_OUT="$SCRATCH/imitation_runs/frame_blanking/demos/human/blank${BLOCK_LEN}_p${PCT_INT}" ;;
-    vanish) DEFAULT_OUT="$SCRATCH/imitation_runs/lander_vanish/demos/human/vanish_p${PCT_INT}" ;;
-    region) DEFAULT_OUT="$SCRATCH/imitation_runs/region_mask/demos/human/region${PCT_INT}" ;;
-    sticky) DEFAULT_OUT="$SCRATCH/imitation_runs/sticky_actions/demos/human/sticky_p${PCT_INT}" ;;
-    delay)  DEFAULT_OUT="$SCRATCH/imitation_runs/action_delay/demos/human/delay_k${K}" ;;
+    none)   DEFAULT_OUT="$SCRATCH/learning-from-demonstrations/imitation_runs/human_demos/lunarlander" ;;
+    blank)  DEFAULT_OUT="$SCRATCH/learning-from-demonstrations/imitation_runs/frame_blanking/demos/human/blank${BLOCK_LEN}_p${PCT_INT}" ;;
+    vanish) DEFAULT_OUT="$SCRATCH/learning-from-demonstrations/imitation_runs/lander_vanish/demos/human/vanish_p${PCT_INT}" ;;
+    region) DEFAULT_OUT="$SCRATCH/learning-from-demonstrations/imitation_runs/region_mask/demos/human/region${PCT_INT}" ;;
+    sticky) DEFAULT_OUT="$SCRATCH/learning-from-demonstrations/imitation_runs/sticky_actions/demos/human/sticky_p${PCT_INT}" ;;
+    delay)  DEFAULT_OUT="$SCRATCH/learning-from-demonstrations/imitation_runs/action_delay/demos/human/delay_k${K}" ;;
     *) echo "ERROR: DIFFICULTY must be none|blank|vanish|region|sticky|delay, got '$DIFFICULTY'" 1>&2; exit 1 ;;
 esac
 # delay's severity is K (whole steps); every other technique's is PCT.
@@ -149,7 +149,7 @@ if (( ${#DYN_PARTS[@]} > 0 )); then
     if [[ "$DIFFICULTY" != "none" ]]; then
         DYN_JOINED="${DYN_JOINED}_${DIFFICULTY}${PCT_INT}"
     fi
-    DEFAULT_OUT="$SCRATCH/imitation_runs/dynamics/demos/human/${DYN_JOINED}"
+    DEFAULT_OUT="$SCRATCH/learning-from-demonstrations/imitation_runs/dynamics/demos/human/${DYN_JOINED}"
 fi
 OUTPUT_DIR="${OUTPUT_DIR:-$DEFAULT_OUT}"
 

@@ -98,7 +98,7 @@ Edit `collect_fs_expert_perframe_demos_online_qweighted.py`:
 
 Same noise levels (10, 20, 25, 30, 40, 50, 60, 70, 75, 80, 90, 100) and same
 10 seeds. Save under:
-`/scratch/marzii/imitation_runs/noisy_demos_online_qweighted_t5/lunarlander/expert_4720242/`
+`/scratch/marzii/learning-from-demonstrations/imitation_runs/noisy_demos_online_qweighted_t5/lunarlander/expert_4720242/`
 
 (Choose a different directory than the τ=1 datasets so both are preserved.)
 

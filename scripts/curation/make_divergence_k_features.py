@@ -15,7 +15,7 @@ from scipy.spatial import cKDTree
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import demo_features as F
 
-POOL = ("/scratch/marzii/imitation_runs/demos/human_baseline/record_human_demos/"
+POOL = ("/scratch/marzii/learning-from-demonstrations/imitation_runs/demos/human_baseline/record_human_demos/"
         "lunarlander/session_3_ext700")
 
 

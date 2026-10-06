@@ -15,7 +15,7 @@
 # The existing fixed-synthetic runs (SHUFFLE=0) are untouched; these land in
 # their own index so the two can be compared.
 set -euo pipefail
-DEMO=${DEMO:-/scratch/marzii/imitation_runs/expert/lunarlander/4615187/rollouts/perframe_demos_500_holdK1}
+DEMO=${DEMO:-/scratch/marzii/learning-from-demonstrations/imitation_runs/expert/lunarlander/4615187/rollouts/perframe_demos_500_holdK1}
 INDEX=${INDEX:-/home/marzii/learning-from-demonstrations/experiments/GAIL/gail_rand_expert_$(date +%Y-%m-%d).csv}
 BUDGETS=${BUDGETS:-"1 5 10 50 100 250 400"}
 SEEDS=${SEEDS:-"0 1 2 3 4 5 6 7 8 9"}

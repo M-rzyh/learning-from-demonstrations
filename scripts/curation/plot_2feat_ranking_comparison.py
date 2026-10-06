@@ -8,7 +8,7 @@ import numpy as np
 import matplotlib; matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 
-GA = "/scratch/marzii/imitation_runs/gail/lunarlander"
+GA = "/scratch/marzii/learning-from-demonstrations/imitation_runs/gail/lunarlander"
 ORDER = ["ret_only", "ret_sad", "ret_sae", "ret_ae", "ret_cdad", "ret_cdae", "ret_ad"]
 LABEL = {"ret_only": "return only\n(baseline)", "ret_ad": "+ action\ndivergence",
          "ret_ae": "+ action\nentropy", "ret_sad": "+ self action\ndivergence",

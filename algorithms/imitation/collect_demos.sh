@@ -5,8 +5,8 @@
 #SBATCH --cpus-per-task=2
 #SBATCH --mem=8G
 #SBATCH --time=00:30:00
-#SBATCH --output=/scratch/marzii/imitation_runs/_slurm_logs/demos/walker/%j.out
-#SBATCH --error=/scratch/marzii/imitation_runs/_slurm_logs/demos/walker/%j.err
+#SBATCH --output=/scratch/marzii/learning-from-demonstrations/imitation_runs/_slurm_logs/demos/walker/%j.out
+#SBATCH --error=/scratch/marzii/learning-from-demonstrations/imitation_runs/_slurm_logs/demos/walker/%j.err
 
 set -euo pipefail
 mkdir -p "output/collecting_demo"
@@ -33,12 +33,12 @@ export MUJOCO_GL=disable
 export PYOPENGL_PLATFORM=osmesa
 
 # Import DM Control gymnasium wrapper
-export PYTHONPATH="/scratch/marzii/imitation_runs:${PYTHONPATH:-}"
+export PYTHONPATH="/scratch/marzii/learning-from-demonstrations/imitation_runs:${PYTHONPATH:-}"
 
 # Register environments before running
 python - <<'SETUP_PY'
 import sys
-sys.path.insert(0, '/scratch/marzii/imitation_runs')
+sys.path.insert(0, '/scratch/marzii/learning-from-demonstrations/imitation_runs')
 import dm_control_gymnasium_wrapper
 SETUP_PY
 
@@ -51,14 +51,14 @@ export DEVICE=cuda
 
 # demo output location
 # [LABEL: COLLECT_DEMOS_DMC] Changed output directory to reflect DM Control Walker environment
-export OUT_DIR="$SCRATCH/imitation_runs/demos/demos_walker_dmc/steps_${TOTAL_STEPS}/expert_job_${EXPERT_JOB_ID}"
-# [OLD_SETTING] export OUT_DIR="$SCRATCH/imitation_runs/demos/demos_walker2d_v4/steps_${TOTAL_STEPS}/expert_job_${EXPERT_JOB_ID}"
+export OUT_DIR="$SCRATCH/learning-from-demonstrations/imitation_runs/demos/demos_walker_dmc/steps_${TOTAL_STEPS}/expert_job_${EXPERT_JOB_ID}"
+# [OLD_SETTING] export OUT_DIR="$SCRATCH/learning-from-demonstrations/imitation_runs/demos/demos_walker2d_v4/steps_${TOTAL_STEPS}/expert_job_${EXPERT_JOB_ID}"
 mkdir -p "$OUT_DIR"
 
 # optional: verify expert exists before running
-# MODEL_PATH="$SCRATCH/imitation_runs/expert/expert_ppo_walker_${TOTAL_STEPS}/${EXPERT_JOB_ID}/ppo_walker.zip"
-MODEL_PATH="$SCRATCH/imitation_runs/expert/${TOTAL_STEPS}/${EXPERT_JOB_ID}/ppo_walker.zip"
+# MODEL_PATH="$SCRATCH/learning-from-demonstrations/imitation_runs/expert/expert_ppo_walker_${TOTAL_STEPS}/${EXPERT_JOB_ID}/ppo_walker.zip"
+MODEL_PATH="$SCRATCH/learning-from-demonstrations/imitation_runs/expert/${TOTAL_STEPS}/${EXPERT_JOB_ID}/ppo_walker.zip"
 echo "Expect expert at: $MODEL_PATH"
 ls -lh "$MODEL_PATH"
 
-python /scratch/marzii/imitation_runs/make_demos_walker.py
+python /scratch/marzii/learning-from-demonstrations/imitation_runs/make_demos_walker.py

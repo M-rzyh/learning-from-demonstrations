@@ -4,7 +4,7 @@
 #SBATCH --cpus-per-task=4
 #SBATCH --mem=12G
 #SBATCH --time=02:00:00
-#SBATCH --output=/scratch/marzii/imitation_runs/gen_clean_pool_%j.log
+#SBATCH --output=/scratch/marzii/learning-from-demonstrations/imitation_runs/gen_clean_pool_%j.log
 #
 # CLEAN demo-pool generator (the 0% point). Rolls out the expert with NO action noise
 # (noise-prob 0) into a single pool `n100_p0_clean`, which submit_gail_clean_N.sh /
@@ -42,11 +42,11 @@ CLEAN_NAME=${CLEAN_NAME:-n100_p0_clean}
 FORCE=${FORCE:-0}
 
 if [[ "$FS" == "1" ]]; then
-  POLICY=/scratch/marzii/imitation_runs/expert/lunarlander/4720242/policies/final/model.zip
-  OUTROOT=/scratch/marzii/imitation_runs/demos/noisy_demos/lunarlander/expert_4720242
+  POLICY=/scratch/marzii/learning-from-demonstrations/imitation_runs/expert/lunarlander/4720242/policies/final/model.zip
+  OUTROOT=/scratch/marzii/learning-from-demonstrations/imitation_runs/demos/noisy_demos/lunarlander/expert_4720242
 else
-  POLICY=/scratch/marzii/imitation_runs/expert/lunarlander/4615187/policies/final/model.zip
-  OUTROOT=/scratch/marzii/imitation_runs/demos/noisy_demos/lunarlander/expert_4615187
+  POLICY=/scratch/marzii/learning-from-demonstrations/imitation_runs/expert/lunarlander/4615187/policies/final/model.zip
+  OUTROOT=/scratch/marzii/learning-from-demonstrations/imitation_runs/demos/noisy_demos/lunarlander/expert_4615187
 fi
 [[ -f "$POLICY" ]] || { echo "ERROR: policy not found: $POLICY" 1>&2; exit 1; }
 mkdir -p "$OUTROOT"

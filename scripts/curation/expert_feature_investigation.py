@@ -19,7 +19,7 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import datasets; datasets.disable_progress_bar()
 from demo_features import traj_features, add_action_divergence, add_ranking, GOOD_DIR, FEATURES
 
-DP = "/scratch/marzii/imitation_runs/demos/noisy_demos/lunarlander/expert_4615187/n100_p0_clean"
+DP = "/scratch/marzii/learning-from-demonstrations/imitation_runs/demos/noisy_demos/lunarlander/expert_4615187/n100_p0_clean"
 OUT_DIR = "/home/marzii/learning-from-demonstrations/figures"
 os.makedirs(OUT_DIR, exist_ok=True)
 

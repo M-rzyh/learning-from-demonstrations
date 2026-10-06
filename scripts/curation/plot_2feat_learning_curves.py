@@ -14,8 +14,8 @@ import matplotlib; matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 from tensorboard.backend.event_processing.event_accumulator import EventAccumulator
 
-GA   = "/scratch/marzii/imitation_runs/gail/lunarlander"
-LOGS = "/scratch/marzii/imitation_runs/_slurm_logs/gail/lunarlander"
+GA   = "/scratch/marzii/learning-from-demonstrations/imitation_runs/gail/lunarlander"
+LOGS = "/scratch/marzii/learning-from-demonstrations/imitation_runs/_slurm_logs/gail/lunarlander"
 TAG  = "mean/gen/rollout/ep_rew_mean"          # true env return, NOT ep_rew_wrapped_mean
 TOTAL_TIMESTEPS = 1_000_000
 ROUNDS_FULL     = 488                          # rounds a completed 1M-step run does

@@ -14,7 +14,7 @@ from pathlib import Path
 import numpy as np
 from datasets import load_from_disk
 
-ROOT = Path("/scratch/marzii/imitation_runs/demos/human_baseline/"
+ROOT = Path("/scratch/marzii/learning-from-demonstrations/imitation_runs/demos/human_baseline/"
             "record_human_demos/lunarlander")
 
 

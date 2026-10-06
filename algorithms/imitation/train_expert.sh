@@ -5,13 +5,13 @@
 #SBATCH --cpus-per-task=8
 #SBATCH --mem=16G
 #SBATCH --time=01:30:00
-#SBATCH --output=/scratch/marzii/imitation_runs/_slurm_logs/expert/walkerwalk/%j.out
-#SBATCH --error=/scratch/marzii/imitation_runs/_slurm_logs/expert/walkerwalk/%j.err
+#SBATCH --output=/scratch/marzii/learning-from-demonstrations/imitation_runs/_slurm_logs/expert/walkerwalk/%j.out
+#SBATCH --error=/scratch/marzii/learning-from-demonstrations/imitation_runs/_slurm_logs/expert/walkerwalk/%j.err
 
 set -euo pipefail
 
 # logs directory for slurm output/error files (your current lines are fine)
-mkdir -p /scratch/marzii/imitation_runs/_slurm_logs/expert/walkerwalk
+mkdir -p /scratch/marzii/learning-from-demonstrations/imitation_runs/_slurm_logs/expert/walkerwalk
 
 # ---- required env setup ----
 module --force purge
@@ -33,7 +33,7 @@ export PYOPENGL_PLATFORM=osmesa
 unset DISPLAY
 
 # Import DM Control gymnasium wrapper
-export PYTHONPATH="/scratch/marzii/imitation_runs:${PYTHONPATH:-}"
+export PYTHONPATH="/scratch/marzii/learning-from-demonstrations/imitation_runs:${PYTHONPATH:-}"
 
 # ---- quick mujoco sanity check ----
 python - <<'PY'
@@ -53,4 +53,4 @@ export N_ENVS=8
 # pass job id so python can create OUTDIR = base/TOTAL_STEPS/JOBID
 export JOB_ID="${SLURM_JOB_ID}"
 
-python /scratch/marzii/imitation_runs/train_expert_walker.py
+python /scratch/marzii/learning-from-demonstrations/imitation_runs/train_expert_walker.py

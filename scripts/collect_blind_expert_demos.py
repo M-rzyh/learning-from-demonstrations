@@ -12,9 +12,9 @@ NEW file -- does NOT modify collect_fs_expert_perframe_demos_online_noise.py.
 
 Usage:
     python scripts/collect_blind_expert_demos.py \\
-        --policy   /scratch/marzii/imitation_runs/expert/lunarlander/4615187/policies/final/model.zip \\
-        --optimal-policy /scratch/marzii/imitation_runs/expert/lunarlander/4615187/policies/final/model.zip \\
-        --output   $SCRATCH/imitation_runs/frame_blanking/demos/blind_expert/n100_blank50_s0 \\
+        --policy   /scratch/marzii/learning-from-demonstrations/imitation_runs/expert/lunarlander/4615187/policies/final/model.zip \\
+        --optimal-policy /scratch/marzii/learning-from-demonstrations/imitation_runs/expert/lunarlander/4615187/policies/final/model.zip \\
+        --output   $SCRATCH/learning-from-demonstrations/imitation_runs/frame_blanking/demos/blind_expert/n100_blank50_s0 \\
         --n-episodes 100 --hold-k 1 --max-frames 400 \\
         --blank-mode stochastic --blank-prob 0.5 --blank-seed 0
 """

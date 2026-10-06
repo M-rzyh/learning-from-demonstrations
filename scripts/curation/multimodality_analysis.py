@@ -22,8 +22,8 @@ divergence estimates depend on how densely the state space is covered.
 import argparse, json, os
 import numpy as np
 
-HUMAN = "/scratch/marzii/imitation_runs/demos/human_baseline/record_human_demos/lunarlander/session_3_ext700"
-EXPERT = "/scratch/marzii/imitation_runs/demos/noisy_demos/lunarlander/expert_4615187/n100_p0_clean"
+HUMAN = "/scratch/marzii/learning-from-demonstrations/imitation_runs/demos/human_baseline/record_human_demos/lunarlander/session_3_ext700"
+EXPERT = "/scratch/marzii/learning-from-demonstrations/imitation_runs/demos/noisy_demos/lunarlander/expert_4615187/n100_p0_clean"
 NA = 4                     # LunarLander-v2 discrete actions: noop, left, main, right
 ACT_NAMES = ["noop", "left engine", "main engine", "right engine"]
 STATE_DIM = 6              # x, y, vx, vy, angle, angvel  (leg-contact flags excluded)

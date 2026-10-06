@@ -35,9 +35,9 @@ def rank_two(ret, met):
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--features_csv", required=True)
-    ap.add_argument("--out_dir", default="/scratch/marzii/imitation_runs/demos/human_baseline/"
+    ap.add_argument("--out_dir", default="/scratch/marzii/learning-from-demonstrations/imitation_runs/demos/human_baseline/"
                                          "record_human_demos/lunarlander/rankings_2feat")
-    ap.add_argument("--pool", default="/scratch/marzii/imitation_runs/demos/human_baseline/"
+    ap.add_argument("--pool", default="/scratch/marzii/learning-from-demonstrations/imitation_runs/demos/human_baseline/"
                                       "record_human_demos/lunarlander/session_3_ext700")
     ap.add_argument("--topk", type=int, default=10)
     ap.add_argument("--make_subsets", action="store_true")
