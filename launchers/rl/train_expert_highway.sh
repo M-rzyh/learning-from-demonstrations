@@ -17,6 +17,7 @@
 #
 #   sbatch launchers/rl/train_expert_highway.sh                      # TOTAL_STEPS=200000 by default
 #   TOTAL_STEPS=20000 sbatch --time=00:30:00 launchers/rl/train_expert_highway.sh   # short pilot
+#   USE_WANDB=1 sbatch launchers/rl/train_expert_highway.sh          # also log to W&B (project expert-highway)
 set -euo pipefail
 mkdir -p /scratch/marzii/learning-from-demonstrations/imitation_runs/_slurm_logs/expert/highway
 
@@ -52,6 +53,24 @@ cd "$RUN_DIR"   # work from the run dir on scratch, so cwd-relative output lands
 echo "env=$ENV_GYM_ID cap=$ENV_MAX_EP_STEPS  total_steps=$TOTAL_STEPS  n_envs=$N_ENVS parallel=$PARALLEL  rollouts=$N_ROLLOUTS  seed=${SEED:-<random>}"
 echo "run dir: $RUN_DIR"
 
+# ---- optional Weights & Biases logging (USE_WANDB=1), same switch as launchers/gail/run_gail_highway.sh.
+#      Default 0 keeps the command unchanged. Needs `wandb login` once; compute nodes reach wandb through
+#      the cluster proxy. TensorBoard is written either way. ----
+USE_WANDB=${USE_WANDB:-0}
+LOG_FMT="['tensorboard','stdout']"
+WANDB_ARGS=()
+if [[ "$USE_WANDB" == "1" ]]; then
+  LOG_FMT="['tensorboard','stdout','wandb']"
+  WANDB_PROJECT=${WANDB_PROJECT:-expert-highway}
+  RUN_TAG=${RUN_TAG:-ppo-${TOTAL_STEPS}}
+  WANDB_ARGS=(
+    logging.wandb.wandb_name_prefix="expert-${RUN_TAG}"
+    logging.wandb.wandb_tag="$RUN_TAG"
+    logging.wandb.wandb_kwargs.project="$WANDB_PROJECT"
+  )
+  echo "wandb: ON  project=$WANDB_PROJECT  tag=$RUN_TAG"
+fi
+
 # EXTRA_ARGS: extra sacred overrides, space-separated (e.g. for quick tests)
 read -r -a EXTRA <<< "${EXTRA_ARGS:-}"
 
@@ -67,7 +86,8 @@ python /home/marzii/learning-from-demonstrations/launchers/entrypoints/train_rl_
   rollout_save_n_timesteps=None \
   policy_save_interval=50000 \
   logging.log_dir="$RUN_DIR" \
-  logging.log_format_strs="['tensorboard','stdout']" \
+  logging.log_format_strs="$LOG_FMT" \
+  ${WANDB_ARGS[@]+"${WANDB_ARGS[@]}"} \
   ${SEED_ARGS[@]+"${SEED_ARGS[@]}"} \
   ${EXTRA[@]+"${EXTRA[@]}"}
 
