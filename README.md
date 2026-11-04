@@ -23,6 +23,7 @@ learning-from-demonstrations/
 │   └── rl/                    #   PPO experts and true-reward PPO baselines
 ├── envs/                      # env-specific pieces only
 │   ├── lunarlander/           #   human-demo collector, lander-vanish masking and its tests
+│   ├── highway/               #   keyboard collectors, converter, README (how to collect and train)
 │   └── walker/legacy/         #   old MuJoCo/DMC Walker scripts (not maintained)
 ├── demo_pools/                # build expert / noisy / blind demonstration pools
 ├── studies/                   # submitters that loop over budgets/seeds and sbatch launchers (README inside)
@@ -46,7 +47,7 @@ Submit from the repo root, e.g. `sbatch launchers/gail/run_gail_lunarlander.sh` 
 - Upstream: [HumanCompatibleAI/imitation](https://github.com/HumanCompatibleAI/imitation), which provides
   implementations of **BC, GAIL, AIRL and DAgger** (`src/imitation/algorithms/`)
 - Local patches kept inside the package: the frame-skip env `src/imitation/envs/action_repeat.py`
-  (`LunarLander-v2-FS10`), one named config per env (currently `lunar_lander`) in
+  (`LunarLander-v2-FS10`), one named config per env (`lunar_lander`, `highway`) in
   `src/imitation/scripts/config/{train_adversarial,train_imitation,train_rl}.py`, and the compute timer
   in `src/imitation/scripts/train_adversarial.py`. Launchers put `algorithms/imitation/src` on `PYTHONPATH`.
 

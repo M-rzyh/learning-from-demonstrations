@@ -106,6 +106,15 @@ def lunar_lander():
 
 
 @train_adversarial_ex.named_config
+def highway():
+    # highway-env highway-v0, default config (1 decision/s, 40 s => 40 steps; crashes end early).
+    # "highway_env:" makes gymnasium import highway_env first (it registers the env). highway-env
+    # 1.9.1 lives in /scratch/marzii/envs/highway-pkgs, put on PYTHONPATH by the highway launchers.
+    environment = dict(gym_id="highway_env:highway-v0", max_episode_steps=40)
+    algorithm_kwargs = {"allow_variable_horizon": True}
+
+
+@train_adversarial_ex.named_config
 def lunar_lander_continuous():
     environment = dict(gym_id="LunarLanderContinuous-v2", max_episode_steps=400)
     algorithm_kwargs = {"allow_variable_horizon": True}

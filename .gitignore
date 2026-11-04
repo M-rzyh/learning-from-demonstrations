@@ -57,6 +57,8 @@ reward_model
 # ---- Demonstrations (collected/rolled-out demo pools) ----
 demos/
 **/collecting_demo/
+# highway collectors default to ./highway_demos and ./highway_demos_ui (human-subject data; always pass --out)
+highway_demos*/
 
 # ---- Generated figures (local; PT expects a figures -> $SCRATCH symlink) ----
 figures

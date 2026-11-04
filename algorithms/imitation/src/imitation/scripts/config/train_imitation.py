@@ -70,6 +70,12 @@ def lunar_lander():
 
 
 @train_imitation_ex.named_config
+def highway():
+    # highway-env highway-v0, default config; see train_adversarial.highway.
+    environment = dict(gym_id="highway_env:highway-v0", max_episode_steps=40)
+
+
+@train_imitation_ex.named_config
 def ant():
     environment = dict(gym_id="Ant-v2")
 

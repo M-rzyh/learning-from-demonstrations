@@ -229,6 +229,29 @@ def lunar_lander():
 
 
 @train_rl_ex.named_config
+def highway():
+    # highway-env highway-v0, default config; see train_adversarial.highway.
+    # PPO settings follow highway-env's own SB3 PPO example (net 256x256, 128 steps per env per
+    # update, minibatch 64, 10 epochs, lr 5e-4, gamma 0.8). rl.batch_size = 128 steps x 8 envs.
+    environment = dict(gym_id="highway_env:highway-v0", max_episode_steps=40)
+    total_timesteps = int(2e5)
+    normalize_reward = False
+    policy = dict(
+        policy_cls="MlpPolicy",
+        policy_kwargs=dict(net_arch=[256, 256]),
+    )
+    rl = dict(
+        batch_size=1024,
+        rl_kwargs=dict(
+            batch_size=64,
+            n_epochs=10,
+            gamma=0.8,
+            learning_rate=5e-4,
+        ),
+    )
+
+
+@train_rl_ex.named_config
 def lunar_lander_continuous():
     environment = dict(gym_id="LunarLanderContinuous-v2", max_episode_steps=400)
     total_timesteps = int(2e6)
