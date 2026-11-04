@@ -44,7 +44,7 @@ export TOTAL_STEPS=1000000
 export N_ENVS=8
 
 # Optional live rendering (slow). Example:
-#   RENDER_MODE=human sbatch train_expert_lunar_lander.sh
+#   RENDER_MODE=human sbatch launchers/rl/train_expert_lunar_lander.sh
 RENDER_MODE=${RENDER_MODE:-}
 EXTRA_ENV_ARGS=()
 if [[ -n "${RENDER_MODE}" ]]; then
@@ -92,8 +92,9 @@ LOG_ROOT=${LOG_ROOT:-"/scratch/marzii/learning-from-demonstrations/imitation_run
 RUN_DIR="$LOG_ROOT/$ENV_NAME/$JOB_ID"
 echo "Log root:   $LOG_ROOT"
 mkdir -p "$RUN_DIR"
+cd "$RUN_DIR"   # work from the run dir on scratch, so cwd-relative output lands there, never in $HOME
 
-python train_rl_launcher.py \
+python /home/marzii/learning-from-demonstrations/launchers/entrypoints/train_rl_launcher.py \
   train_rl \
   with lunar_lander \
   total_timesteps=$TOTAL_STEPS \
@@ -144,7 +145,7 @@ print(f"Videos saved to: {video_dir}")
 PY
 
 # Original, unchanged:
-#   sbatch train_expert_lunar_lander.sh
+#   sbatch launchers/rl/train_expert_lunar_lander.sh
 
 # With frame skip (k=10):
-#   FRAME_SKIP=1 sbatch train_expert_lunar_lander.sh 
+#   FRAME_SKIP=1 sbatch launchers/rl/train_expert_lunar_lander.sh 

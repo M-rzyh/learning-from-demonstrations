@@ -5,7 +5,7 @@ demo_features.add_ranking, just restricted to 2 features.
 Writes one ranking CSV per metric, optionally materializes the top-K demo subset for training,
 and reports how well each ranking separates landed from crashed demos.
 
-    python scripts/curation/build_2feat_rankings.py --features_csv <f.csv> [--topk 10] [--make_subsets]
+    python curation/build_2feat_rankings.py --features_csv <f.csv> [--topk 10] [--make_subsets]
 """
 import argparse, csv, os
 import numpy as np

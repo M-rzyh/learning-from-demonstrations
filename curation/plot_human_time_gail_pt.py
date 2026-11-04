@@ -13,7 +13,7 @@ band    : +/- 1 std over seeds.  Point labels = K demos / N preferences.
 PT uses seeds 0-9 for BOTH old and new so the two are directly comparable (the old runs
 have 30 seeds available, the fixed re-runs only 10).
 
-    /scratch/marzii/envs/imitation-gail/bin/python scripts/curation/plot_human_time_gail_pt.py
+    /scratch/marzii/envs/imitation-gail/bin/python curation/plot_human_time_gail_pt.py
 """
 import argparse, json, os, pickle, sys
 import numpy as np

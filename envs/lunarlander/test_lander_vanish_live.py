@@ -12,7 +12,7 @@ frame, and asserts on each:
   - the ground is still there                (vanishing, not blanking)
 and reports per-frame cost against the 50 ms budget at fps 20.
 
-    /scratch/marzii/envs/imitation-gail/bin/python imitation/test_lander_vanish_live.py
+    /scratch/marzii/envs/imitation-gail/bin/python envs/lunarlander/test_lander_vanish_live.py
 """
 import sys
 import time

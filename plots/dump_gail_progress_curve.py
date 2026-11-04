@@ -17,7 +17,7 @@ Arms:
   R2  human demos, random N per seed from the 403 with return > 200
 
 Usage (repo root, imitation-gail env):
-    python scripts/plots/dump_gail_progress_curve.py --human_arm R2 --N 50 \
+    python plots/dump_gail_progress_curve.py --human_arm R2 --N 50 \
         --out /path/gail_r2_n50.json
 """
 import argparse

@@ -3,7 +3,7 @@ visible over the white terrain), no label boxes, no title. Shows:
   v_x, v_y (in-flight, on the lander), touchdown_vx, touchdown_vy (at the landing point),
   theta (angle), omega (angular velocity), land_x_offset.
 
-    /scratch/marzii/envs/imitation-gail/bin/python scripts/curation/plot_features_on_real_frame.py <frame.png>
+    /scratch/marzii/envs/imitation-gail/bin/python curation/plot_features_on_real_frame.py <frame.png>
 """
 import sys
 import numpy as np

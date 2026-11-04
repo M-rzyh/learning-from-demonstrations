@@ -17,7 +17,7 @@ disagreement). This script opens that number up:
 All comparisons are DEMO-COUNT MATCHED (human subsampled to the expert's n, several seeds), since
 divergence estimates depend on how densely the state space is covered.
 
-    python scripts/curation/multimodality_analysis.py --out_json <f.json> [--quick]
+    python curation/multimodality_analysis.py --out_json <f.json> [--quick]
 """
 import argparse, json, os
 import numpy as np

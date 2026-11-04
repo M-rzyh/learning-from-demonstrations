@@ -33,7 +33,7 @@
 #       eval_data/                 50-episode deterministic eval, GAIL protocol
 #       monitor/, log/, rollouts/
 #
-# Submit one seed:  sbatch --export=ALL,SEED=0 algorithms/imitation/run_ppo_truereward_matched.sh
+# Submit one seed:  sbatch --export=ALL,SEED=0 launchers/rl/run_ppo_truereward_matched.sh
 
 set -euo pipefail
 
@@ -55,7 +55,6 @@ export PYTHONPATH="/home/marzii/learning-from-demonstrations/algorithms/imitatio
 which python
 python -c "import imitation; print('imitation', imitation.__version__)"
 
-cd /home/marzii/learning-from-demonstrations/algorithms/imitation
 
 # ---- matched settings ----
 SEED=${SEED:-0}
@@ -72,12 +71,13 @@ LOG_ROOT=${LOG_ROOT:-/scratch/marzii/learning-from-demonstrations/imitation_runs
 JOB_ID="${SLURM_JOB_ID:-manual}"
 RUN_DIR="$LOG_ROOT/lunarlander/$JOB_ID"
 mkdir -p "$RUN_DIR"
+cd "$RUN_DIR"   # work from the run dir on scratch, so cwd-relative output lands there, never in $HOME
 
 echo "=== PPO true-reward baseline (matched to GAIL generator) ==="
 echo "seed=$SEED  envs=$N_ENVS  cap=$ENV_MAX_EP_STEPS  total_timesteps=$TOTAL_STEPS"
 echo "run dir: $RUN_DIR"
 
-python train_rl_launcher.py \
+python /home/marzii/learning-from-demonstrations/launchers/entrypoints/train_rl_launcher.py \
   train_rl \
   with \
   environment.gym_id="$ENV_GYM_ID" \

@@ -13,7 +13,7 @@ figures/count_axis_human_pt_vs_gail_retonly.png (human half); everything priced 
 measured human-time currency so the four curves share one x-axis.
 Solid = human supervision, dashed = expert/oracle. Green = GAIL, blue = PT.
 
-    python scripts/curation/plot_count_axis_expert_vs_human.py
+    python curation/plot_count_axis_expert_vs_human.py
 """
 import csv, glob, json, os, pickle, sys
 import numpy as np

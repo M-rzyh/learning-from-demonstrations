@@ -126,9 +126,9 @@ if [[ ${#missing[@]} -gt 0 ]]; then
   echo 1>&2
   echo "  Generate them first, e.g.:" 1>&2
   if [[ "$level" == "0" || " $LEVELS " == *" 0 "* ]]; then
-    echo "    sbatch scripts/pool_generators/generate_clean_demo_pools.sh $([[ $FS == 1 ]] && echo FS=1)" 1>&2
+    echo "    sbatch demo_pools/generate_clean_demo_pools.sh $([[ $FS == 1 ]] && echo FS=1)" 1>&2
   fi
-  echo "    ${MODE:+MODE=$MODE }$([[ $FS == 1 ]] && echo 'FS=1 ')sbatch scripts/pool_generators/generate_online_noisy_demo_pools.sh" 1>&2
+  echo "    ${MODE:+MODE=$MODE }$([[ $FS == 1 ]] && echo 'FS=1 ')sbatch demo_pools/generate_online_noisy_demo_pools.sh" 1>&2
   exit 1
 fi
 echo "PRE-FLIGHT OK: all $checked pools present."
@@ -141,7 +141,7 @@ fi
 # ---- submit (index appends; header only if new) ----
 mkdir -p "$(dirname "$INDEX")"
 [ -s "$INDEX" ] || echo "condition_id,N,noise_pct,seed,slurm_job_id,demo_path,status" > "$INDEX"
-cd /home/marzii/learning-from-demonstrations/algorithms/imitation
+cd /home/marzii/learning-from-demonstrations
 
 submitted=0
 for level in $LEVELS; do
@@ -153,7 +153,7 @@ for level in $LEVELS; do
     jobid=$(DEMO_PATH="$demo" N_DEMOS="$N" DEMO_BATCH_SIZE="$BS" \
             SHUFFLE="$shuffle" SHUFFLE_SEED="$seed" SEED="$seed" FRAME_SKIP=0 \
             DEMO_NOTE="grid cond=noise_N${N}_p${level} N=${N} noise=${level}% seed=${seed}" \
-            sbatch --parsable run_gail_lunarlander.sh)
+            sbatch --parsable launchers/gail/run_gail_lunarlander.sh)
     echo "noise_N${N}_p${level},${N},${level},${seed},${jobid},${demo},submitted" >> "$INDEX"
     submitted=$((submitted+1))
     printf "  N=%s p=%s%% seed=%s -> job %s\n" "$N" "$level" "$seed" "$jobid"

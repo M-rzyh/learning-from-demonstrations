@@ -1,7 +1,7 @@
 """Canonical output location for IRL3 plots.
 
 All PNGs live in /home/marzii/learning-from-demonstrations/figures (NOT alongside the plotting code in
-scripts/). Plot scripts should route their output through `fig_path()`:
+plots/). Plot scripts should route their output through `fig_path()`:
 
     from figures_dir import fig_path
     fig.savefig(fig_path(args.output), dpi=150)

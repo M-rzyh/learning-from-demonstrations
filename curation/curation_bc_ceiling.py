@@ -9,7 +9,7 @@ Measure the irreducible BC error (leave-one-demo-out kNN plurality error, see
 multimodality_analysis.py) on each top-K subset. To keep the estimate comparable across K, every
 subset is subsampled to the SAME number of demos -- only *which* demos changes, not how many.
 
-    python scripts/curation/curation_bc_ceiling.py
+    python curation/curation_bc_ceiling.py
 """
 import argparse, json, os, sys
 import numpy as np

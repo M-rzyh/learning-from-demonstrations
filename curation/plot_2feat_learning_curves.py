@@ -6,7 +6,7 @@ Runs are discovered from the Slurm logs by their demo path, so a ranking that wa
 submitted later (or is still running) is picked up automatically -- no index CSV to
 maintain. Partial runs are drawn as far as they have got.
 
-    /scratch/marzii/envs/imitation-gail/bin/python scripts/curation/plot_2feat_ranking_curves.py
+    /scratch/marzii/envs/imitation-gail/bin/python curation/plot_2feat_ranking_curves.py
 """
 import argparse, glob, os, re
 import numpy as np

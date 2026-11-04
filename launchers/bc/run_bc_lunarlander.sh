@@ -17,7 +17,7 @@
 # .py); this script is just plumbing + the same true-env eval GAIL uses, so results plug into the
 # existing plotting (eval_data/agent_rollouts.npz with ground-truth env returns).
 #
-#   DEMO_PATH=<demo dir> N_DEMOS=15 SEED=0 sbatch run_bc_lunarlander.sh
+#   DEMO_PATH=<demo dir> N_DEMOS=15 SEED=0 sbatch launchers/bc/run_bc_lunarlander.sh
 set -euo pipefail
 mkdir -p /scratch/marzii/learning-from-demonstrations/imitation_runs/_slurm_logs/bc/lunarlander
 
@@ -29,7 +29,6 @@ source /scratch/marzii/miniforge3/etc/profile.d/conda.sh
 conda activate /scratch/marzii/envs/imitation-gail
 hash -r
 export PYTHONPATH="/home/marzii/learning-from-demonstrations/algorithms/imitation/src:${PYTHONPATH:-}"
-cd /home/marzii/learning-from-demonstrations/algorithms/imitation
 
 DEMO_SOURCE=${DEMO_SOURCE:-local}
 DEMO_PATH=${DEMO_PATH:-"/scratch/marzii/learning-from-demonstrations/imitation_runs/expert/lunarlander/4615187/rollouts/final.npz"}
@@ -39,7 +38,7 @@ ENV_GYM_ID=${ENV_GYM_ID:-"LunarLander-v2"}
 ENV_MAX_EP_STEPS=${ENV_MAX_EP_STEPS:-1000}   # match PT + human collection cap
 N_EVAL_EPISODES=${N_EVAL_EPISODES:-50}
 # 0 = use the first N demos of DEMO_PATH (unchanged default, every previous run).
-# 1 = shuffle DEMO_PATH first, exactly as run_gail_lunarlander.sh:105-120 does, then
+# 1 = shuffle DEMO_PATH first, exactly as launchers/gail/run_gail_lunarlander.sh does (shuffle block), then
 #     take the first N. With SHUFFLE_SEED=SEED this reproduces the Human GAIL H6
 #     subsets bit-for-bit (verified: ds.shuffle(seed=S) on session_3 gives the same
 #     200-demo order as every H6 shuffled_demos artifact, seeds 0-4, datasets 4.6.0).
@@ -49,6 +48,7 @@ SHUFFLE_SEED=${SHUFFLE_SEED:-$SEED}
 LOG_ROOT="/scratch/marzii/learning-from-demonstrations/imitation_runs/bc"
 RUN_DIR="$LOG_ROOT/lunarlander/${SLURM_JOB_ID:-local}"
 mkdir -p "$RUN_DIR"
+cd "$RUN_DIR"   # work from the run dir on scratch, so cwd-relative output lands there, never in $HOME
 echo "DEMO_PATH=$DEMO_PATH  N_DEMOS=$N_DEMOS  SEED=$SEED  cap=$ENV_MAX_EP_STEPS  RUN_DIR=$RUN_DIR"
 echo "Shuffle demos:   $SHUFFLE  (shuffle_seed=$SHUFFLE_SEED)"
 
@@ -69,7 +69,7 @@ PY
 fi
 
 # ---- BC training (library's `bc` command; same demo/env ingredients as GAIL) ----
-python bc/train_imitation_launcher.py bc with lunar_lander \
+python /home/marzii/learning-from-demonstrations/launchers/entrypoints/train_imitation_launcher.py bc with lunar_lander \
   demonstrations.source="$DEMO_SOURCE" \
   demonstrations.path="$DEMO_PATH" \
   demonstrations.n_expert_demos="$N_DEMOS" \

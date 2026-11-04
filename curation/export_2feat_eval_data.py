@@ -9,7 +9,7 @@ Writes two CSVs:
   <out>_episodes.csv  one row per evaluated episode: return, length, terminal
                       (8 rankings x 10 seeds x 50 episodes = 4000 rows)
 
-    /scratch/marzii/envs/imitation-gail/bin/python scripts/curation/export_2feat_eval_data.py
+    /scratch/marzii/envs/imitation-gail/bin/python curation/export_2feat_eval_data.py
 """
 import argparse, csv, json, os, sys
 import numpy as np

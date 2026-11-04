@@ -10,7 +10,7 @@
 # rebuild covers noise levels 10-100 only. Idempotent: re-run any time; safe once the sweep
 # is done (expect 300 rows = 10 levels x 30 seeds).
 #
-#   bash scripts/utils/rebuild_gail_noise_N15_index.sh
+#   bash utils/rebuild_gail_noise_N15_index.sh
 set -euo pipefail
 
 DATE=$(date +%Y-%m-%d)

@@ -28,13 +28,13 @@
 #   FS    -> demos/noisy_demos/lunarlander/expert_4720242/n100_p0_clean
 #
 # EXAMPLES (run from the repo root):
-#   sbatch scripts/pool_generators/generate_clean_demo_pools.sh            # nonFS clean, skip if present
-#   FORCE=1 sbatch scripts/pool_generators/generate_clean_demo_pools.sh    # regenerate the nonFS clean pool
-#   FS=1 sbatch scripts/pool_generators/generate_clean_demo_pools.sh       # FS clean pool
+#   sbatch demo_pools/generate_clean_demo_pools.sh            # nonFS clean, skip if present
+#   FORCE=1 sbatch demo_pools/generate_clean_demo_pools.sh    # regenerate the nonFS clean pool
+#   FS=1 sbatch demo_pools/generate_clean_demo_pools.sh       # FS clean pool
 set -euo pipefail
 
 PYTHON=/scratch/marzii/envs/imitation-gail/bin/python
-COLLECT=/home/marzii/learning-from-demonstrations/scripts/collect_fs_expert_perframe_demos_online_noise.py
+COLLECT=/home/marzii/learning-from-demonstrations/demo_pools/collect_fs_expert_perframe_demos_online_noise.py
 
 FS=${FS:-0}
 NEPISODES=${NEPISODES:-150}

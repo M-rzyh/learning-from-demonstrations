@@ -7,7 +7,7 @@ recorded actions. The replay is VERIFIED against the stored rewards before the
 video is written -- if it does not match, nothing is saved.
 
 Usage (compute node, imitation-gail env):
-    python scripts/curation/render_human_demo.py --pool_position 0 --out /path/demo.mp4
+    python curation/render_human_demo.py --pool_position 0 --out /path/demo.mp4
 """
 import argparse
 import csv

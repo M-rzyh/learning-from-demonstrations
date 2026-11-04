@@ -23,8 +23,8 @@ Verification performed here (fails loudly rather than writing a wrong subset):
   * the subset length equals N.
 
 Usage (compute node, imitation-gail env):
-    python scripts/curation/make_bc_h6_matched_subsets.py --dry_run
-    python scripts/curation/make_bc_h6_matched_subsets.py
+    python curation/make_bc_h6_matched_subsets.py --dry_run
+    python curation/make_bc_h6_matched_subsets.py
 """
 import argparse
 import csv

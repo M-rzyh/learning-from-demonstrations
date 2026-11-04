@@ -4,7 +4,7 @@
 Usage:
     python plot_time_vs_reward.py <config.json> [--output-dir DIR]
 
-Config JSON format — see lunarlander_runs.json for a working example.
+Config JSON format — see plots/lunarlander_runs.json for a working example.
 """
 
 import argparse

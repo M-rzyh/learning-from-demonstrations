@@ -19,7 +19,7 @@ for N in $BUDGETS; do
     JOB=$(sbatch --parsable \
       --job-name="bc-fix200-N${N}-s${SEED}" \
       --export=ALL,DEMO_PATH="$DEMO",N_DEMOS="$N",SEED="$SEED",SHUFFLE=0 \
-      algorithms/imitation/bc/run_bc_lunarlander.sh)
+      launchers/bc/run_bc_lunarlander.sh)
     echo "fixed_gt200,$N,$SEED,$JOB,$DEMO,submitted" >> "$INDEX"
     echo "  BC N=$N seed=$SEED -> $JOB"
   done

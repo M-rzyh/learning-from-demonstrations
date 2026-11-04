@@ -4,7 +4,7 @@ Left  : irreducible BC error of the top-K subset (fixed 30 demos sampled from ea
         WHICH demos changes) -- falls monotonically as K shrinks, but never reaches the expert.
 Right : the GAIL result on the same subsets, which peaks and then falls.
 
-    python scripts/curation/plot_curation_ceiling.py
+    python curation/plot_curation_ceiling.py
 """
 import csv, json, os
 import numpy as np

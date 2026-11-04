@@ -9,7 +9,7 @@ Difference from the oracle version: human time here is MEASURED, not a flat rate
   PT   x : sum of per-pair time_sec over exactly the pairs each seed was shown
 y both  : 50-episode deterministic post-training eval / last10_eval_reward.
 
-    python scripts/curation/plot_count_axis_human_pt_vs_gail_retonly.py
+    python curation/plot_count_axis_human_pt_vs_gail_retonly.py
 """
 import csv, glob, json, os, pickle
 import numpy as np

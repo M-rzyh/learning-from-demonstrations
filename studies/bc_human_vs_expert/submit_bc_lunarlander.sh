@@ -1,8 +1,8 @@
 #!/bin/bash
 # Submit BC training for the expert-vs-human realizability diagnostic.
 #
-#   bash bc/submit_bc_lunarlander.sh <condition> <seed_lo> <seed_hi>
-#   CHECK=1 bash bc/submit_bc_lunarlander.sh expert15 0 29   # pre-flight only
+#   bash studies/bc_human_vs_expert/submit_bc_lunarlander.sh <condition> <seed_lo> <seed_hi>
+#   CHECK=1 bash studies/bc_human_vs_expert/submit_bc_lunarlander.sh expert15 0 29   # pre-flight only
 #
 # Conditions (all N=15, cap 1000, eval on true env reward):
 #   expert15        - first 15 of the SAC expert 4615187 rollouts (GAIL turns these into ~+265)
@@ -47,10 +47,10 @@ INDEX=/home/marzii/learning-from-demonstrations/experiments/BC/bc_lunarlander_$(
 mkdir -p "$(dirname "$INDEX")"
 [[ -f "$INDEX" ]] || echo "condition,N,seed,slurm_job_id,demo_path,status" > "$INDEX"
 
-cd /home/marzii/learning-from-demonstrations/algorithms/imitation
+cd /home/marzii/learning-from-demonstrations
 for seed in $(seq "$LO" "$HI"); do
   jobid=$(DEMO_PATH="$DEMO" N_DEMOS=$N_DEMOS SEED="$seed" ENV_MAX_EP_STEPS=1000 N_EVAL_EPISODES=50 \
-          sbatch --parsable bc/run_bc_lunarlander.sh)
+          sbatch --parsable launchers/bc/run_bc_lunarlander.sh)
   echo "${COND},${N_DEMOS},${seed},${jobid},${DEMO},submitted" >> "$INDEX"
   echo "  bc ${COND} seed=${seed} -> job ${jobid}"
 done

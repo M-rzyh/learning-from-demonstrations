@@ -11,7 +11,7 @@ experiments/ppo_baseline_eval_2026-09-02.json.
 
 Dot = one seed's 50-episode mean. Large dot = mean over seeds. Bar = +/- 1 sd across seeds.
 
-    python scripts/plots/plot_n10_final_eval.py
+    python plots/plot_n10_final_eval.py
 """
 import json, os, sys
 import numpy as np

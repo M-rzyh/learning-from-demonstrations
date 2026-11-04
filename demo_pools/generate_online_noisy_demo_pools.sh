@@ -33,15 +33,15 @@
 #   other variant (nonFS)-> demos/noise_variants/demos/${MODE}/n100_p{P}_s{S}
 #
 # EXAMPLES (run from the repo root):
-#   sbatch scripts/pool_generators/generate_online_noisy_demo_pools.sh            # nonFS coin_uniform
-#   MODE=exact_exclude sbatch scripts/pool_generators/generate_online_noisy_demo_pools.sh  # nonFS anti-signal
-#   FS=1 sbatch scripts/pool_generators/generate_online_noisy_demo_pools.sh       # FS coin_uniform
+#   sbatch demo_pools/generate_online_noisy_demo_pools.sh            # nonFS coin_uniform
+#   MODE=exact_exclude sbatch demo_pools/generate_online_noisy_demo_pools.sh  # nonFS anti-signal
+#   FS=1 sbatch demo_pools/generate_online_noisy_demo_pools.sh       # FS coin_uniform
 
 set -euo pipefail
 
 PYTHON=/scratch/marzii/envs/imitation-gail/bin/python
-ORIG=/home/marzii/learning-from-demonstrations/scripts/collect_fs_expert_perframe_demos_online_noise.py
-VARIANTS=/home/marzii/learning-from-demonstrations/scripts/collect_expert_perframe_demos_online_noise_variants.py
+ORIG=/home/marzii/learning-from-demonstrations/demo_pools/collect_fs_expert_perframe_demos_online_noise.py
+VARIANTS=/home/marzii/learning-from-demonstrations/demo_pools/collect_expert_perframe_demos_online_noise_variants.py
 
 FS=${FS:-0}
 MODE=${MODE:-coin_uniform}

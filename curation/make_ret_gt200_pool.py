@@ -6,7 +6,7 @@ ds.shuffle(seed=SHUFFLE_SEED) and take the first N, so each seed gets its own
 random draw and BC and GAIL get the SAME draw for the same (N, seed).
 
 Usage (compute node, imitation-gail env):
-    python scripts/curation/make_ret_gt200_pool.py [--threshold 200]
+    python curation/make_ret_gt200_pool.py [--threshold 200]
 """
 import argparse
 from pathlib import Path

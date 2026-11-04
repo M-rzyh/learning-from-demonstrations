@@ -5,11 +5,11 @@
 # (see gail_blind_human_2026-07-03.csv, meta.json: n_demos=50, demo_batch_size=512,
 # frame_skip=0) so the seeds pool cleanly.
 #
-#   bash scripts/submit_gail_blind_human_b5.sh <blank_pct> <seed_lo> <seed_hi>
+#   bash studies/blind/submit_gail_blind_human_b5.sh <blank_pct> <seed_lo> <seed_hi>
 #
 # Examples:
-#   bash scripts/submit_gail_blind_human_b5.sh 0  5 9    # top the 0% baseline up to 10 seeds
-#   bash scripts/submit_gail_blind_human_b5.sh 50 0 9    # once blank5_p50 demos exist
+#   bash studies/blind/submit_gail_blind_human_b5.sh 0  5 9    # top the 0% baseline up to 10 seeds
+#   bash studies/blind/submit_gail_blind_human_b5.sh 50 0 9    # once blank5_p50 demos exist
 #
 # 0% is blank-agnostic (b is meaningless when nothing is blanked) so it reuses the
 # clean human session. Reuses run_gail_lunarlander.sh unchanged (params via env vars).
@@ -35,13 +35,13 @@ INDEX=/home/marzii/learning-from-demonstrations/experiments/GAIL/gail_blind_huma
 mkdir -p "$(dirname "$INDEX")"
 [[ -f "$INDEX" ]] || echo "condition_id,N,blank_pct,seed,slurm_job_id,demo_path,status" > "$INDEX"
 
-cd /home/marzii/learning-from-demonstrations/algorithms/imitation
+cd /home/marzii/learning-from-demonstrations
 cond="blind_human_b5_blank${BLANK}"
 for seed in $(seq "$LO" "$HI"); do
   jobid=$(DEMO_PATH="$DEMO" N_DEMOS=50 DEMO_BATCH_SIZE=512 SHUFFLE=1 SEED="$seed" \
           N_EVAL_EPISODES=50 FRAME_SKIP=0 \
           DEMO_NOTE="frame_blank b=5 blind_human blank=${BLANK}% seed=${seed} N=50" \
-          sbatch --parsable run_gail_lunarlander.sh)
+          sbatch --parsable launchers/gail/run_gail_lunarlander.sh)
   echo "${cond},50,${BLANK},${seed},${jobid},${DEMO},submitted" >> "$INDEX"
   echo "  ${cond} seed=${seed} -> job ${jobid}"
 done

@@ -1,6 +1,6 @@
 #!/bin/bash
 # Pure BC matched EXACTLY to the GAIL rand_gt200 arm (see
-# imitation/submit_gail_rand_gt200.sh): same 403-demo pool (human demos with
+# studies/demo_count/submit_gail_rand_gt200.sh): same 403-demo pool (human demos with
 # true return > 200), same SHUFFLE=1 / SHUFFLE_SEED=SEED draw, same budgets and
 # seeds. The shuffle helper in both run scripts is identical, so BC and GAIL
 # train on the same demonstrations at every (N, seed). Nothing is copied.
@@ -23,7 +23,7 @@ for N in $BUDGETS; do
     JOB=$(sbatch --parsable \
       --job-name="bc-r200-N${N}-s${SEED}" \
       --export=ALL,DEMO_PATH="$DEMO",N_DEMOS="$N",SEED="$SEED",SHUFFLE=1,SHUFFLE_SEED="$SEED" \
-      algorithms/imitation/bc/run_bc_lunarlander.sh)
+      launchers/bc/run_bc_lunarlander.sh)
     echo "rand_gt200,$N,$SEED,$JOB,$DEMO,submitted" >> "$INDEX"
     echo "  BC N=$N seed=$SEED -> $JOB"
   done

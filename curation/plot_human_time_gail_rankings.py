@@ -5,7 +5,7 @@ x = human time to record the K demos used (10.8 s/demo, from 300 demos in 54 min
 y = mean of each run's 50-episode deterministic post-training eval; band = +/- 1 std over seeds.
 Point labels = K. Runs are auto-discovered from Slurm logs (same machinery as the curve plots).
 
-    /scratch/marzii/envs/imitation-gail/bin/python scripts/curation/plot_human_time_gail_rankings.py
+    /scratch/marzii/envs/imitation-gail/bin/python curation/plot_human_time_gail_rankings.py
 """
 import argparse, json, os, sys
 import numpy as np

@@ -1,6 +1,6 @@
 """BC warm-start vs GAIL learning curves at N=10 demos.
 
-Same visual format as scripts/curation/plot_2feat_learning_curves.py: one line per
+Same visual format as curation/plot_2feat_learning_curves.py: one line per
 arm = mean over its 10 seeds, shaded band = +/- 1 std across seeds, rolling mean,
 x-axis in true env steps.
 
@@ -28,7 +28,7 @@ verbose=1 rollout tables in the Slurm .out, which carry an exact `total_timestep
 alongside each `ep_rew_mean`. Nothing is inferred -- the two sources are put on the
 same env-step axis and smoothed over a matched step span, not a matched point count.
 
-    /scratch/marzii/envs/imitation-gail/bin/python scripts/plots/plot_bcws_vs_gail_n10_curves.py
+    /scratch/marzii/envs/imitation-gail/bin/python plots/plot_bcws_vs_gail_n10_curves.py
 """
 import argparse, glob, os, re, sys
 import numpy as np

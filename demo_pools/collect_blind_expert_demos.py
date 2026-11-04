@@ -11,7 +11,7 @@ LunarLander. Use with the non-frame-skip expert 4615187.
 NEW file -- does NOT modify collect_fs_expert_perframe_demos_online_noise.py.
 
 Usage:
-    python scripts/collect_blind_expert_demos.py \\
+    python demo_pools/collect_blind_expert_demos.py \\
         --policy   /scratch/marzii/learning-from-demonstrations/imitation_runs/expert/lunarlander/4615187/policies/final/model.zip \\
         --optimal-policy /scratch/marzii/learning-from-demonstrations/imitation_runs/expert/lunarlander/4615187/policies/final/model.zip \\
         --output   $SCRATCH/learning-from-demonstrations/imitation_runs/frame_blanking/demos/blind_expert/n100_blank50_s0 \\

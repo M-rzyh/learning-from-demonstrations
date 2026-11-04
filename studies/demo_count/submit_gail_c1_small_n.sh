@@ -24,14 +24,14 @@ SEEDS=${SEEDS:-"0 1 2 3 4 5 6 7 8 9"}
 
 batch_for () { [[ "$1" -eq 1 ]] && echo 128 || echo 256; }
 
-cd /home/marzii/learning-from-demonstrations/algorithms/imitation
+cd /home/marzii/learning-from-demonstrations
 for N in $BUDGETS; do
   B=$(batch_for "$N")
   for seed in $SEEDS; do
     jid=$(DEMO_PATH="$DEMO" N_DEMOS=$N DEMO_BATCH_SIZE=$B SHUFFLE=0 SEED="$seed" \
           N_EVAL_EPISODES=50 FRAME_SKIP=0 ENV_MAX_EP_STEPS=1000 \
           DEMO_NOTE="countaxis k1000: human ret_only top${N} (first ${N} of top10) seed=${seed}" \
-          sbatch --parsable --time=01:00:00 run_gail_lunarlander.sh)
+          sbatch --parsable --time=01:00:00 launchers/gail/run_gail_lunarlander.sh)
     echo "human,${N},${seed},1000,${B},${jid},${DEMO},submitted" >> "$INDEX"
     echo "  human N=$N seed=$seed batch=$B -> $jid"
   done

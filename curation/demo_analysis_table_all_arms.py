@@ -15,7 +15,7 @@ Arms:
 Writes one CSV; nothing else is touched.
 
 Usage (compute node, imitation-gail env):
-    python scripts/curation/demo_analysis_table_all_arms.py --out <path.csv>
+    python curation/demo_analysis_table_all_arms.py --out <path.csv>
 """
 import argparse
 import csv

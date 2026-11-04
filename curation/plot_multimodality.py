@@ -7,7 +7,7 @@ Reads the JSON + NPZ written by `multimodality_analysis.py`.
   fig 3  multimodality_error_map.png    where in (x, y) the non-realizability lives
   fig 4  satisficing_landing_sites.png  humans stop "good enough", anywhere; expert kisses the pad
 
-    python scripts/curation/plot_multimodality.py
+    python curation/plot_multimodality.py
 """
 import argparse, json, os, sys
 import numpy as np
@@ -20,7 +20,7 @@ from figures_dir import FIGURES              # noqa: E402
 
 
 def out_path(subdir, name):
-    """figures/<subdir>/<name> — the IRL3 convention (scripts/figures_dir.py)."""
+    """figures/<subdir>/<name> — the IRL3 convention (plots/figures_dir.py)."""
     d = FIGURES / subdir if subdir else FIGURES
     d.mkdir(parents=True, exist_ok=True)
     return d / name

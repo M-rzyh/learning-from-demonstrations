@@ -16,8 +16,8 @@ Seed semantics differ between the arms and this matters for the error bars:
   human  : seed varies the demo subset AND training
 
 Usage:
-    python scripts/plots/plot_bc_count_axis.py
-    python scripts/plots/plot_bc_count_axis.py --xscale log --err sd
+    python plots/plot_bc_count_axis.py
+    python plots/plot_bc_count_axis.py --xscale log --err sd
 """
 import argparse
 import csv

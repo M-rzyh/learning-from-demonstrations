@@ -62,7 +62,7 @@ echo
 if [[ ! -e "$CLEAN_POOL/dataset_info.json" ]]; then
   echo "PRE-FLIGHT FAILED: clean pool missing. Submitting nothing." 1>&2
   echo "  MISSING: $CLEAN_POOL" 1>&2
-  echo "  Make it: $([[ $FS == 1 ]] && echo 'FS=1 ')sbatch scripts/pool_generators/generate_clean_demo_pools.sh" 1>&2
+  echo "  Make it: $([[ $FS == 1 ]] && echo 'FS=1 ')sbatch demo_pools/generate_clean_demo_pools.sh" 1>&2
   exit 1
 fi
 echo "PRE-FLIGHT OK: clean pool present."
@@ -75,7 +75,7 @@ fi
 # ---- submit (index appends; header only if new) ----
 mkdir -p "$(dirname "$INDEX")"
 [ -s "$INDEX" ] || echo "condition_id,N,noise_pct,seed,slurm_job_id,demo_path,status" > "$INDEX"
-cd /home/marzii/learning-from-demonstrations/algorithms/imitation
+cd /home/marzii/learning-from-demonstrations
 
 submitted=0
 for N in $N_LIST; do
@@ -84,7 +84,7 @@ for N in $N_LIST; do
     jobid=$(DEMO_PATH="$CLEAN_POOL" N_DEMOS="$N" DEMO_BATCH_SIZE="$bs" \
             SHUFFLE=1 SHUFFLE_SEED="$seed" SEED="$seed" FRAME_SKIP=0 \
             DEMO_NOTE="grid cond=count_N${N} N=${N} noise=0% seed=${seed}" \
-            sbatch --parsable run_gail_lunarlander.sh)
+            sbatch --parsable launchers/gail/run_gail_lunarlander.sh)
     echo "count_N${N},${N},0,${seed},${jobid},${CLEAN_POOL},submitted" >> "$INDEX"
     submitted=$((submitted+1))
     printf "  count N=%s seed=%s -> job %s\n" "$N" "$seed" "$jobid"

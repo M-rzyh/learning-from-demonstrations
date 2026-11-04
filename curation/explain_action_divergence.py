@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Explain / reproduce demo_features.add_action_divergence, step by step.
 
-    /scratch/marzii/envs/imitation-gail/bin/python scripts/curation/explain_action_divergence.py --toy
+    /scratch/marzii/envs/imitation-gail/bin/python curation/explain_action_divergence.py --toy
 
   --toy                     tiny 3-demo example, prints every intermediate array
   --session <dir> [--demos N] [--k K]   run on real demos, print per-demo results
@@ -94,7 +94,7 @@ def main():
         return
 
     if a.verify:
-        sys.path.insert(0, "/home/marzii/learning-from-demonstrations/scripts/curation")
+        sys.path.insert(0, "/home/marzii/learning-from-demonstrations/curation")
         from demo_features import add_action_divergence
         obs, act, ds, n = load(a.verify, a.demos)
         _, mine, _, _, _ = divergence(obs, act, k=15)

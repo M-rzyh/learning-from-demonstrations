@@ -10,11 +10,11 @@
 # non-frame-skip expert 4615187. On blanked frames the expert is fed a zeroed
 # obs -> acts blind -> degraded, physically-consistent 8-D demos. New file; does
 # not touch the online-noise collector. Outputs isolated in frame_blanking/.
-#   sbatch scripts/pool_generators/generate_blind_expert_demo_pools.sh [NSEEDS]   (default 5)
+#   sbatch demo_pools/generate_blind_expert_demo_pools.sh [NSEEDS]   (default 5)
 set -euo pipefail
 
 PYTHON=/scratch/marzii/envs/imitation-gail/bin/python
-SCRIPT=/home/marzii/learning-from-demonstrations/scripts/collect_blind_expert_demos.py
+SCRIPT=/home/marzii/learning-from-demonstrations/demo_pools/collect_blind_expert_demos.py
 POLICY=/scratch/marzii/learning-from-demonstrations/imitation_runs/expert/lunarlander/4615187/policies/final/model.zip
 # block b=10 demos live in a separate subdir; the earlier stochastic pools are left intact.
 OUTROOT=/scratch/marzii/learning-from-demonstrations/imitation_runs/frame_blanking/demos/blind_expert/block

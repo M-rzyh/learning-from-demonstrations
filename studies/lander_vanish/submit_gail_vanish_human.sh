@@ -6,12 +6,12 @@
 # on every other difficulty axis. Budget N_DEMOS=15, the low-budget pairing validated against
 # PT N=100 on the noise axis.
 #
-#   bash scripts/lander_vanish/submit_gail_vanish_human.sh <pct> <seed_lo> <seed_hi>
-#   CHECK=1 bash scripts/lander_vanish/submit_gail_vanish_human.sh 50 0 9   # pre-flight only
+#   bash studies/lander_vanish/submit_gail_vanish_human.sh <pct> <seed_lo> <seed_hi>
+#   CHECK=1 bash studies/lander_vanish/submit_gail_vanish_human.sh 50 0 9   # pre-flight only
 #
 # Examples:
-#   bash scripts/lander_vanish/submit_gail_vanish_human.sh 0  0 9   # clean baseline (fps 20)
-#   bash scripts/lander_vanish/submit_gail_vanish_human.sh 50 0 9
+#   bash studies/lander_vanish/submit_gail_vanish_human.sh 0  0 9   # clean baseline (fps 20)
+#   bash studies/lander_vanish/submit_gail_vanish_human.sh 50 0 9
 #
 # WHY 0% IS ITS OWN COLLECTION, NOT session_2
 #   The pre-existing clean human sessions were played at fps 25 (0.45x real time) while every
@@ -20,7 +20,7 @@
 #   unusable. Collect the clean baseline with:
 #     DIFFICULTY=none FPS=20 FLAG_TARGET=15 \
 #     OUTPUT_DIR=$SCRATCH/learning-from-demonstrations/imitation_runs/lander_vanish/demos/human/vanish_p0 \
-#     bash algorithms/imitation/collect_human_demos_lunarlander.sh
+#     bash envs/lunarlander/collect_human_demos_lunarlander.sh
 #
 # SHUFFLE=0: all 10 seeds train on the SAME 15 demos, so the band measures training variance
 # only. With 15 demos a per-seed subsample would instead measure which demos got picked.
@@ -94,7 +94,7 @@ INDEX=/home/marzii/learning-from-demonstrations/experiments/GAIL/gail_lander_van
 mkdir -p "$(dirname "$INDEX")"
 [[ -f "$INDEX" ]] || echo "condition_id,N,vanish_pct,seed,slurm_job_id,demo_path,status,arm" > "$INDEX"
 
-cd /home/marzii/learning-from-demonstrations/algorithms/imitation
+cd /home/marzii/learning-from-demonstrations
 cond="vanish_human_b5_p${PCT}_${ARM}"
 for seed in $(seq "$LO" "$HI"); do
   # --time overrides run_gail_lunarlander.sh's 00:30:00 directive rather than editing that
@@ -103,7 +103,7 @@ for seed in $(seq "$LO" "$HI"); do
   jobid=$(DEMO_PATH="$DEMO" N_DEMOS=$N_DEMOS DEMO_BATCH_SIZE=512 SHUFFLE=0 SEED="$seed" \
           N_EVAL_EPISODES=50 FRAME_SKIP=0 \
           DEMO_NOTE="lander_vanish b=5 human vanish=${PCT}% seed=${seed} N=${N_DEMOS} fps=20 arm=${ARM}" \
-          sbatch --parsable --time=01:00:00 run_gail_lunarlander.sh)
+          sbatch --parsable --time=01:00:00 launchers/gail/run_gail_lunarlander.sh)
   echo "${cond},${N_DEMOS},${PCT},${seed},${jobid},${DEMO},submitted,${ARM}" >> "$INDEX"
   echo "  ${cond} seed=${seed} -> job ${jobid}"
 done

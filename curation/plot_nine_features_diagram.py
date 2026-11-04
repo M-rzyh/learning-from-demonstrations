@@ -2,7 +2,7 @@
 features, each drawn where it physically applies: in-flight, at touchdown, global, and the
 cross-demo one as an inset.
 
-    /scratch/marzii/envs/imitation-gail/bin/python scripts/curation/plot_nine_features_diagram.py
+    /scratch/marzii/envs/imitation-gail/bin/python curation/plot_nine_features_diagram.py
 """
 import numpy as np
 import matplotlib; matplotlib.use("Agg")

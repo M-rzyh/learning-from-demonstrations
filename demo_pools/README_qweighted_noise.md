@@ -69,7 +69,7 @@ concentrated to be meaningful "noise". They are still useful as a baseline
 the Q-weighted noise experiment proper.
 
 The collector for those runs is at:
-`/home/marzii/learning-from-demonstrations/scripts/collect_fs_expert_perframe_demos_online_qweighted.py`
+`/home/marzii/learning-from-demonstrations/demo_pools/collect_fs_expert_perframe_demos_online_qweighted.py`
 
 ## Implementation steps (when ready to run)
 

@@ -1,7 +1,7 @@
 """GAIL on the top-10 demos of seven 2-feature rankings (return + one consistency metric),
 10 seeds each. Shows per-seed spread, not just the mean.
 
-    /scratch/marzii/envs/imitation-gail/bin/python scripts/curation/plot_2feat_ranking_comparison.py
+    /scratch/marzii/envs/imitation-gail/bin/python curation/plot_2feat_ranking_comparison.py
 """
 import argparse, csv, os
 import numpy as np

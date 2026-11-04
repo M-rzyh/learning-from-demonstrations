@@ -3,7 +3,7 @@
 Landed (green) vs crashed (red) overlay, solid black = this pool's mean, dashed grey = the
 expert pool's mean for the same metric (the single-deterministic-policy floor).
 
-    /scratch/marzii/envs/imitation-gail/bin/python scripts/curation/plot_consistency_metric_hists.py \
+    /scratch/marzii/envs/imitation-gail/bin/python curation/plot_consistency_metric_hists.py \
         --csv <human_features.csv> --expert_csv <expert_features.csv> --out <png>
 """
 import argparse, csv, os

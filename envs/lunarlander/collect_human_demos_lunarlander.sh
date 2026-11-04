@@ -73,14 +73,14 @@
 #   PORT=0 (0 = auto)   OUTPUT_DIR=... (default derived from DIFFICULTY)
 #
 # EXAMPLES:
-#   bash collect_human_demos_lunarlander.sh                             # clean 0%
-#   DIFFICULTY=blank  PCT=50 BLOCK_LEN=5 bash collect_human_demos_lunarlander.sh
-#   DIFFICULTY=vanish PCT=50 BLOCK_LEN=5 FLAG_TARGET=15 bash collect_human_demos_lunarlander.sh
-#   DIFFICULTY=region PCT=25 OUTLINE=red bash collect_human_demos_lunarlander.sh
-#   DIFFICULTY=sticky PCT=50             bash collect_human_demos_lunarlander.sh
-#   DIFFICULTY=delay  K=3                bash collect_human_demos_lunarlander.sh
-#   GRAVITY=0                            bash collect_human_demos_lunarlander.sh   # zero-g
-#   ENABLE_WIND=1                        bash collect_human_demos_lunarlander.sh   # wind on
+#   bash envs/lunarlander/collect_human_demos_lunarlander.sh                             # clean 0%
+#   DIFFICULTY=blank  PCT=50 BLOCK_LEN=5 bash envs/lunarlander/collect_human_demos_lunarlander.sh
+#   DIFFICULTY=vanish PCT=50 BLOCK_LEN=5 FLAG_TARGET=15 bash envs/lunarlander/collect_human_demos_lunarlander.sh
+#   DIFFICULTY=region PCT=25 OUTLINE=red bash envs/lunarlander/collect_human_demos_lunarlander.sh
+#   DIFFICULTY=sticky PCT=50             bash envs/lunarlander/collect_human_demos_lunarlander.sh
+#   DIFFICULTY=delay  K=3                bash envs/lunarlander/collect_human_demos_lunarlander.sh
+#   GRAVITY=0                            bash envs/lunarlander/collect_human_demos_lunarlander.sh   # zero-g
+#   ENABLE_WIND=1                        bash envs/lunarlander/collect_human_demos_lunarlander.sh   # wind on
 # ============================================================================
 
 set -euo pipefail
@@ -161,6 +161,7 @@ if [[ -e "$OUTPUT_DIR/session_1" ]]; then
     exit 1
 fi
 mkdir -p "$OUTPUT_DIR"
+OUTPUT_DIR="$(cd "$OUTPUT_DIR" && pwd)"   # absolute, because we cd into it before starting the game
 
 # ---- Find a free port ----
 if [ "${PORT:-0}" = "0" ]; then
@@ -251,9 +252,9 @@ echo "Starting server in 5 seconds..."
 sleep 5
 
 # ---- Collect demos ----
-cd /home/marzii/learning-from-demonstrations/algorithms/imitation || exit 1
+cd "$OUTPUT_DIR" || exit 1   # never run from inside the repo: human data must stay on scratch
 
-python human_demo.py \
+python /home/marzii/learning-from-demonstrations/envs/lunarlander/human_demo.py \
     --env LunarLander-v2 \
     --output "$OUTPUT_DIR" \
     --max_episodes "$MAX_EPISODES" \
@@ -272,5 +273,5 @@ echo "  Done! Demos saved to: ${OUTPUT_DIR}"
 echo "  Speed provenance:     ${OUTPUT_DIR}/session_1/session_meta.json"
 echo ""
 echo "  To train GAIL on the FLAGGED subset:"
-echo "    DEMO_PATH=\"${OUTPUT_DIR}/session_1_flagged\" N_DEMOS=${FLAG_TARGET} sbatch run_gail_lunarlander.sh"
+echo "    DEMO_PATH=\"${OUTPUT_DIR}/session_1_flagged\" N_DEMOS=${FLAG_TARGET} sbatch /home/marzii/learning-from-demonstrations/launchers/gail/run_gail_lunarlander.sh"
 echo "============================================================"

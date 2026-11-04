@@ -6,7 +6,7 @@ demo_features.add_action_divergence exactly: same 6-D pool-normalized state, sam
 window, same "first k OTHER-demo neighbours, multi-vote allowed" rule -- verified against
 rank_return_ad.csv at k=15.
 
-    python scripts/curation/make_divergence_k_features.py --ks 15,50,100
+    python curation/make_divergence_k_features.py --ks 15,50,100
 """
 import argparse, csv, os, sys
 import numpy as np

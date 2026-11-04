@@ -26,8 +26,8 @@ training. The H6 band is therefore wider for a different reason -- do not read
 the three bands as measuring the same thing.
 
 Usage:
-    python scripts/plots/plot_gail_learning_curves.py
-    python scripts/plots/plot_gail_learning_curves.py --bin 25000 --err sd
+    python plots/plot_gail_learning_curves.py
+    python plots/plot_gail_learning_curves.py --bin 25000 --err sd
 """
 import argparse
 import csv

@@ -3,7 +3,7 @@
 # The human played with laggy controls (each keypress applied K steps late); the agent trains
 # in the normal env. GAIL levels are K=0/5/10 (K=20 is PT-only). Budget N=15 (flagged).
 #
-#   bash scripts/action_delay/submit_gail_delay_human.sh <k> <seed_lo> <seed_hi>
+#   bash studies/action_delay/submit_gail_delay_human.sh <k> <seed_lo> <seed_hi>
 #   ARM=flagged|first15|all   CHECK=1 (pre-flight only)
 #
 # K=0 REUSES the existing vanish_p0 clean fps-20 session (DIFFICULTY=none, delay_k=0 ⇒ the
@@ -58,13 +58,13 @@ INDEX=/home/marzii/learning-from-demonstrations/experiments/GAIL/gail_lander_del
 mkdir -p "$(dirname "$INDEX")"
 [[ -f "$INDEX" ]] || echo "condition_id,N,delay_k,seed,slurm_job_id,demo_path,status,arm" > "$INDEX"
 
-cd /home/marzii/learning-from-demonstrations/algorithms/imitation
+cd /home/marzii/learning-from-demonstrations
 cond="delay_human_k${K}_${ARM}"
 for seed in $(seq "$LO" "$HI"); do
   jobid=$(DEMO_PATH="$DEMO" N_DEMOS=$N_DEMOS DEMO_BATCH_SIZE=512 SHUFFLE=0 SEED="$seed" \
           N_EVAL_EPISODES=50 FRAME_SKIP=0 \
           DEMO_NOTE="action_delay human k=${K} seed=${seed} N=${N_DEMOS} arm=${ARM}" \
-          sbatch --parsable --time=01:00:00 run_gail_lunarlander.sh)
+          sbatch --parsable --time=01:00:00 launchers/gail/run_gail_lunarlander.sh)
   echo "${cond},${N_DEMOS},${K},${seed},${jobid},${DEMO},submitted,${ARM}" >> "$INDEX"
   echo "  ${cond} seed=${seed} -> job ${jobid}"
 done

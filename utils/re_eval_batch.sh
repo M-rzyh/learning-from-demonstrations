@@ -32,5 +32,5 @@ echo "Task $TASK_ID: processing lines $START..$END of $TOTAL ($N_EPS eps each)"
 
 while IFS= read -r RUN_DIR; do
   [ -z "$RUN_DIR" ] && continue
-  python /home/marzii/learning-from-demonstrations/scripts/utils/re_eval_run.py "$RUN_DIR" --n-eps $N_EPS
+  python /home/marzii/learning-from-demonstrations/utils/re_eval_run.py "$RUN_DIR" --n-eps $N_EPS
 done < <(sed -n "${START},${END}p" "$RUN_LIST")

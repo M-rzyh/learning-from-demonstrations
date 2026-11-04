@@ -32,7 +32,7 @@ Outputs (per-demo rows + a summary with mean/sd per source and N):
 Nothing in the demonstration directories is modified; they are only read.
 
 Usage (compute node, imitation-gail env):
-    python scripts/curation/demo_analysis_c1_vs_e4.py
+    python curation/demo_analysis_c1_vs_e4.py
 """
 import argparse
 import csv

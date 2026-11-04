@@ -13,7 +13,7 @@ Series:
 
 y = mean over seeds of each run's 50-episode deterministic eval; band = +/-1 std.
 
-    /scratch/marzii/envs/imitation-gail/bin/python scripts/curation/plot_count_eval_5methods.py
+    /scratch/marzii/envs/imitation-gail/bin/python curation/plot_count_eval_5methods.py
 """
 import csv, glob, json, os, sys
 import numpy as np

@@ -1,5 +1,5 @@
 #!/bin/bash
-# Pure BC matched EXACTLY to the GAIL rand_expert arm (imitation/submit_gail_rand_expert.sh):
+# Pure BC matched EXACTLY to the GAIL rand_expert arm (studies/demo_count/submit_gail_rand_expert.sh):
 # same 500-demo expert pool, same SHUFFLE=1 / SHUFFLE_SEED=SEED draw, same budgets
 # and seeds, so BC and GAIL train on identical demonstrations at every (N, seed).
 # The fixed-synthetic BC runs (SHUFFLE=0, bc_e4_matched_*) are untouched.
@@ -18,7 +18,7 @@ for N in $BUDGETS; do
     JOB=$(sbatch --parsable \
       --job-name="bc-rexp-N${N}-s${SEED}" \
       --export=ALL,DEMO_PATH="$DEMO",N_DEMOS="$N",SEED="$SEED",SHUFFLE=1,SHUFFLE_SEED="$SEED" \
-      algorithms/imitation/bc/run_bc_lunarlander.sh)
+      launchers/bc/run_bc_lunarlander.sh)
     echo "rand_expert,$N,$SEED,$JOB,$DEMO,submitted" >> "$INDEX"
     echo "  BC N=$N seed=$SEED -> $JOB"
   done

@@ -12,7 +12,7 @@ NOTE ON "RETURN-RANKED": the pure return-only ranking exists at K=10 ONLY, so it
 as a single point. The nearest return-based ranking with a real count axis is `ra`
 (return + action divergence, 50/50), shown across K = 5..500.
 
-    python scripts/curation/plot_count_axis_pt_vs_gail_human.py
+    python curation/plot_count_axis_pt_vs_gail_human.py
 """
 import argparse, csv, glob, json, os, pickle, sys
 import numpy as np

@@ -3,7 +3,7 @@
 # The human played the SAME task at a faster/slower live pace; the agent trains in the normal
 # env. Budget N=15 flagged (also first15 / all arms), 30 seeds.
 #
-#   bash scripts/sim_speed/submit_gail_speed_human.sh <fps> <seed_lo> <seed_hi>
+#   bash studies/sim_speed/submit_gail_speed_human.sh <fps> <seed_lo> <seed_hi>
 #   ARM=flagged|first15|all   CHECK=1 (pre-flight only)
 #
 #   fps: 10 (0.2x, easy) | 20 (0.4x, baseline) | 50 (1.0x real time, hard)
@@ -11,7 +11,7 @@
 #   speed baseline), so no new 20 fps play. 10 & 50 are their own collections:
 #     DIFFICULTY=none FPS={10,50} FLAG_TARGET=15 FEEDBACK=both \
 #     OUTPUT_DIR=$SCRATCH/learning-from-demonstrations/imitation_runs/sim_speed/demos/human/speed_fps{10,50} \
-#     bash algorithms/imitation/collect_human_demos_lunarlander.sh
+#     bash envs/lunarlander/collect_human_demos_lunarlander.sh
 set -euo pipefail
 
 FPS=${1:?usage: submit_gail_speed_human.sh <fps> <seed_lo> <seed_hi>}
@@ -66,13 +66,13 @@ INDEX=/home/marzii/learning-from-demonstrations/experiments/GAIL/gail_lander_spe
 mkdir -p "$(dirname "$INDEX")"
 [[ -f "$INDEX" ]] || echo "condition_id,N,speed_fps,seed,slurm_job_id,demo_path,status,arm" > "$INDEX"
 
-cd /home/marzii/learning-from-demonstrations/algorithms/imitation
+cd /home/marzii/learning-from-demonstrations
 cond="speed_human_fps${FPS}_${ARM}"
 for seed in $(seq "$LO" "$HI"); do
   jobid=$(DEMO_PATH="$DEMO" N_DEMOS=$N_DEMOS DEMO_BATCH_SIZE=512 SHUFFLE=0 SEED="$seed" \
           N_EVAL_EPISODES=50 FRAME_SKIP=0 \
           DEMO_NOTE="sim_speed human fps=${FPS} seed=${seed} N=${N_DEMOS} arm=${ARM}" \
-          sbatch --parsable --time=01:00:00 run_gail_lunarlander.sh)
+          sbatch --parsable --time=01:00:00 launchers/gail/run_gail_lunarlander.sh)
   echo "${cond},${N_DEMOS},${FPS},${seed},${jobid},${DEMO},submitted,${ARM}" >> "$INDEX"
   echo "  ${cond} seed=${seed} -> job ${jobid}"
 done

@@ -5,9 +5,9 @@ so thresholds mean the same thing live as in calibration). `GOOD_DIR[f]` = +1 if
 better, -1 if lower is better — used for the "good half" percentile filter.
 
     # build the features CSV + histograms (landed vs crashed overlay, median marked):
-    python scripts/curation/demo_features.py --session <session_dir> --out_csv f.csv --plot_dir <dir>
+    python curation/demo_features.py --session <session_dir> --out_csv f.csv --plot_dir <dir>
     # demo the AND filter on chosen features at a percentile:
-    python scripts/curation/demo_features.py --session <dir> --filter return,angle_mean_abs,x_wander --pct 50 --plot_dir <dir>
+    python curation/demo_features.py --session <dir> --filter return,angle_mean_abs,x_wander --pct 50 --plot_dir <dir>
 """
 import argparse, os
 import numpy as np

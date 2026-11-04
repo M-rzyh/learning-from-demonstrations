@@ -2,7 +2,7 @@
 # Submit GAIL training on BLIND-EXPERT demos (frame-blanking, Exp 1).
 # The demos are degraded (blind expert); the agent trains in the NORMAL 8-D env.
 # N_DEMOS=50, 50-episode final eval — matches the human comparison + GAIL defaults.
-#   bash scripts/submit_gail_blind_expert.sh [NSEEDS]   (default 5)
+#   bash studies/blind/submit_gail_blind_expert.sh [NSEEDS]   (default 5)
 #
 # Reuses run_gail_lunarlander.sh unchanged (params via env vars). Runs land in the
 # standard gail/lunarlander/<job>/ dir (job-keyed, non-destructive); this index CSV
@@ -17,7 +17,7 @@ echo "condition_id,N,blank_pct,seed,slurm_job_id,demo_path,status" > "$INDEX"
 DEMO_ROOT=/scratch/marzii/learning-from-demonstrations/imitation_runs/frame_blanking/demos/blind_expert/block
 NSEEDS=${1:-5}
 LAST=$((NSEEDS - 1))
-cd /home/marzii/learning-from-demonstrations/algorithms/imitation
+cd /home/marzii/learning-from-demonstrations
 
 for blank in 0 25 50 75; do
   cond="blind_expert_block_blank${blank}"
@@ -27,7 +27,7 @@ for blank in 0 25 50 75; do
     jobid=$(DEMO_PATH="$demo" N_DEMOS=50 DEMO_BATCH_SIZE=512 SHUFFLE=1 SEED="$seed" \
             N_EVAL_EPISODES=50 FRAME_SKIP=0 \
             DEMO_NOTE="frame_blank blind_expert blank=${blank}% seed=${seed} N=50" \
-            sbatch --parsable run_gail_lunarlander.sh)
+            sbatch --parsable launchers/gail/run_gail_lunarlander.sh)
     echo "${cond},50,${blank},${seed},${jobid},${demo},submitted" >> "$INDEX"
     echo "  ${cond} seed=${seed} -> job ${jobid}"
   done

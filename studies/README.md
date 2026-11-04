@@ -1,4 +1,23 @@
-# IRL3 `scripts/` — what each `.sh` is for
+# `studies/` — what each submitter is for
+
+> **LunarLander-only so far.** Every submitter here (and the pools in `demo_pools/`, the code in
+> `curation/`, `plots/` and `utils/`) was written for LunarLander: it points at LunarLander demo
+> pools and run dirs on scratch and calls the LunarLander launchers. The folders are organised by
+> function so the same studies can be run on other envs later; when a study gains a second env,
+> parameterise it (env name, launcher, pools) instead of copying it.
+
+Run every submitter from the repo root, e.g. `bash studies/noise_count/submit_gail_noise.sh`.
+Submitters loop over budgets/seeds and `sbatch` one launcher per run (`launchers/{gail,bc,rl}/`).
+
+| Folder | Study |
+|---|---|
+| `demo_count/` | cap-1000 demo-count arms: GAIL C1/fixed/random-human/random-expert and the matched BC arms (C1, E4, H6, fixed, random) |
+| `bc_human_vs_expert/` | BC on 15 expert vs 15 human demos (is the human-expert gap realizability?) |
+| `noise_count/` | GAIL noise axis and clean demo-count axis (details below) |
+| `blind/` | frame-blanking axis (details below) |
+| `lander_vanish/` | lander-vanishing axis (details below) |
+| `action_delay/` | human demos played with K-step action delay |
+| `sim_speed/` | human demos played at different game speeds (fps) |
 
 Pipeline: 
 **generate demo pools** → **submit GAIL training** → (util) rebuild/re-eval.
@@ -7,8 +26,8 @@ Pipeline:
 - **online** (`noisy_demos_online_nonFS/`) — noise injected *during* the rollout, so the lander genuinely misflies (short, crashing episodes).
 - **offline** (`noisy_demos/`, via `add_action_noise`) — a clean recorded trajectory with its action *labels* flipped; the states stay the perfect flight.
 
-## Generate demo pools — in `pool_generators/` (run once; produce the datasets everything else subsamples)
-Run from the repo root, e.g. --> `sbatch scripts/pool_generators/generate_clean_demo_pools.sh`.
+## Generate demo pools — in `demo_pools/` at the repo root (run once; produce the datasets everything else subsamples)
+Run from the repo root, e.g. --> `sbatch demo_pools/generate_clean_demo_pools.sh`.
 | Script | Use it to… |
 1. | **`generate_clean_demo_pools.sh`** | **Clean (0%) pool** — expert rolled out with `--noise-prob 0` into one shared pool `n100_p0_clean` (not per-seed; the submitters subsample it via `SHUFFLE_SEED`). `FS` (default nonFS 4615187), `NEPISODES` (default 150), `FORCE`. Writes `noisy_demos/…/expert_4615187/n100_p0_clean` — where `submit_gail_count.sh` (and `submit_gail_noise.sh` at level 0) read it. Skips if present unless `FORCE=1`. |
 2. | **`generate_online_noisy_demo_pools.sh`** | **Online noise pools** — `FS` (default nonFS 4615187), `MODE` (default `coin_uniform` = your N15/N50/N100 pools; also `exact_uniform`/`coin_exclude`/`exact_exclude`), `LEVELS`/`NSEEDS`/`FORCE`. Default → `noisy_demos_online_nonFS/…/expert_4615187/n100_p{P}_s{S}` (what the noise sweeps subsample); variants → `noise_variants/demos/{MODE}/`. FS supports `coin_uniform` only. Skips existing unless `FORCE=1`. |
@@ -25,8 +44,8 @@ they'd use and submit *nothing* if any is missing (`CHECK=1` = check only). All 
 
 ### `noise_count/` — noise & budget axes
 | Script | Use it to… |
-1. | **`submit_gail_noise.sh`** | **Noise axis at a chosen N** — default `LEVELS` = 10–100% (0% excluded, see note). Options `N`, `LEVELS`, `PIPELINE` (online/offline), `FS`, `MODE` (`coin_uniform`/`exact_uniform`/`coin_exclude`/`exact_exclude`), `NSEEDS`; `SHUFFLE`/`BS` auto-derive from `N`. Supersedes the old `grid_noise`/`_N50`/`_N`/`noise_variants`. e.g. `N=15 bash noise_count/submit_gail_noise.sh`. |
-2. | **`submit_gail_count.sh`** | **Count axis** — sweeps demo budget `N_LIST` (default 1/5/10/50/100) at 0% noise from the clean pool. Options `FS`, `NSEEDS`, `BS` (tiers by N). Supersedes `grid_count` + the count half of `grid`. e.g. `FS=1 bash noise_count/submit_gail_count.sh`. |
+1. | **`submit_gail_noise.sh`** | **Noise axis at a chosen N** — default `LEVELS` = 10–100% (0% excluded, see note). Options `N`, `LEVELS`, `PIPELINE` (online/offline), `FS`, `MODE` (`coin_uniform`/`exact_uniform`/`coin_exclude`/`exact_exclude`), `NSEEDS`; `SHUFFLE`/`BS` auto-derive from `N`. Supersedes the old `grid_noise`/`_N50`/`_N`/`noise_variants`. e.g. `N=15 bash studies/noise_count/submit_gail_noise.sh`. |
+2. | **`submit_gail_count.sh`** | **Count axis** — sweeps demo budget `N_LIST` (default 1/5/10/50/100) at 0% noise from the clean pool. Options `FS`, `NSEEDS`, `BS` (tiers by N). Supersedes `grid_count` + the count half of `grid`. e.g. `FS=1 bash studies/noise_count/submit_gail_count.sh`. |
 
 > **0% point convention.** The 0%-noise point at budget N *is* the clean count point `count_N{N}`
 > — same experiment. To avoid computing it twice, **the 0% point comes from `submit_gail_count.sh`
@@ -38,7 +57,7 @@ they'd use and submit *nothing* if any is missing (`CHECK=1` = check only). All 
 ### `blind/` — frame-blanking axis
 | Script | Use it to… |
 1. | `submit_gail_blind_expert.sh` | Train on **blind-expert** demos, **N=50**, blank% {0,25,50,75} × seeds. ⚠️ index **truncates**. |
-2. | `submit_gail_blind_human_b5.sh` | Train on **blind-human** demos (b=5), **N=50** — `bash blind/submit_gail_blind_human_b5.sh <blank_pct> <seed_lo> <seed_hi>`. Appends. |
+2. | `submit_gail_blind_human_b5.sh` | Train on **blind-human** demos (b=5), **N=50** — `bash studies/blind/submit_gail_blind_human_b5.sh <blank_pct> <seed_lo> <seed_hi>`. Appends. |
 
 ### `lander_vanish/` — lander-vanishing axis
 Same block schedule as frame blanking, but only the **lander** is removed and replaced by the
@@ -46,14 +65,14 @@ terrain behind it; ground, pad and flags stay visible. Human arm only, low budge
 demos against PT's N=100 preferences).
 
 | Script | Use it to… |
-1. | `submit_gail_vanish_human.sh` | Train on vanish-human demos (b=5, fps 20), **N=15** — `bash lander_vanish/submit_gail_vanish_human.sh <pct> <seed_lo> <seed_hi>`. Pre-flights the demo dir and refuses to submit anything if it is missing or short; `CHECK=1` checks only. Appends. |
+1. | `submit_gail_vanish_human.sh` | Train on vanish-human demos (b=5, fps 20), **N=15** — `bash studies/lander_vanish/submit_gail_vanish_human.sh <pct> <seed_lo> <seed_hi>`. Pre-flights the demo dir and refuses to submit anything if it is missing or short; `CHECK=1` checks only. Appends. |
 
-Collect the demos with `algorithms/imitation/collect_human_demos_lunarlander.sh`:
+Collect the demos with `envs/lunarlander/collect_human_demos_lunarlander.sh`:
 `DIFFICULTY=vanish PCT={25,50,75} BLOCK_LEN=5 FPS=20 FLAG_TARGET=15`. The **0% baseline needs
 its own fps-20 collection** (`DIFFICULTY=none` + `OUTPUT_DIR=.../vanish_p0`) — the older clean
 sessions were played at fps 25, and reusing them would confound the baseline with game speed.
 
-## Utilities
+## Utilities (in `utils/` at the repo root)
 | Script | Use it to… |
 1. | `rebuild_gail_noise_N15_index.sh` | Rebuild a truncated N15 noise index from job logs (`DEMO_NOTE`) + the clean-rows side-file. Idempotent; re-run after the sweep finishes. |
 2. | `re_eval_batch.sh` | Re-evaluate finished run dirs (`re_eval_run.py`) at a chosen episode count. |

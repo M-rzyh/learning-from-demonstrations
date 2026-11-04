@@ -7,16 +7,16 @@ imitation.data.serialize.save(), directly loadable by GAIL training scripts.
 
 Usage:
     # Web mode (default) — browser UI, works over SSH tunnel, no X11 needed
-    python human_demo.py --env LunarLander-v2 --mode web --port 8080
+    python envs/lunarlander/human_demo.py --env LunarLander-v2 --mode web --port 8080
 
     # Visual mode — renders the game via pygame, needs X11/display
-    python human_demo.py --env LunarLander-v2 --mode visual
+    python envs/lunarlander/human_demo.py --env LunarLander-v2 --mode visual
 
     # Curses mode — text-only, works over SSH without X11
-    python human_demo.py --env LunarLander-v2 --mode curses
+    python envs/lunarlander/human_demo.py --env LunarLander-v2 --mode curses
 
     # Text mode — step-by-step prompts
-    python human_demo.py --env LunarLander-v2 --mode text
+    python envs/lunarlander/human_demo.py --env LunarLander-v2 --mode text
 
 Controls (all modes):
     W / Up    : main engine ON  (discrete: action 2)

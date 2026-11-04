@@ -22,8 +22,8 @@
 # Kept separate from the H6-matched BC runs (own index file).
 #
 # Usage:
-#   bash algorithms/imitation/bc/submit_bc_c1_matched.sh                          # all 55
-#   BUDGETS="10" SEEDS="0" bash algorithms/imitation/bc/submit_bc_c1_matched.sh   # smoke
+#   bash studies/demo_count/submit_bc_c1_matched.sh                          # all 55
+#   BUDGETS="10" SEEDS="0" bash studies/demo_count/submit_bc_c1_matched.sh   # smoke
 
 set -euo pipefail
 cd /home/marzii/learning-from-demonstrations
@@ -48,7 +48,7 @@ for N in $BUDGETS; do
   elif [[ "$N" -lt 10 ]]; then
     # No ret_only_top1/top5 dirs exist. The ranked dirs are sorted by return,
     # descending, so demos[:N] of ret_only_top10 IS the global top-N (same demos
-    # GAIL C1 uses at N=1/5 via imitation/submit_gail_c1_small_n.sh).
+    # GAIL C1 uses at N=1/5 via studies/demo_count/submit_gail_c1_small_n.sh).
     DEMO_PATH="$DEMO_ROOT/session_3_ext700_ret_only_top10"
     USE_SEEDS="$SEEDS"
   else
@@ -63,7 +63,7 @@ for N in $BUDGETS; do
     JOB=$(sbatch --parsable \
       --job-name="bc-c1-N${N}-s${SEED}" \
       --export=ALL,DEMO_PATH="$DEMO_PATH",N_DEMOS="$N",SEED="$SEED",SHUFFLE=0 \
-      algorithms/imitation/bc/run_bc_lunarlander.sh)
+      launchers/bc/run_bc_lunarlander.sh)
     echo "  submitted N=$N seed=$SEED job=$JOB"
     echo "c1_matched,$N,$SEED,$JOB,$DEMO_PATH,submitted" >> "$INDEX"
   done

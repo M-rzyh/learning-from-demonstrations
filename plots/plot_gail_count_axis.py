@@ -15,8 +15,8 @@ their seeds vary training only (fixed demo set). H6 uses SHUFFLE=1, so its seeds
 vary the demo subset AND training -- its error bars are not the same quantity.
 
 Usage:
-    python scripts/plots/plot_gail_count_axis.py
-    python scripts/plots/plot_gail_count_axis.py --err sd --xscale log
+    python plots/plot_gail_count_axis.py
+    python plots/plot_gail_count_axis.py --err sd --xscale log
 """
 import argparse
 import csv

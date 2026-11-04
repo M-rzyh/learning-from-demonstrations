@@ -12,7 +12,7 @@
 #   Variant A (all 300):    DEMO_PATH=<session_3_ext300>
 #   Variant B (landed 180): DEMO_PATH=<session_3_ext300> OUTCOME=landed FEATURES_CSV=<...features.csv>
 # Submit per (variant, seed):
-#   DEMO_PATH=... SEED=$s [OUTCOME=landed FEATURES_CSV=...] sbatch run_bc_warmstart_lunarlander.sh
+#   DEMO_PATH=... SEED=$s [OUTCOME=landed FEATURES_CSV=...] sbatch launchers/bc/run_bc_warmstart_lunarlander.sh
 
 set -euo pipefail
 mkdir -p /scratch/marzii/learning-from-demonstrations/imitation_runs/_slurm_logs/bc_warmstart/lunarlander
@@ -38,6 +38,7 @@ FEATURES_CSV=${FEATURES_CSV:-}
 
 RUN_DIR="/scratch/marzii/learning-from-demonstrations/imitation_runs/bc_warmstart/lunarlander/${SLURM_JOB_ID:-local}"
 mkdir -p "$RUN_DIR"
+cd "$RUN_DIR"   # work from the run dir on scratch, so cwd-relative output lands there, never in $HOME
 
 echo "Demo path:   $DEMO_PATH"
 echo "Seed:        $SEED"
@@ -45,7 +46,7 @@ echo "Outcome:     ${OUTCOME:-<none>}   (features_csv=${FEATURES_CSV:-<none>})"
 echo "BC epochs:   $BC_EPOCHS   RL steps: $TOTAL_TIMESTEPS   cap: $MAX_EP_STEPS"
 echo "Run dir:     $RUN_DIR"
 
-python bc/warmstart_bc_ppo.py \
+python /home/marzii/learning-from-demonstrations/launchers/bc/warmstart_bc_ppo.py \
   --demo_path "$DEMO_PATH" \
   --out_dir "$RUN_DIR" \
   --seed "$SEED" \

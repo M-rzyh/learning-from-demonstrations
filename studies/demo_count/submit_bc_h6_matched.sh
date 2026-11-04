@@ -20,8 +20,8 @@
 # so these runs stay comparable with the existing BC arms.
 #
 # Usage:
-#   bash algorithms/imitation/bc/submit_bc_h6_matched.sh                          # all 25
-#   BUDGETS="5" SEEDS="0" bash algorithms/imitation/bc/submit_bc_h6_matched.sh    # one smoke run
+#   bash studies/demo_count/submit_bc_h6_matched.sh                          # all 25
+#   BUDGETS="5" SEEDS="0" bash studies/demo_count/submit_bc_h6_matched.sh    # one smoke run
 
 set -euo pipefail
 cd /home/marzii/learning-from-demonstrations
@@ -46,7 +46,7 @@ for N in $BUDGETS; do
     JOB=$(sbatch --parsable \
       --job-name="bc-h6-N${N}-s${SEED}" \
       --export=ALL,DEMO_PATH="$DEMO_PATH",N_DEMOS="$N",SEED="$SEED",SHUFFLE=1,SHUFFLE_SEED="$SEED" \
-      algorithms/imitation/bc/run_bc_lunarlander.sh)
+      launchers/bc/run_bc_lunarlander.sh)
     echo "  submitted N=$N seed=$SEED job=$JOB"
     echo "h6_matched,$N,$SEED,$SEED,$JOB,$DEMO_PATH,submitted" >> "$INDEX"
   done

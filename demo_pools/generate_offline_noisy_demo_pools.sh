@@ -7,7 +7,7 @@
 set -euo pipefail
 
 PYTHON=/scratch/marzii/envs/imitation-gail/bin/python
-SCRIPT=/home/marzii/learning-from-demonstrations/scripts/add_action_noise.py
+SCRIPT=/home/marzii/learning-from-demonstrations/demo_pools/add_action_noise.py
 INPUT=/scratch/marzii/learning-from-demonstrations/imitation_runs/expert/lunarlander/4615187/rollouts/perframe_demos_150_holdK1
 # INPUTFS=/scratch/marzii/learning-from-demonstrations/imitation_runs/expert/lunarlander/4720242/rollouts/perframe_demos_150
 OPTIMAL=/scratch/marzii/learning-from-demonstrations/imitation_runs/expert/lunarlander/4615187/policies/final/model.zip

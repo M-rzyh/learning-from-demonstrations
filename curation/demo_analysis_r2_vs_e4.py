@@ -8,7 +8,7 @@ demo_analysis_c1_vs_e4.py (imported from it):
 
 Difference from the C1 analysis: the R2 subsets are NOT seed-independent. Each
 seed trains on ds.shuffle(seed=SEED) of session_3_ext700_ret_gt200 truncated to
-N -- exactly what run_gail_lunarlander.sh / bc/run_bc_lunarlander.sh do with
+N -- exactly what run_gail_lunarlander.sh / launchers/bc/run_bc_lunarlander.sh do with
 SHUFFLE=1, and identical between GAIL and BC. So every (N, seed) draw is
 measured separately, and the summary reports the mean over seeds of the
 per-draw mean, with the spread across seeds.
@@ -21,7 +21,7 @@ Outputs:
   <out_dir>/demo_analysis_summary_R2_vs_E4.csv      mean +- sd across seeds
 
 Usage (compute node, imitation-gail env):
-    python scripts/curation/demo_analysis_r2_vs_e4.py
+    python curation/demo_analysis_r2_vs_e4.py
 """
 import argparse
 import csv

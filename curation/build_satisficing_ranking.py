@@ -8,7 +8,7 @@ All 7 are costs (lower = better), so no per-feature direction handling is needed
     score = mean over the 7 features of (1 - percentile(value));  rank 1 = best.
 Same percentile-mean scheme as demo_features.add_ranking / build_2feat_rankings, minus return.
 
-    python scripts/curation/build_satisficing_ranking.py --make_subsets
+    python curation/build_satisficing_ranking.py --make_subsets
 """
 import argparse, csv, os
 import numpy as np

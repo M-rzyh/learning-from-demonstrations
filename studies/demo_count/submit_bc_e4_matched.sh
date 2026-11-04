@@ -20,8 +20,8 @@
 # env seeded reset(seed=SEED*1000+ep), scored with the true environment reward.
 #
 # Usage:
-#   bash algorithms/imitation/bc/submit_bc_e4_matched.sh                            # all 60
-#   BUDGETS="10" SEEDS="0" bash algorithms/imitation/bc/submit_bc_e4_matched.sh     # smoke
+#   bash studies/demo_count/submit_bc_e4_matched.sh                            # all 60
+#   BUDGETS="10" SEEDS="0" bash studies/demo_count/submit_bc_e4_matched.sh     # smoke
 
 set -euo pipefail
 cd /home/marzii/learning-from-demonstrations
@@ -46,7 +46,7 @@ for N in $BUDGETS; do
     JOB=$(sbatch --parsable \
       --job-name="bc-e4-N${N}-s${SEED}" \
       --export=ALL,DEMO_PATH="$DEMO_PATH",N_DEMOS="$N",SEED="$SEED",SHUFFLE=0 \
-      algorithms/imitation/bc/run_bc_lunarlander.sh)
+      launchers/bc/run_bc_lunarlander.sh)
     echo "  submitted N=$N seed=$SEED job=$JOB"
     echo "e4_matched,$N,$SEED,$JOB,$DEMO_PATH,submitted" >> "$INDEX"
   done

@@ -15,7 +15,7 @@ Also times both, since the whole reason for the rewrite was latency: at 20 fps t
 confound perception difficulty with speed, the exact confound that made the earlier b=10
 blanking result unusable.
 
-    /scratch/marzii/envs/imitation-gail/bin/python imitation/test_lander_vanish_parity.py
+    /scratch/marzii/envs/imitation-gail/bin/python envs/lunarlander/test_lander_vanish_parity.py
 """
 import sys
 import time

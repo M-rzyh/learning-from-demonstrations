@@ -65,8 +65,8 @@ pad OUTCOME-DEPENDENT, in the spirit of absorbing-state handling in adversarial 
 --pad writes a SEPARATE CSV (raw + padded columns + pad bookkeeping) and a separate
 histogram figure; the raw CSV and raw figure are only written in the default (no --pad) run.
 
-    /scratch/marzii/envs/imitation-gail/bin/python scripts/curation/features_satisficing_paper.py
-    /scratch/marzii/envs/imitation-gail/bin/python scripts/curation/features_satisficing_paper.py --pad
+    /scratch/marzii/envs/imitation-gail/bin/python curation/features_satisficing_paper.py
+    /scratch/marzii/envs/imitation-gail/bin/python curation/features_satisficing_paper.py --pad
 """
 import argparse, csv, os, sys
 import numpy as np

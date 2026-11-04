@@ -1,7 +1,7 @@
 """GAIL on the 699 human-demo pool: 9-feature ranking vs 2-feature (return + action_divergence)
 ranking. Same K axis, 5 seeds each. Shaded +/-1 std bands.
 
-    /scratch/marzii/envs/imitation-gail/bin/python scripts/curation/plot_gail_ext700_9vs2.py
+    /scratch/marzii/envs/imitation-gail/bin/python curation/plot_gail_ext700_9vs2.py
 """
 import csv, os
 import numpy as np

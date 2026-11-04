@@ -2,7 +2,7 @@
 labelled with the equation used to compute it and the MEAN marked (threshold reference).
 
 Reads the precomputed features CSV (no recompute).
-    /scratch/marzii/envs/imitation-gail/bin/python scripts/curation/plot_ext700_feature_hists_eqns.py
+    /scratch/marzii/envs/imitation-gail/bin/python curation/plot_ext700_feature_hists_eqns.py
 """
 import csv
 import numpy as np

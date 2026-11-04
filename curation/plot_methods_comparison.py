@@ -9,7 +9,7 @@
 
 All x-axes are environment steps 0..1M. GAIL TB logs index by round -> scaled by 1e6/488.
 
-    /scratch/marzii/envs/imitation-gail/bin/python scripts/curation/plot_methods_comparison.py
+    /scratch/marzii/envs/imitation-gail/bin/python curation/plot_methods_comparison.py
 """
 import argparse, csv, glob, json, os, re, sys
 import numpy as np

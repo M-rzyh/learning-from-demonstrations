@@ -6,7 +6,7 @@ human demos), computes every feature, marks the MEAN (not median) on each histog
 a mean table to use as thresholds.
 
     export PYTHONPATH=/home/marzii/learning-from-demonstrations/algorithms/imitation/src
-    /scratch/marzii/envs/imitation-gail/bin/python scripts/curation/expert_feature_investigation.py
+    /scratch/marzii/envs/imitation-gail/bin/python curation/expert_feature_investigation.py
 """
 import os, sys
 import numpy as np

@@ -101,6 +101,7 @@ esac
 LOG_ROOT="/scratch/marzii/learning-from-demonstrations/imitation_runs/$ALGO_DIR"
 RUN_DIR="$LOG_ROOT/$ENV_NAME/${SLURM_JOB_ID:-local}"
 mkdir -p "$RUN_DIR"
+cd "$RUN_DIR"   # work from the run dir on scratch, so cwd-relative output lands there, never in $HOME
 echo "run dir:         $RUN_DIR"
 
 # ---- optional: shuffle demos reproducibly (using SEED) ----
@@ -140,7 +141,7 @@ if [[ "$USE_WANDB" == "1" ]]; then
   echo "wandb: ON  project=$WANDB_PROJECT  tag=$RUN_TAG"
 fi
 
-python train_adversarial_launcher.py "$ALGO" \
+python /home/marzii/learning-from-demonstrations/launchers/entrypoints/train_adversarial_launcher.py "$ALGO" \
   with lunar_lander \
   demonstrations.source="$DEMO_SOURCE" \
   demonstrations.path="$DEMO_PATH" \

@@ -10,7 +10,7 @@ from each other, exactly as `make_control_corruptor` (in human_demo.py) is mirro
 `scripts/preference/control_wrappers.py`.
 
 The masks here are BIT-IDENTICAL to PT's, verified frame-by-frame on real clips by
-imitation/test_lander_vanish_parity.py. The code differs only in arithmetic layout: PT
+envs/lunarlander/test_lander_vanish_parity.py. The code differs only in arithmetic layout: PT
 reduces over the channel axis (`a.sum(2)`, `a.max(2) - a.min(2)`), which numpy does slowly,
 while this file does the same arithmetic on the three 2-D channel views. Same result, 38 ms
 -> 11 ms per frame. That matters because this runs inside a live 50 ms frame budget: a mask

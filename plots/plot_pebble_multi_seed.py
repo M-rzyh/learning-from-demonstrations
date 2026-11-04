@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+# Plots PEBBLE runs from ~/learning-from-preferences; belongs in that repo, move it there later.
 """Plot mean±std PEBBLE learning curves across multiple seeds.
 
 Reads train.csv from each run and averages true_episode_reward over a common

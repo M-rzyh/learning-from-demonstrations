@@ -6,8 +6,8 @@ Line = mean over seeds, band = +/- 1 std. The number in each legend entry is the
 post-training 50-episode eval, which is the real performance measure; the curves are
 on-policy training rollouts and sit lower.
 
-    python scripts/curation/plot_kgrid_curves.py --stem ad
-    python scripts/curation/plot_kgrid_curves.py --stem adxy --Ks 10,50,100
+    python curation/plot_kgrid_curves.py --stem ad
+    python curation/plot_kgrid_curves.py --stem adxy --Ks 10,50,100
 """
 import argparse, json, os, sys
 import numpy as np
